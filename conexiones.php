@@ -21,15 +21,20 @@ class Conexiones {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT user.nombre, tipo.nombre FROM USUARIO as USER, ROL as TIPO WHERE USER.NOMBRE = ? && USER.PASSWORD = ? "
+            $consulta = "SELECT user.correo, tipo.nombre FROM USUARIO as USER, ROL as TIPO WHERE USER.NOMBRE = ? && USER.PASSWORD = ? "
                     . "AND USER.IDROL = TIPO.IDROL";
             $stmt = $conec->prepare($consulta);    
             $stmt->bind_param('ss', $usuario, $contra);
             $stmt->execute();
             $resultado = $stmt->get_result();
-            $envio = $resultado->fetch_array();
-            return $envio;  
-
+            if($resultado -> num_rows != 0){
+                 $tipo = $resultado->fetch_array();
+                 return $tipo[0];
+            } else {
+                return false;
+            }
+           
+            //return $envio;  
         } catch (Excepcion $e) {
             echo 'Error en el metodo comprobar tipo de usuarios' . $e->getMessage() . "\n";
         }
