@@ -8,9 +8,6 @@
 session_start();
 
 /* LOGIN */
-$mail = $_REQUEST['mail'];
-$pass = $_REQUEST['contra'];
-
 if (!isset($SESSION['tipo'])){
     
       include_once 'index.php';     

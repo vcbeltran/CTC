@@ -14,7 +14,7 @@
 ?>
 
 <!--
-Muestra la pagina principal de la pagina donde aparecen todos los loclaes
+Muestra la pagina principal de la pagina donde aparecen todos los locales
 y donde da la opción de logearse (si ya estas registrado) o darse de alta. 
 -->
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
     <body>
         <div class="container">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary"><a href='login.php' class="botones">Login</a></button>
+                <button type="button" class="btn btn-secondary"><a href='loin.php' class="botones">Login</a></button>
                 <button type="button" class="btn btn-secondary"><a href='login.php' class="botones">Alta</a></button>
             </div>
         </div>
@@ -47,10 +47,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                         if ($contador == 1) {
                             print("<tr>");
                         }
-                        //print("<td> <img class='img-responsive' src=\"" . $local[4] . " \" />"."</br>");
-                        print("<td> NOMBRE: " . $local[1] . "</br>");
+                        print("<td> <img class='img-responsive' src=\"" . $local[4] . " \" />"."");
+                        print("NOMBRE: " .    $local[1] . "</br>");
                         print("DIRECCIÓN: " . $local[2] . "</br>");
-                        print("AFORO: " . $local[3] . "</td>");
+                        print("AFORO: " .     $local[3] . "</td>");
 
                         if ($contador == 4) {
                             print("</tr>");
