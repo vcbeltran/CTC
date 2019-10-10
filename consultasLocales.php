@@ -25,7 +25,7 @@ class ConsultasLocales {
         }
     } 
     /*
-     * Te devuelve una lista con todos los locales
+     * Te devuelve un array con todos los locales
      */
     function listarLocales(){
         $consulta = "SELECT * FROM LOCAL";
