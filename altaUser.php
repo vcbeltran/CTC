@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * Clase que es la que da de alta al usuario
+ * Página que llama a la clase de alta de usuario e informa al usuario
  */
 include ('conexiones.php');
 session_start();
@@ -31,8 +31,8 @@ and open the template in the editor.
     <body>
         <?php
         if ($conexion->altaUsuario($usuario, $correo, $password)) {
-            $_SESSION['useronline'] = $usuario;
-            $_SESSION['tipo'] = 3;
+//            $_SESSION['useronline'] = $usuario;
+//            $_SESSION['tipo'] = 3;
             ?>
             <div class="container" >
                 <div class="col-md-2"></div>

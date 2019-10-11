@@ -30,14 +30,16 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
     </head>
     <body>
         <div class="container">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary"><a href='loin.php' class="botones">Login</a></button>
-                <button type="button" class="btn btn-secondary"><a href='login.php' class="botones">Alta</a></button>
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-secondary btn-lg"><a href='login.php' class="botones">Login</a></button>
+                    <button type="button" class="btn btn-secondary btn-lg"><a href='registroUsuario.php' class="botones">Alta</a></button>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container" class="center-block">
-        <div class="table-responsive">
+        </div>       
+       <div class="container">
+                 <div class="table-responsive">
             <table class="table table-borderless" >
                 <caption>Listado de Locales</caption>
                 <tbody>                                   
@@ -47,10 +49,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                         if ($contador == 1) {
                             print("<tr>");
                         }
-                        print("<td> <img class='img-responsive' src=\"" . $local[4] . " \" />"."");
-                        print("NOMBRE: " .    $local[1] . "</br>");
+                        //var_dump ($local[4] . " ");
+                        print("<td> <img class='img-responsive' src=\" " . $local[4] . " \" />");
+                        print("NOMBRE: " . $local[1] . "</br>");
                         print("DIRECCIÓN: " . $local[2] . "</br>");
-                        print("AFORO: " .     $local[3] . "</td>");
+                        print("AFORO: " . $local[3] . "</td>");
 
                         if ($contador == 4) {
                             print("</tr>");
@@ -62,7 +65,6 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-</body>
+      </div>
+    </body>
 </html>
