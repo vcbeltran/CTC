@@ -16,7 +16,8 @@ class Conexiones {
         }
         return $this->conexion;
     }
-
+    //comprueba el tipo de usuario de la bade de datos, su rol
+    
     public function compruebaTipoUsuario($usuario, $contra) {
         try {
             $conec = Conexiones::getConexion();
@@ -32,14 +33,27 @@ class Conexiones {
                  return $tipo[0];
             } else {
                 return false;
-            }
-           
-            //return $envio;  
+            }         
+        
         } catch (Excepcion $e) {
             echo 'Error en el metodo comprobar tipo de usuarios' . $e->getMessage() . "\n";
         }
-    }    
- 
+    }
+    //función para dar de alta usuarios tipo online
+    public function altaUsuario($name, $correo, $password) {
+        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL) VALUES ('$name', '$correo','$password', 3)";
+
+        $conexion = Conexiones::getConexion();
+        if ($conexion->query($alta)) {
+            return true;
+        }
+    }
+
+    // desconecta de la base de datos
+    function desconectar() {
+        $this->conexion->close();
+    }
 }
+
 
 
