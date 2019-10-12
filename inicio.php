@@ -18,53 +18,64 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-md-10"></div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-secondary btn-lg"><a href='formularioRegistro.php' class="botones">Alta</a></button>
-                    <button type="button" class="btn btn-secondary btn-lg"><a href='formularioLogin.php' class="botones">Login</a></button>
+                    <button type="button" class="btn btn-succes mb-2"><a href='formularioRegistro.php'>Alta</a></button>
+                    <button type="button" class="btn btn-succes mb-2"><a href='formularioLogin.php'>Login</a></button>
                 </div>
             </div>
         </div>       
-       <div class="container">
-                 <div class="table-responsive">
-            <table class="table table-borderless" >
-                <caption>Listado de Locales</caption>
-                <tbody>                                   
-                    <?php
-                    $contador = 1;
-                    foreach ($locales as $local) {
-                        if ($contador == 1) {
-                            print("<tr>");
-                        }
-                        //var_dump ($local[4] . " ");
-                        print("<td> <img class='img-responsive' src=\" " . $local[4] . " \" />");
-                        print("NOMBRE: " . $local[1] . "</br>");
-                        print("DIRECCIÓN: " . $local[2] . "</br>");
-                        print("AFORO: " . $local[3] . "</td>");
+       <div class="container mt-3">
+             <?php
+            $contador = 1;
+            foreach ($locales as $local):
+                if ($contador == 1) {
+                    //empieza el row
+                    print("<div class='row'>");
+                }
+                ?>
+                <?php
+                //empieza una col con su card dentro
+                print("<div class='col-md-3'>");
+                //empieza una card
+                print("<div class='card'>");
+                //empieza foto
+                print("<img class='card-img-top' src=\" " . $local[4] . " \" />");
+                //empieza cuerpo
+                print("<div class='card-body'>");
+                //empieza primer parrafo
+                print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
+                print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
+                print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
+                //cierra card body
+                print("</div>");
+                //cierra card
+                print("</div>");
+                //cierra col
+                print("</div>");
 
-                        if ($contador == 4) {
-                            print("</tr>");
-                            $contador = 0;
-                            print("</br>");
-                        }
-                        $contador++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-                 </div>
+                if ($contador == 4) {
+                    //cuando haya 4 card acaba el row
+                    print("</div>");
+                    $contador = 0;
+                } 
+                $contador++;
+            endforeach;
+              print("</div>");
+            ?>                                           
+            </div>
            <footer class="page-footer font-small blue">
-           <div class="footer-copyright text-center py-3">© 2019 Desarrolado por: Verónica Beltrán González
+           <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
                  <?php echo date("Y-m-d H:i:s") ?>
            </div>
            </footer>

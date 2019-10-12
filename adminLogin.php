@@ -27,8 +27,9 @@ if ($conexionTipo[2] == 1){
    $_SESSION['nombre'] = $conexionTipo[0];
    
    header("location:menuAdministrador.php");
+   //var_dump($conexionTipo);
     
 } else {
-    echo 'Sin datos';
+    echo 'No existe usuario';
 }
-var_dump($conexionTipo);
+

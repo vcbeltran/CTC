@@ -50,10 +50,26 @@ class ConsultasLocales {
         return $local;
     }
     
-    function annadirLocal($id, $nombre, $direccion, $aforo, $imagen){
-        $annadir = "INSERT INTO LOCAL VALUES ('$id','$nombre','$direccion','$aforo','$imagen')";
+    function annadirLocal($nombre, $direccion, $aforo, $imagen){
+        $annadir = "INSERT INTO LOCAL (NOMBRELOCAL, DIRECCION, AFORO, IMAGEN) VALUES ('$nombre','$direccion','$aforo','$imagen')";
         
-        //if()
+        if ($this->conexion->query($annadir)) {
+            //return header("location:articulos.php");
+            echo "Producto insertado correctamente";
+        } else {
+
+            echo "No se ha insertado el articulo";
+        }
+    }
+    
+    function borrarLocal($id){
+        $eliminar = "DELETE FROM LOCAL WHERE IDLOCAL = '$id'";     
+        
+        if ($this->conexion->query($eliminar)) {
+            echo "El local ha sido eliminado correctamente";
+        } else {
+            echo "No se pudo efectuar el borrado";
+        }
     }
     
 }
