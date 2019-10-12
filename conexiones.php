@@ -18,19 +18,20 @@ class Conexiones {
     }
     //comprueba el tipo de usuario de la bade de datos, su rol
     
-    public function compruebaTipoUsuario($usuario, $contra) {
+    public function compruebaTipoUsuario($mail) {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT user.correo, tipo.nombre FROM USUARIO as USER, ROL as TIPO WHERE USER.NOMBRE = ? && USER.PASSWORD = ? "
-                    . "AND USER.IDROL = TIPO.IDROL";
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL FROM USUARIO AS USER, ROL AS TIPO"
+                    . " WHERE  USER.CORREO = ? "
+                    . " AND USER.IDROL = TIPO.IDROL";
             $stmt = $conec->prepare($consulta);    
-            $stmt->bind_param('ss', $usuario, $contra);
+            $stmt->bind_param('s',$mail);
             $stmt->execute();
             $resultado = $stmt->get_result();
             if($resultado -> num_rows != 0){
                  $tipo = $resultado->fetch_array();
-                 return $tipo[0];
+                 return $tipo;
             } else {
                 return false;
             }         

@@ -47,7 +47,7 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="alert alert-danger">
-                        <strong>Lo sentimos!</strong> Faltan datos o el usuario ya está en uso.
+                        <strong>¡Lo sentimos!</strong> Faltan datos o el usuario ya está en uso.
                     </div>  
                 </div>
             </div>        

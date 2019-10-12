@@ -18,7 +18,9 @@ and open the template in the editor.
             <div class="row mt-5">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <form action="adminLogin.php" method="POST">
+                    <fieldset class="scheduler-border">
+                     <legend class="scheduler-border">Introduzca sus datos</legend>
+                    <form action="altaUser.php" method="POST">
                         <div class="form-group" >
                             <label for="inputNombre" class="col-form-label"> Nombre </label>               
                             <input type="text" class="form-control" id="inputNombre" placeholder="Introduzca su nombre" name="nombre">
@@ -33,13 +35,13 @@ and open the template in the editor.
                         </div> 
                         <div class="form-group">
                            <div class="col-auto">
-                               <button type="submit" class="btn btn-secondary mb-2">Acceder</button>
+                               <button type="submit" class="btn btn-secondary mb-2">Registrarse</button>
                            </div>
                         </div>
                     </form>
+                   </fieldset>
                 </div>
             </div>
         </div>
-
     </body>
 </html>

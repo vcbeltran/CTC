@@ -2,9 +2,6 @@
     include ('conexiones.php');
     include ('consultasLocales.php');
     $conect = new Conexiones();
-    $usuario = "vero";
-    $contraseña = "verobel";
-    $prueba = $conect->compruebaTipoUsuario($usuario, $contraseña);
     //var_dump($prueba);
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales
@@ -33,8 +30,8 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
             <div class="row">
                 <div class="col-md-10"></div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-secondary btn-lg"><a href='login.php' class="botones">Login</a></button>
-                    <button type="button" class="btn btn-secondary btn-lg"><a href='registroUsuario.php' class="botones">Alta</a></button>
+                    <button type="button" class="btn btn-secondary btn-lg"><a href='formularioRegistro.php' class="botones">Alta</a></button>
+                    <button type="button" class="btn btn-secondary btn-lg"><a href='formularioLogin.php' class="botones">Login</a></button>
                 </div>
             </div>
         </div>       
@@ -65,6 +62,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     ?>
                 </tbody>
             </table>
-      </div>
+                 </div>
+           <footer class="page-footer font-small blue">
+           <div class="footer-copyright text-center py-3">© 2019 Desarrolado por: Verónica Beltrán González
+                 <?php echo date("Y-m-d H:i:s") ?>
+           </div>
+           </footer>
     </body>
 </html>
