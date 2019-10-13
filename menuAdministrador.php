@@ -39,8 +39,7 @@ Además permite ver algún listado de los locales.
                             </button>                           
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                                 <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
-                                <a class="dropdown-item" href="#">Modificar</a>
-                                <a class="dropdown-item" href="#">Eliminar</a> 
+                                <a class="dropdown-item" href="editarLocal.php">Modificar / Eliminar Local</a>
                             </div>                 
                         <a class="navbar-brand" href="#">Gestión Empresas</a>
                         <a class="navbar-brand" href="#">Ver Listados</a>

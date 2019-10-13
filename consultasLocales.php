@@ -42,7 +42,7 @@ class ConsultasLocales {
      * Te devuelve una fila de un único local
      */
     function seleccionarFila($codigoLocal){
-        $consulta = "SELECT * FROM LOCAL WHERE IDLOCAL = '$codigo'";
+        $consulta = "SELECT * FROM LOCAL WHERE IDLOCAL = '$codigoLocal'";
         $this->resultado = $this->conexion->query($consulta);
         
         $local = $this->resultado->fetch_array();
@@ -67,6 +67,10 @@ class ConsultasLocales {
         } else {
             echo "No se pudo efectuar el borrado";
         }
+    }
+    
+    function actualizarLocal(){
+        
     }
     
 }
