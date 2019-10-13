@@ -70,8 +70,8 @@ class ConsultasLocales {
     }
     
         function actualizarLocalConFoto($id, $nombre, $direccion, $aforo, $caratula) {
-        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION=$direccion, "
-                . "AFORO=$aforo, IMAGEN='$caratula' "
+        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION='$direccion', "
+                . "AFORO='$aforo', IMAGEN='$caratula' "
                 . "WHERE IDLOCAL='$id'";
         if ($this->conexion->query($consulta)) {
             return true;
@@ -79,8 +79,8 @@ class ConsultasLocales {
     }
 
     function actualizarLocalSinFoto($id, $nombre, $direccion, $aforo) {
-        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION=$direccion, "
-                . "AFORO=$aforo, CATEGORIA='$categoria' WHERE CODART='$id'";
+        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION='$direccion', "
+                . "AFORO='$aforo' WHERE IDLOCAL='$id'";
         if ($this->conexion->query($consulta)) {
            return true;
         } 

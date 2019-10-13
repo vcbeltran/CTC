@@ -14,8 +14,10 @@
             $caratula = $destino . $_FILES['caratula']['name'];
             if (!is_file($caratula)) {
                 move_uploaded_file($_FILES['caratula']['tmp_name'], $caratula);
-             }
-        }
+                       echo "";
+                } else
+                        echo "";
+            }   
 ?>
 <!DOCTYPE html>
 <!--

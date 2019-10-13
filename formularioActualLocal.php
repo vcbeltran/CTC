@@ -17,21 +17,20 @@ and open the template in the editor.
     <body>
         <?php
         include './consultasLocales.php';
-       session_start();
-        $consultaLocal = new ConsultasLocales;        
+        session_start();
+        $consultaLocal = new ConsultasLocales;
         $codigoLocal = $_REQUEST['codigo'];
-        
-       $filaLocal = $consultaLocal->seleccionarFila($codigoLocal);       
-        
+
+        $filaLocal = $consultaLocal->seleccionarFila($codigoLocal);
         ?>
         <div class="container mt-5">
             <h2>Edite los datos del Local</h2>
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
                 <form action="actualizarLocal.php" method="POST" enctype="multipart/form-data">    
-                     <div class="form-group"> 
+                    <div class="form-group"> 
                         <label for="InputName">Código local</label>
-                        <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre" value="<?php echo $filaLocal[0] ?>" disabled >
+                        <input type="text" class="form-control" id="InputName" name="codigo" value="<?php echo $filaLocal[0] ?> " >
                     </div>
                     <div class="form-group">                   
                         <label for="InputName">Nombre Local</label>
@@ -47,26 +46,25 @@ and open the template in the editor.
                     </div>
 
                     <!-- Boton para subir archivo de foto-->
-                    <label for="Input Foto">Foto Local</label>
-                    <div class="input-group mb-3">
-
-                        <div class="custom-file">
-                            <img class="img-responsive" src=" <?php $filaLocal[4]?> "/>
+                    <label for="InputFoto">Foto Local</label>
+                    <div class="input-group">
+                    <img class="img-responsive" src=" <?php $filaLocal[4] ?> "/>
+                        <div class="custom-file">                          
                             <label for="caratula">Modifique imagen:  </label>
                             <input type="file" name="caratula"/>    
                         </div>
                     </div>
                     <div class="form-group  mt-5">
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-succes mb-2">Modificar</button>
+                            <button type="submit" class="btn btn-primary mb-2">Modificar</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        
-        
-        
-        
+
+
+
+
     </body>
 </html>

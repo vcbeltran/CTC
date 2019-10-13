@@ -26,6 +26,9 @@ and open the template in the editor.
 
             <div class="container mt-3">
              <?php
+             echo "Estoy en la lista de locales";
+             session_start();
+             echo $_SESSION['tipo'];
             $contador = 1;
             foreach ($locales as $local):
                 if ($contador == 1) {
@@ -46,7 +49,7 @@ and open the template in the editor.
                 print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
-                print("<a class='btn btn-primary' href='fomularioActualizarLocal.php?codigo=" . $local[0] ." '>Modificar</a>". ""
+                print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] ." '> Modificar </a>". " "
                         . "<a href='#' class='btn btn-primary'>Eliminar</a>");
                 //cierra card body
                 print("</div>");
