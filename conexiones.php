@@ -54,6 +54,12 @@ class Conexiones {
     function desconectar() {
         $this->conexion->close();
     }
+    
+    
+    //cierra sesión de usuario
+    function cierreSesion(){
+        session_destroy();
+    }
 }
 
 

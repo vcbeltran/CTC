@@ -23,12 +23,22 @@ and open the template in the editor.
         <title>Menú de edición local</title>
     </head>
     <body>
-
-            <div class="container mt-3">
-             <?php
-             echo "Estoy en la lista de locales";
-             session_start();
-             echo $_SESSION['tipo'];
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="menuAdministrador.php">Vuelva al menú de administrador</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <h2>Lista de locales</h2>
+           <?php          
+            session_start();
+            echo $_SESSION['tipo'];
             $contador = 1;
             foreach ($locales as $local):
                 if ($contador == 1) {
@@ -49,7 +59,7 @@ and open the template in the editor.
                 print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
-                print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] ." '> Modificar </a>". " "
+                print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] . " '> Modificar </a>" . " "
                         . "<a href='#' class='btn btn-primary'>Eliminar</a>");
                 //cierra card body
                 print("</div>");
@@ -62,11 +72,11 @@ and open the template in the editor.
                     //cuando haya 4 card acaba el row
                     print("</div>");
                     $contador = 0;
-                } 
+                }
                 $contador++;
             endforeach;
-              print("</div>");
+            print("</div>");
             ?>      
-            </div>
+        </div>
     </body>
 </html>

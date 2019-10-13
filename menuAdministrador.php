@@ -16,36 +16,37 @@ Además permite ver algún listado de los locales.
     <body>
         <?php
         session_start();
-
+        include './conexiones.php';
+        $conexion = new Conexiones;
         if (!isset($_SESSION['id'])) {
             header("location:inicio.php");
         }
         $tipo = $_SESSION['tipo'];
         //var_dump($tipo);
-        /* CERRAR SESION 
-        FALTA METER BOTON POR SI QUIERE CERRAR SESION
-         * Y MANDAR AL INDEX  */
+        /* CERRAR SESION */
         ?>
-        <div class="container"></div>
-            <div class="container mt-5">
+   
+        <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6"><button type="button" class="btn btn-info">Usuario conectado: <?php echo $tipo; ?></button></div>
-                <div class="col-md-6">
-                    <nav class="navbar navbar-light" style="background-color:#e3f2fd;">  
-                        <a class="navbar-brand"></a>
-                        <!-- Navbar content -->
-                            <button type="button" class="navbar-brand btn btn-primary" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true">
-                                Gestion Local
-                            </button>                           
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
-                                <a class="dropdown-item" href="editarLocal.php"> Modificar / Eliminar Local</a>
-                            </div>                 
-                        <a class="navbar-brand" href="#">Gestión Empresas</a>
-                        <a class="navbar-brand" href="#">Ver Listados</a>
-                    </nav>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-info">Usuario conectado: <?php echo $tipo; ?></button>
                 </div>
+                <!-- MENU NAVEGACION -->
+                <nav class="navbar navbar-light" style="background-color:#b3d9ff;">  
+                    <a class="navbar-brand"></a>
+                    <!-- Navbar content -->
+                    <button type="button" class="navbar-brand" style="background-color:#b3d9ff;" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true">
+                        Gestion Local
+                    </button>                           
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
+                        <a class="dropdown-item" href="editarLocal.php"> Modificar / Eliminar Local</a>
+                    </div>                 
+                    <a class="navbar-brand" href="#">Gestión Empresas</a>
+                    <a class="navbar-brand" href="#">Ver Listados</a>
+                    <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
+                </nav>                
             </div>
-        </div>       
+        </div>      
     </body>
 </html>
