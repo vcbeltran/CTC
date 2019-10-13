@@ -55,11 +55,8 @@ class ConsultasLocales {
         
         if ($this->conexion->query($annadir)) {
             //return header("location:articulos.php");
-            echo "Producto insertado correctamente";
-        } else {
-
-            echo "No se ha insertado el articulo";
-        }
+           return true;
+        } 
     }
     
     function borrarLocal($id){
