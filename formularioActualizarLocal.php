@@ -28,8 +28,12 @@ and open the template in the editor.
             <h2>Edite los datos del Local</h2>
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <form action="agregarLocal.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
+                <form action="actualizarLocal.php" method="POST" enctype="multipart/form-data">    
+                     <div class="form-group"> 
+                        <label for="InputName">Código local</label>
+                        <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre" value="<?php echo $filaLocal[0] ?>" disabled >
+                    </div>
+                    <div class="form-group">                   
                         <label for="InputName">Nombre Local</label>
                         <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre" value="<?php echo $filaLocal[1] ?>">
                     </div>
@@ -54,12 +58,12 @@ and open the template in the editor.
                     </div>
                     <div class="form-group  mt-5">
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-secondary mb-2">Acceder</button>
+                            <button type="submit" class="btn btn-succes mb-2">Modificar</button>
                         </div>
                     </div>
                 </form>
             </div>
-        
+        </div>
         
         
         

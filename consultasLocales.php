@@ -69,8 +69,21 @@ class ConsultasLocales {
         }
     }
     
-    function actualizarLocal(){
-        
+        function actualizarLocalConFoto($id, $nombre, $direccion, $aforo, $caratula) {
+        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION=$direccion, "
+                . "AFORO=$aforo, IMAGEN='$caratula' "
+                . "WHERE IDLOCAL='$id'";
+        if ($this->conexion->query($consulta)) {
+            return true;
+        } 
+    }
+
+    function actualizarLocalSinFoto($id, $nombre, $direccion, $aforo) {
+        $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION=$direccion, "
+                . "AFORO=$aforo, CATEGORIA='$categoria' WHERE CODART='$id'";
+        if ($this->conexion->query($consulta)) {
+           return true;
+        } 
     }
     
 }
