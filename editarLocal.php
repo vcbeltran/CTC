@@ -60,7 +60,7 @@ and open the template in the editor.
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
                 print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] . " '> Modificar </a>" . " "
-                        . "<a href='#' class='btn btn-primary'>Eliminar</a>");
+                        . "<a href='eliminaLocal?codigo='". $local[0] ." class='btn btn-primary'>Eliminar</a>");
                 //cierra card body
                 print("</div>");
                 //cierra card
