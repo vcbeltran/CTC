@@ -32,7 +32,7 @@ and open the template in the editor.
                     <form action="actualizarLocal.php" method="POST" enctype="multipart/form-data">    
                         <div class="form-group"> 
                             <label for="InputName">Código local</label>
-                            <input type="text" class="form-control" id="InputName" name="codigo" value="<?php echo $filaLocal[0] ?> " >
+                            <input type="text" class="form-control" id="InputName" name="codigo" value="<?php echo $filaLocal[0] ?> " readonly="true">
                         </div>
                         <div class="form-group">                   
                             <label for="InputName">Nombre Local</label>
