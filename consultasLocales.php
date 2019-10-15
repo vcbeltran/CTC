@@ -63,19 +63,17 @@ class ConsultasLocales {
         $eliminar = "DELETE FROM LOCAL WHERE IDLOCAL = '$id'";     
         
         if ($this->conexion->query($eliminar)) {
-            echo "El local ha sido eliminado correctamente";
-        } else {
-            echo "No se pudo efectuar el borrado";
-        }
+            return true;
+        } 
     }
     
-        function actualizarLocalConFoto($id, $nombre, $direccion, $aforo, $caratula) {
+    function actualizarLocalConFoto($id, $nombre, $direccion, $aforo, $caratula) {
         $consulta = "UPDATE LOCAL SET NOMBRELOCAL='$nombre', DIRECCION='$direccion', "
                 . "AFORO='$aforo', IMAGEN='$caratula' "
                 . "WHERE IDLOCAL='$id'";
         if ($this->conexion->query($consulta)) {
             return true;
-        } 
+        }
     }
 
     function actualizarLocalSinFoto($id, $nombre, $direccion, $aforo) {

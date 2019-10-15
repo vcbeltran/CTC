@@ -12,4 +12,6 @@ $id = $_REQUEST['codigo'];
 
 $consultaLocal = new ConsultasLocales();
 
-$consultaLocal->borrarLocal($id);
+if($consultaLocal->borrarLocal($id)){
+    header("location:editarLocal.php");
+}

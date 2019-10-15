@@ -21,29 +21,7 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!--        <script>
-            $('#botonEliminar').click(function(){
-                    swal({
-                       title: "Are you sure?",
-                       text: "You will not be able to recover this imaginary file!",
-                       type: "warning",
-                       showCancelButton: true,
-                       confirmButtonClass: "btn-danger",
-                       confirmButtonText: "Yes, delete it!",
-                       cancelButtonText: "No, cancel plx!",
-                       closeOnConfirm: false,
-                       closeOnCancel: false
-                     },
-                     function(isConfirm) {
-                       if (isConfirm) {
-                         swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                       } else {
-                         swal("Cancelled", "Your imaginary file is safe :)", "error");
-                       }
-                     });
-            });
-        </script> -->
-         <title>Menú de edición local</title>
+        <title>Menú de edición local</title>
     </head>
     <body>
         <div class="container mt-5">
@@ -83,7 +61,7 @@ and open the template in the editor.
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
                 print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] . " '> Modificar </a>" . " "
-                        . "<a href='eliminaLocal.php?codigo=". $local[0] ." ' class='btn btn-primary' id='botonEliminar' >Eliminar</a>");
+                        . "<a href='eliminaLocal.php?codigo=". $local[0] ." ' id='botonEliminar' class='btn btn-primary' >Eliminar</a>");
                 //cierra card body
                 print("</div>");
                 //cierra card
