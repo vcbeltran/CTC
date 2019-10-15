@@ -75,10 +75,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
               print("</div>");
             ?>                                           
             </div>
-           <footer class="page-footer font-small blue">
+<!--           <footer class="page-footer font-small blue">
            <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
-                 <?php echo date("Y-m-d H:i:s") ?>
+                 <?php //echo date("Y-m-d H:i:s") ?>
            </div>
-           </footer>
+           </footer>-->
     </body>
 </html>
