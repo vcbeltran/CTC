@@ -9,8 +9,8 @@
 include 'conexiones.php';
 //creo un objeto de la clase conexión
 $conexion = new Conexiones();
-//rescato los datos del formulario{
 
+//rescato los datos del formulario
 $nombre = $_REQUEST['nombre'];
 $mail = $_REQUEST['mail'];
 
@@ -29,6 +29,8 @@ if ($conexionTipo[2] == 1){
    header("location:menuAdministrador.php");
    //var_dump($conexionTipo);
     
+} elseif ($conexionTipo[2] == 2){
+    session_start();
 } else {
     echo 'No existe usuario';
 }
