@@ -29,20 +29,29 @@ Además permite ver algún listado de los locales.
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-info">Usuario conectado: <?php echo $tipo; ?></button>
+                    <button type="button" class="btn btn-primary">Usuario conectado: <?php echo $tipo; ?></button>
                 </div>
                 <!-- MENU NAVEGACION -->
                 <nav class="navbar navbar-light" style="background-color:#b3d9ff;">  
-                    <a class="navbar-brand"></a>
-                    <!-- Navbar content -->
-                    <button type="button" class="navbar-brand" style="background-color:#b3d9ff;" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true">
-                        Gestion Local
-                    </button>                           
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
-                        <a class="dropdown-item" href="editarLocal.php"> Modificar / Eliminar Local</a>
-                    </div>                 
-                    <a class="navbar-brand" href="#">Gestión Empresas</a>
+<!--                  <!-- Navbar content -->
+                    <div class="dropdown">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestion Local
+                        </a>                           
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
+                            <a class="dropdown-item" href="editarLocal.php"> Modificar / Eliminar Local</a>
+                        </div>               
+                    </div>
+                    <div class="dropdown">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestión empresas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <a class="dropdown-item" href="formularioAltaEmpresa.php">Alta Empresa</a>
+                            <a class="dropdown-item" href="formularioModificarBorrar.php"> Modificar / Eliminar Empresa</a>
+                        </div>  
+                    </div>
                     <a class="navbar-brand" href="#">Ver Listados</a>
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
                 </nav>                

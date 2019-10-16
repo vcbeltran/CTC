@@ -18,7 +18,7 @@ and open the template in the editor.
         session_start();
         include 'conexiones.php';
         $conexion = new Conexiones();
-        var_dump($_SESSION['tipo']);
+        //var_dump($_SESSION['tipo']);
         ?>
         <div class="container mt-5">
             <div class="row">
