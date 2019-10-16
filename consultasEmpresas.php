@@ -1,23 +1,36 @@
 <?php
 
-/**
- * Clase que sirve para la gestión de los datos necesarios que son relativos al perfil de empresa
- * 
- *
- * @author Verobel
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
-include ('conexiones.php');
+/**
+ * Description of consultasEmpresas
+ *
+ * @author Vero
+ */
+class ConsultasEmpresas {
+    //put your code here
+    private $conexion;
+    //put your code here
+    public function getConexion() {
+        $this->conexion = new mysqli("localhost", "vero", "proyectodaw", "ctc");
+        if ($this->conexion->connect_error) {
+            die("Error de Conexión(" . $conexion->connect_errno . ")" . $conexion->connect_error);
+        } else {
+            echo 'Conexion correcta';
+        }
+        return $this->conexion;
+    }
+    
+        public function altaEmpresa($name, $correo, $password) {
+        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL) VALUES ('$name', '$correo','$password', 2)";
 
-class consultasEmpresas {
-    public function altaRolEmpresa($nombre, $correo, $password){
-            
-        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL) VALUES ('$nombre', '$correo', '$password', 2)";
-        
-        $conexion = Conexiones::getConexion();
+        $conexion = ConsultasEmpresas::getConexion();
         if ($conexion->query($alta)) {
             return true;
-        } 
-        
+        }
     }
 }
