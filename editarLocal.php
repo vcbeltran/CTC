@@ -78,7 +78,7 @@ and open the template in the editor.
             endforeach;
             print("</div>");
             ?>      
-            <script>
+        <script>
             $('#botonEliminar').click(function(){
                     swal({
                        title: "Are you sure?",
@@ -100,6 +100,6 @@ and open the template in the editor.
                      });
             });
         </script> 
-        </div>
+            </div>
     </body>
 </html>
