@@ -8,7 +8,7 @@
     
     $altaEmpresa = new consultasEmpresas();
     
-    if($altaEmpresa->altaRolEmpresa($nombre, $mail, $contra, $idlocal)){
+    if($altaEmpresa->altaRolEmpresa($nombre, $mail, $contra, $local)){
         echo "ha ido bien";
     } else {
         echo "algo ha fallado";
