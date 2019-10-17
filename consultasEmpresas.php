@@ -7,14 +7,25 @@
  * @author Verobel
  */
 
-include ('conexiones.php');
-
 class consultasEmpresas {
-    public function altaRolEmpresa($nombre, $correo, $password){
+    
+   private $conexion;
+    //put your code here
+    public function getConexion() {
+        $this->conexion = new mysqli("localhost", "vero", "proyectodaw", "ctc");
+        if ($this->conexion->connect_error) {
+            die("Error de Conexión(" . $conexion->connect_errno . ")" . $conexion->connect_error);
+        } else {
+            echo 'Conexion correcta';
+        }
+        return $this->conexion;
+    }
+    
+    public function altaRolEmpresa($nombre, $correo, $password, $idlocal){
             
-        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL) VALUES ('$nombre', '$correo', '$password', 2)";
+        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL, IDLOCAL) VALUES ('$nombre', '$correo', '$password', 2, '$idlocal')";
         
-        $conexion = Conexiones::getConexion();
+        $conexion = consultasEmpresas::getConexion();
         if ($conexion->query($alta)) {
             return true;
         } 

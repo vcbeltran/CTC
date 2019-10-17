@@ -84,4 +84,20 @@ class ConsultasLocales {
         } 
     }
     
+    /*Funcion para listar los locales libres que no tengan asignado un usuario empresa */
+    public function listaLocalDisponible() {
+        $consulta = "SELECT LOCAL.* FROM LOCAL LEFT JOIN USUARIO ON "
+                . "(LOCAL.IDLOCAL = USUARIO.IDLOCAL)"
+                . "WHERE USUARIO.IDLOCAL IS NULL";
+
+        $this->resultado = $this->conexion->query($consulta);
+        //creo el array para meter los datos
+        $locales = array();
+        //Se recorre el resultado con while añadiendo cada fila en array locales
+        while ($fila = $this->resultado->fetch_array()){
+            array_push($locales, $fila);
+        }
+        return $locales;
+    }
+
 }

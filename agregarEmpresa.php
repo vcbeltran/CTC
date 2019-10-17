@@ -1,8 +1,25 @@
+<?php 
+    include ('consultasEmpresas.php');
+    
+    $nombre = $_REQUEST['nombre'];
+    $mail = $_REQUEST['mail'];
+    $contra = $_REQUEST['contra'];
+    $local = $_REQUEST['local'];
+    
+    $altaEmpresa = new consultasEmpresas();
+    
+    if($altaEmpresa->altaRolEmpresa($nombre, $mail, $contra, $idlocal)){
+        echo "ha ido bien";
+    } else {
+        echo "algo ha fallado";
+    }
+?>
+
+
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Pagina que da de alta los datos introducidos en el formularioAltaEmpresa, asignándole un local y 
+dando un usuario nuevo de empresa para que pueda acceder a su local
 -->
 <html>
     <head>

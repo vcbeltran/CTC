@@ -17,7 +17,16 @@ and open the template in the editor.
     <body>
         <?php 
         session_start();
-           // echo  "Sigue siendo el usuario ". $_SESSION['tipo'];
+        
+        if (!isset($_SESSION)){
+            header ("location:inicio.php");
+        }
+        // echo  "Sigue siendo el usuario ". $_SESSION['tipo'];
+        include './consultasLocales.php';
+        $consultaLocal = new ConsultasLocales();
+        $localesLibres = array();
+        $localesLibres = $consultaLocal->listaLocalDisponible();
+           
         ?>
         <div class="container mt-5">
             <div class="row">
@@ -48,6 +57,14 @@ and open the template in the editor.
                             <label for="inputPassword3" class="col-form-label">Password</label>                
                             <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra" required>
                         </div> 
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Elija local</label>       
+                            <select class='form-control' id='exampleFormControlSelect1' name="local">                            
+                                <?php  foreach ($localesLibres as $listaLocal):              
+                                print ("<option value=". $listaLocal[0] .">".$listaLocal[1]."</option>");                       
+                                endforeach; ?>
+                            </select>
+                        </div>
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary mb-2">Dar alta</button>
                         </div>
