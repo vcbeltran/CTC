@@ -60,9 +60,11 @@ and open the template in the editor.
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Elija local</label>       
                             <select class='form-control' id='exampleFormControlSelect1' name="local">                            
-                                <?php  foreach ($localesLibres as $listaLocal):              
-                                print ("<option value=". $listaLocal[0] .">".$listaLocal[1]."</option>");                       
-                                endforeach; ?>
+                                <?php
+                                foreach ($localesLibres as $listaLocal):
+                                    print ("<option value=" . $listaLocal[0] . ">" . $listaLocal[1] . "</option>");
+                                endforeach;
+                                ?>
                             </select>
                         </div>
                         <div class="col-auto">

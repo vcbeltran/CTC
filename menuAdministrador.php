@@ -49,7 +49,7 @@ Además permite ver algún listado de los locales.
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                             <a class="dropdown-item" href="formularioAltaEmpresa.php">Alta Empresa</a>
-                            <a class="dropdown-item" href="formularioModificarBorrar.php"> Modificar / Eliminar Empresa</a>
+                            <a class="dropdown-item" href="editarEmpresa.php"> Modificar / Eliminar Empresa</a>
                         </div>  
                     </div>
                     <a class="navbar-brand" href="#">Ver Listados</a>

@@ -41,6 +41,7 @@ and open the template in the editor.
             session_start();
             echo $_SESSION['tipo'];
             $contador = 1;
+            $contador2 = 1;   
             foreach ($locales as $local):
                 if ($contador == 1) {
                     //empieza el row
@@ -61,7 +62,7 @@ and open the template in the editor.
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
                 print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] . " '> Modificar </a>" . " "
-                        . "<a href='eliminaLocal.php?codigo=". $local[0] ." ' id='botonEliminar' class='btn btn-primary' >Eliminar</a>");
+                        . "<a href='eliminaLocal.php?codigo=". $local[0] ." ' id='botonEliminar. $contador2' class='btn btn-primary' >Eliminar</a>");
                 //cierra card body
                 print("</div>");
                 //cierra card
