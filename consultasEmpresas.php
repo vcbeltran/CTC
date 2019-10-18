@@ -32,7 +32,7 @@ class consultasEmpresas {
     }
    //devuelve la lista de los usuarios de tipo empresa para modificarlos.  
     public function consultaUsuarioEmpresa() {
-        $consulta = "SELECT USUARIO.NOMBRE, USUARIO.CORREO, LOCAL.NOMBRELOCAL, LOCAL.IDLOCAL "
+        $consulta = "SELECT USUARIO.NOMBRE, USUARIO.CORREO, LOCAL.NOMBRELOCAL, USUARIO.IDUSUARIO "
                   . "FROM USUARIO, LOCAL WHERE usuario.IDLOCAL = LOCAL.IDLOCAL;";
         
         $conexion = consultasEmpresas::getConexion();
@@ -45,7 +45,28 @@ class consultasEmpresas {
         return $usuariosEmpresa;
     }
 
-    public function actualizarEmpresa(){
-        $actualizar = "UPDATE ";
+     /*
+     * Te devuelve una fila de una único empresa con el nombre del local asignado
+     */
+    function seleccionarFila($codigoEmpresa){
+        $consulta = "SELECT USUARIO.IDUSUARIO, USUARIO.NOMBRE, USUARIO.CORREO,"
+                . "USUARIO.PASSWORD, LOCAL.NOMBRELOCAL"
+                . " FROM USUARIO, LOCAL WHERE IDUSUARIO = '$codigoEmpresa'"
+                . "AND LOCAL.IDLOCAL = USUARIO.IDLOCAL";
+        
+        $conexion = consultasEmpresas::getConexion();
+        $this->resultado = $conexion->query($consulta);
+        
+        $empresa = $this->resultado->fetch_array();
+        
+        return $empresa;
+    }
+    public function actualizarEmpresa($codigo, $nombre, $mail, $contra, $idlocal){
+        $actualizar = "UPDATE USUARIO SET NOMBRE = '$nombre', CORREO = '$mail', "
+                . "PASSWORD = '$contra', IDLOCAL = '$idlocal' where IDUSUARIO = '$codigo' ";
+         $conexion = consultasEmpresas::getConexion();
+         if ($conexion->query($actualizar)){
+             return true;
+         }
     }
 }

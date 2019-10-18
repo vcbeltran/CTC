@@ -53,7 +53,7 @@ and open the template in the editor.
                             print("</td>");
                             print("<td scope='row'>" . $empresa[2]);
                             print("</td>");
-                            print("<td scope='row'><a class='btn btn-primary' href='formularioActualizaEmpresa.php?codigo=" . $empresa[0] . " '> Modificar </a>" . " "
+                            print("<td scope='row'><a class='btn btn-primary' href='formularioEditarEmpresa.php?codigo=" . $empresa[3] . " '> Modificar </a>" . " "
                                 . "<a href='eliminarEmpresa.php?codigo=". $empresa[0] ." ' class='btn btn-danger' >Eliminar</a></td>");
                             print("</tr>");
                         endforeach;

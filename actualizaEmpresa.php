@@ -21,16 +21,15 @@ and open the template in the editor.
         $local = $_REQUEST['idlocal'];
         
            var_dump($codigo);
-              var_dump($nombre);
-                 var_dump($correo);
-                    var_dump($contra);
+        var_dump($nombre);
+        var_dump($correo);
+        var_dump($contra);
         var_dump($local);
-        if ($consulta->actualizarEmpresa($codigo, $nombre, $correo, $contra, $local)){
-         echo "ha ido bien"   ;
-        }        else {
+        if ($consulta->actualizarEmpresa($codigo, $nombre, $correo, $contra, $local)) {
+            echo "ha ido bien";
+        } else {
             echo "ha ido como el culito";
         }
-        
         ?>
     </body>
 </html>

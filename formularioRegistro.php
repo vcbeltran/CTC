@@ -36,6 +36,7 @@ and open the template in the editor.
                         <div class="form-group">
                            <div class="col-auto">
                                <button type="submit" class="btn btn-secondary mb-2">Registrarse</button>
+                                <input class="btn btn-primary mb-2" type="reset" value="Reset"></div>
                            </div>
                         </div>
                     </form>

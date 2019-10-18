@@ -47,7 +47,7 @@ and open the template in the editor.
                         </div>
                         <div class="form-group">
                             <label for="InputAforo">Aforo Local</label>
-                            <input type="text" class="form-control" id="InputAforo" placeholder="Introduzca número" name="aforo">
+                            <input type="number" class="form-control" id="InputAforo" placeholder="Introduzca número" name="aforo">
                         </div>
 
                         <!-- Boton para subir archivo de foto-->
@@ -61,7 +61,7 @@ and open the template in the editor.
                         <div class="form-group  mt-5">
                             <div class="col-auto">
                                 <button type="submit" class="btn btn-secondary mb-2">Alta Local</button>
-                                <input class="btn btn-primary mb-2" type="reset" value="Reset">                            </div>
+                                <input class="btn btn-primary mb-2" type="reset" value="Reset"></div>
                         </div>
                     </form>
                 </div>
