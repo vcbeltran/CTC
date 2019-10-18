@@ -33,9 +33,10 @@ class consultasEmpresas {
     public function consultaUsuarioEmpresa() {
         $consulta = "SELECT * FROM USUARIO WHERE IDROL = 2";
         
-        $this->resultado = $this->conexion->query($consulta);
+        $conexion = consultasEmpresas::getConexion();
+        $this->resultado = $conexion->query($consulta);
         $usuariosEmpresa = array();
-        //mientas qe hay una fila que lo vaya agregando al array de usuarios
+        //mientas que haya una fila que lo vaya agregando al array de usuarios
         while ($fila = $this->resultado->fetch_array()) {
             array_push($usuariosEmpresa, $fila);
         }         
