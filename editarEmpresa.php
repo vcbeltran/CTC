@@ -1,5 +1,6 @@
 <?php
-    include './consultasEmpresas.php';
+    include ('consultasEmpresas.php');
+    
     session_start();
     if (!isset($_SESSION)) {
         header("location:inicio.php");
@@ -8,8 +9,9 @@
     $listaEmpresa = array();
     
     $listaEmpresa = $consultaEmpresa->consultaUsuarioEmpresa();    
-    
-    var_dump($listaEmpresa[1]);
+    var_dump($_SESSION['tipo']);
+    //var_dump($listaEmpresa[1]);
+    //var_dump($listaEmpresa);
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +31,34 @@ and open the template in the editor.
         <title>Lista de empresas</title>
     </head>
     <body>
-        <div class="table-responsive-md">
-            <table class="table">
-                ...
-            </table>
+        <div class="container">
+            <div class="table-responsive-md">            
+                <table class="table">
+                    <caption>LISTA DE EMPRESAS</caption>   
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Local Asignado</th>
+                            <th scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($listaEmpresa as $empresa):
+                            print("<tr>");
+                            print("<td scope='row'>" . $empresa[1]);
+                            print("</td>");
+                            print("<td scope='row'>" . $empresa[2]);
+                            print("</td>");
+                            print("<td scope='row'>" . $empresa[5]);
+                            print("</td>");
+                            print("</tr>");
+                        endforeach;
+                        ?> 
+                    </tbody>
+                </table>          
+            </div>
         </div>
     </body>
 </html>
