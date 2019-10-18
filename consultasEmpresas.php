@@ -39,7 +39,8 @@ class consultasEmpresas {
         //mientas que haya una fila que lo vaya agregando al array de usuarios
         while ($fila = $this->resultado->fetch_array()) {
             array_push($usuariosEmpresa, $fila);
-        }         
+        } 
+        return $usuariosEmpresa;
     }
 
     public function actualizarEmpresa(){
