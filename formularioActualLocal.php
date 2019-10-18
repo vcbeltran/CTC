@@ -73,7 +73,7 @@ and open the template in the editor.
                         </div>-->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Dar Alta
+                            Actualizar
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,12 +89,13 @@ and open the template in the editor.
                                         ¿Seguro que quiere actualizar los datos?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button>
                                         <button type="submit" class="btn btn-primary">Guardar cambios</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>   
+              
                     </form>
                 </div>
             </div>

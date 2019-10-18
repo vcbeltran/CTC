@@ -61,7 +61,7 @@ and open the template in the editor.
                         <div class="form-group  mt-5">
                             <div class="col-auto">
                                 <button type="submit" class="btn btn-secondary mb-2">Alta Local</button>
-                            </div>
+                                <input class="btn btn-primary mb-2" type="reset" value="Reset">                            </div>
                         </div>
                     </form>
                 </div>

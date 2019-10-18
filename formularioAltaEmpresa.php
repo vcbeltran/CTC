@@ -44,7 +44,7 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <h2>Añada nuevo usuario Empresa </h2>
-                    <form action="agregarEmpresa.php" method="POST">
+                    <form action="altaUsuarioEmpresa.php" method="POST">
                         <div class="form-group">
                             <label for="InputName">Nombre Empresa</label>
                             <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre">
@@ -67,9 +67,10 @@ and open the template in the editor.
                                 ?>
                             </select>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-md-4">
                             <button type="submit" class="btn btn-primary mb-2">Dar alta</button>
-                        </div>
+                            <input class="btn btn-primary mb-2" type="reset" value="Reset">
+                        </div>                   
                     </form>
                 </div>
             </div>

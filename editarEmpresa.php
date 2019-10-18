@@ -31,10 +31,10 @@ and open the template in the editor.
         <title>Lista de empresas</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container mt-5">
+             <h2>Lista de Empresas</h2>
             <div class="table-responsive-md">            
                 <table class="table">
-                    <caption>LISTA DE EMPRESAS</caption>   
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
@@ -47,12 +47,14 @@ and open the template in the editor.
                         <?php
                         foreach ($listaEmpresa as $empresa):
                             print("<tr>");
+                            print("<td scope='row'>" . $empresa[0]);
+                            print("</td>");
                             print("<td scope='row'>" . $empresa[1]);
                             print("</td>");
                             print("<td scope='row'>" . $empresa[2]);
                             print("</td>");
-                            print("<td scope='row'>" . $empresa[5]);
-                            print("</td>");
+                            print("<td scope='row'><a class='btn btn-primary' href='formularioActualizaEmpresa.php?codigo=" . $empresa[0] . " '> Modificar </a>" . " "
+                                . "<a href='eliminarEmpresa.php?codigo=". $empresa[0] ." ' class='btn btn-danger' >Eliminar</a></td>");
                             print("</tr>");
                         endforeach;
                         ?> 

@@ -22,7 +22,8 @@ class consultasEmpresas {
     
     public function altaRolEmpresa($nombre, $correo, $password, $idlocal){
             
-        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL, IDLOCAL) VALUES ('$nombre', '$correo', '$password', 2, '$idlocal')";
+        $alta = "INSERT INTO USUARIO (NOMBRE, CORREO, PASSWORD, IDROL, IDLOCAL)"
+              . " VALUES ('$nombre', '$correo', '$password', 2, '$idlocal')";
         
         $conexion = consultasEmpresas::getConexion();
         if ($conexion->query($alta)) {
@@ -31,7 +32,8 @@ class consultasEmpresas {
     }
    //devuelve la lista de los usuarios de tipo empresa para modificarlos.  
     public function consultaUsuarioEmpresa() {
-        $consulta = "SELECT * FROM USUARIO WHERE IDROL = 2";
+        $consulta = "SELECT USUARIO.NOMBRE, USUARIO.CORREO, LOCAL.NOMBRELOCAL, LOCAL.IDLOCAL "
+                  . "FROM USUARIO, LOCAL WHERE usuario.IDLOCAL = LOCAL.IDLOCAL;";
         
         $conexion = consultasEmpresas::getConexion();
         $this->resultado = $conexion->query($consulta);
