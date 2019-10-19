@@ -79,4 +79,10 @@ class consultasEmpresas {
             return true;
         }
     }
+    
+    /* Consulta para saber qué local tiene asignado un usuario empresa y poder
+    asiganarle fecha, hora y precios   */
+    public function seleccionarLocal(){
+        $consulta = "SELECT * FROM USUARIO";
+    }
 }

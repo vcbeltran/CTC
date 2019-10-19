@@ -20,10 +20,11 @@ class Conexiones {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL "
-                    . "FROM USUARIO AS USER, ROL AS TIPO"
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, LOCAL.NOMBRELOCAL "
+                    . "FROM USUARIO AS USER, ROL AS TIPO, LOCAL "
                     . " WHERE  USER.CORREO = ? "
-                    . " AND USER.IDROL = TIPO.IDROL";
+                    . " AND USER.IDROL = TIPO.IDROL"
+                    . " AND USER.IDLOCAL = LOCAL.IDLOCAL";
             $stmt = $conec->prepare($consulta);    
             $stmt->bind_param('s',$mail);
             $stmt->execute();

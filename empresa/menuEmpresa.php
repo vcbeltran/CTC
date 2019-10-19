@@ -16,21 +16,20 @@ Además permite ver algún listado de los locales.
     <body>
         <?php
         session_start();
-        include '../consultas/conexiones.php';
-        $conexion = new Conexiones;
+       
         if (!isset($_SESSION['id'])) {
             header("location:inicio.php");
         }
-        $tipo = $_SESSION['tipo'];
-        //var_dump($tipo);
-        /* CERRAR SESION */
+        $tipo = $_SESSION;
+        var_dump($tipo);
+        
         ?>
    
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-success">Usuario conectado: <?php echo $tipo; ?></button>
-                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-success">Usuario conectado: <?php echo $tipo['nombre']; ?></button>                    
+                </div>                
                 <!-- MENU NAVEGACION -->
                 <nav class="navbar navbar-light" style="background-color:#A9F5A9;">  
 <!--                  <!-- Navbar content -->
@@ -53,7 +52,10 @@ Además permite ver algún listado de los locales.
                     </div>
                     <a class="navbar-brand" href="#">Ver Listados</a>
                     <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
-                </nav>                
+                </nav>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-success">Su local es: <?php echo $tipo['nombrelocal']; ?></button>                
+                </div>
             </div>
         </div>      
     </body>

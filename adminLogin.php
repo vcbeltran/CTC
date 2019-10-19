@@ -35,6 +35,9 @@ if ($conexionTipo[2] == 1){
    $_SESSION['tipo'] = $conexionTipo[1];
    $_SESSION['id'] = $conexionTipo[2];
    $_SESSION['nombre'] = $conexionTipo[0];
+   $_SESSION['local'] = $conexionTipo[3];
+   $_SESSION['nombrelocal'] = $conexionTipo[4];
+   
    session_start();
    
    header("location:empresa/menuEmpresa.php");
