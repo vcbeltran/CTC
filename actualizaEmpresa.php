@@ -21,15 +21,10 @@ and open the template in the editor.
         $codigo = $_REQUEST['codigo'];
         $nombre = $_REQUEST['nombre'];
         $correo = $_REQUEST['correo'];
-        $contra = $_REQUEST['contra'];
+        $contra = md5($_REQUEST['contra']);
         $local = $_REQUEST['idlocal'];
+               
         
-           var_dump($codigo);
-        var_dump($nombre);
-        var_dump($correo);
-        var_dump($contra);
-        var_dump($local);
-
         if ($consulta->actualizarEmpresa($codigo, $nombre, $correo, $contra, $local)) {
             ?>
             <div class="container mt-5" >

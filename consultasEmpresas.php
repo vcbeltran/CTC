@@ -69,4 +69,14 @@ class consultasEmpresas {
              return true;
          }
     }
+    
+    public function eliminarUsuarioEmpresa($codigo){
+        $borrar = "DELETE FROM USUARIO WHERE IDUSUARIO = '$codigo'";
+        
+        $conexion = consultasEmpresas::getConexion();
+        
+        if ($conexion->query($borrar)){
+            return true;
+        }
+    }
 }

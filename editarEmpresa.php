@@ -9,7 +9,7 @@
     $listaEmpresa = array();
     
     $listaEmpresa = $consultaEmpresa->consultaUsuarioEmpresa();    
-    var_dump($_SESSION['tipo']);
+    //var_dump($_SESSION['tipo']);
     //var_dump($listaEmpresa[1]);
     //var_dump($listaEmpresa);
 ?>
@@ -54,12 +54,23 @@ and open the template in the editor.
                             print("<td scope='row'>" . $empresa[2]);
                             print("</td>");
                             print("<td scope='row'><a class='btn btn-primary' href='formularioEditarEmpresa.php?codigo=" . $empresa[3] . " '> Modificar </a>" . " "
-                                . "<a href='eliminarEmpresa.php?codigo=". $empresa[0] ." ' class='btn btn-danger' >Eliminar</a></td>");
+                                . "<a href='eliminaLocalEmpresa.php?accion=eliminaEmpresa&codigo=". $empresa[3] ." ' class='btn btn-danger' >Eliminar</a></td>");
                             print("</tr>");
                         endforeach;
                         ?> 
                     </tbody>
                 </table>          
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8"></div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="menuAdministrador.php">Vuelva al menú de administrador</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
             </div>
         </div>
     </body>

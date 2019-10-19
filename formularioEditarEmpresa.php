@@ -27,7 +27,7 @@ and open the template in the editor.
         $localesLibres = $consultaLocal->listaLocalDisponible();
 
         $filaEmpresa = $consulta->seleccionarFila($codigoEmpresa);
-        var_dump($filaEmpresa);
+        //var_dump($filaEmpresa);
         ?>
         <div class="container mt-5">
             <div class="row">
