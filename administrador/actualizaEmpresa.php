@@ -15,7 +15,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include './consultasEmpresas.php';
+        include '../consultas/consultasEmpresas.php';
         $consulta = new consultasEmpresas();
         
         $codigo = $_REQUEST['codigo'];

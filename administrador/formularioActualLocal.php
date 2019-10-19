@@ -12,22 +12,16 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <title>Editar Información Empresa</title>
+        <title>Editar Información Local</title>
     </head>
     <body>
         <?php
-        include './consultasEmpresas.php';
-        include './consultasLocales.php';
+        include '../consultas/consultasLocales.php';
         session_start();
-        $consulta = new consultasEmpresas();
-        $codigoEmpresa = $_REQUEST['codigo'];
-             
-        $consultaLocal = new ConsultasLocales();
-        $localesLibres = array();
-        $localesLibres = $consultaLocal->listaLocalDisponible();
+        $consultaLocal = new ConsultasLocales;
+        $codigoLocal = $_REQUEST['codigo'];
 
-        $filaEmpresa = $consulta->seleccionarFila($codigoEmpresa);
-        //var_dump($filaEmpresa);
+        $filaLocal = $consultaLocal->seleccionarFila($codigoLocal);
         ?>
         <div class="container mt-5">
             <div class="row">
@@ -45,36 +39,31 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                       <h2>Edite los datos del Local</h2>
-                    <form action="actualizaEmpresa.php" method="POST" enctype="multipart/form-data">    
+                    <form action="actualizarLocal.php" method="POST" enctype="multipart/form-data">    
                         <div class="form-group"> 
-                            <label for="InputName">Código Empresa</label>
-                            <input type="text" class="form-control" id="InputName" name="codigo" value="<?php echo $filaEmpresa[0] ?> " readonly="true">
+                            <label for="InputName">Código local</label>
+                            <input type="text" class="form-control" id="InputName" name="codigo" value="<?php echo $filaLocal[0] ?> " readonly="true">
                         </div>
                         <div class="form-group">                   
-                            <label for="InputName">Nombre Empresa</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre" value="<?php echo $filaEmpresa[1] ?>">
+                            <label for="InputName">Nombre Local</label>
+                            <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre" value="<?php echo $filaLocal[1] ?>">
                         </div>
                         <div class="form-group">
-                            <label for="InputDireccion">Correo</label>
-                            <input type="text" class="form-control" id="InputDireccion" placeholder="Introduzca dirección" name="correo" value="<?php echo $filaEmpresa[2] ?>">
+                            <label for="InputDireccion">Dirección Local</label>
+                            <input type="text" class="form-control" id="InputDireccion" placeholder="Introduzca dirección" name="direccion" value="<?php echo $filaLocal[2] ?>">
                         </div>
                         <div class="form-group">
-                            <label for="InputAforo">Password</label>
-                            <input type="text" class="form-control" id="InputAforo" placeholder="Introduzca número" name="contra" value="<?php echo $filaEmpresa[3] ?>">
-                        </div>  
-                        <div class="form-group">
-                            <label for="InputDireccion">Local asignado</label>
-                            <input type="text" class="form-control" id="InputDireccion" name="direccion" value="<?php echo $filaEmpresa[4] ?>" readonly="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Elija local nuevo</label>       
-                            <select class='form-control' id='exampleFormControlSelect1' name="idlocal">                            
-                                <?php
-                                foreach ($localesLibres as $listaLocal):
-                                    print ("<option value=" . $listaLocal[0] . " >" . $listaLocal[1] . "</option>");
-                                endforeach;
-                                ?>
-                            </select>
+                            <label for="InputAforo">Aforo Local</label>
+                            <input type="text" class="form-control" id="InputAforo" placeholder="Introduzca número" name="aforo" value="<?php echo $filaLocal[3] ?>">
+                        </div>                        
+                        <!-- Boton para subir archivo de foto-->
+                        <label for="InputFoto">Foto Local</label>
+                        <div class="input-group">
+                            <img class="img-responsive" src=" <?php $filaLocal[4] ?> "/>
+                            <div class="custom-file">                          
+                                <label for="caratula">Modifique imagen:  </label>
+                                <input type="file" name="caratula"/>    
+                            </div>
                         </div>
                         <!-- Este botón submite el formulario de forma normal, sin abrir la ventana con la pregunta
                         <div class="form-group  mt-5">
@@ -105,7 +94,8 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                        </div>                 
+                        </div>   
+              
                     </form>
                 </div>
             </div>

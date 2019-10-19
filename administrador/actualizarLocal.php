@@ -22,7 +22,7 @@ and open the template in the editor.
         <?php
        
         
-        include ('consultasLocales.php');
+        include ('../consultas/consultasLocales.php');
         session_start();
          echo $_SESSION['tipo'];
         $id = $_REQUEST['codigo'];

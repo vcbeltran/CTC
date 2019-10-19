@@ -22,7 +22,7 @@ and open the template in the editor.
             header ("location:inicio.php");
         }
         // echo  "Sigue siendo el usuario ". $_SESSION['tipo'];
-        include './consultasLocales.php';
+        include '../consultas/consultasLocales.php';
         $consultaLocal = new ConsultasLocales();
         $localesLibres = array();
         $localesLibres = $consultaLocal->listaLocalDisponible();

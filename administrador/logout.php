@@ -6,7 +6,6 @@
         session_destroy();
         
     }
-
-    header("location:inicio.php");
+    header("location:../inicio.php");
 
 ?>

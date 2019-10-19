@@ -1,5 +1,5 @@
 <?php
-    include ('consultasLocales.php');
+    include ('../consultas/consultasLocales.php');
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales
     $conexionLocales = new ConsultasLocales();

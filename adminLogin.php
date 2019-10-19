@@ -6,7 +6,7 @@
  * dado de alta en la base de datos. 
  */
 
-include 'conexiones.php';
+include 'consultas/conexiones.php';
 //creo un objeto de la clase conexión
 $conexion = new Conexiones();
 
@@ -26,11 +26,19 @@ if ($conexionTipo[2] == 1){
    $_SESSION['id'] = $conexionTipo[2];
    $_SESSION['nombre'] = $conexionTipo[0];
    
-   header("location:menuAdministrador.php");
+   include 'administrador/menuAdministrador.php';
+   header("location:administrador/menuAdministrador.php");
    //var_dump($conexionTipo);
     
 } elseif ($conexionTipo[2] == 2){
     session_start();
+   $_SESSION['tipo'] = $conexionTipo[1];
+   $_SESSION['id'] = $conexionTipo[2];
+   $_SESSION['nombre'] = $conexionTipo[0];
+   session_start();
+   
+   header("location:empresa/menuEmpresa.php");
+    
 } else {
     echo 'No existe usuario';
 }

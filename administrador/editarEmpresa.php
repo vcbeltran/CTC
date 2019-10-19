@@ -1,5 +1,5 @@
 <?php
-    include ('consultasEmpresas.php');
+    include ('../consultas/consultasEmpresas.php');
     
     session_start();
     if (!isset($_SESSION)) {

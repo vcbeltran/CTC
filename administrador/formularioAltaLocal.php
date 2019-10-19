@@ -16,7 +16,7 @@ and open the template in the editor.
     <body>
         <?php
         session_start();
-        include 'conexiones.php';
+        include '../consultas/conexiones.php';
         $conexion = new Conexiones();
         //var_dump($_SESSION['tipo']);
         ?>

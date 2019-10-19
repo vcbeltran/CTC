@@ -3,7 +3,7 @@
 /* 
  * Página que llama a la clase de alta de usuario e informa al usuario
  */
-include ('conexiones.php');
+include ('consultas/conexiones.php');
 session_start();
 /* LOGIN */
     $conexion = new Conexiones();

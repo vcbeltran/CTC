@@ -11,18 +11,17 @@ class Conexiones {
         $this->conexion = new mysqli("localhost", "vero", "proyectodaw", "ctc");
         if ($this->conexion->connect_error) {
             die("Error de Conexión(" . $conexion->connect_errno . ")" . $conexion->connect_error);
-        } else {
-            echo 'Conexion correcta';
-        }
+        } 
         return $this->conexion;
     }
-    //comprueba el tipo de usuario de la bade de datos, su rol
+    //comprueba el tipo de usuario de la base de datos, y devuelve su rol
     
     public function compruebaTipoUsuario($mail) {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL FROM USUARIO AS USER, ROL AS TIPO"
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL "
+                    . "FROM USUARIO AS USER, ROL AS TIPO"
                     . " WHERE  USER.CORREO = ? "
                     . " AND USER.IDROL = TIPO.IDROL";
             $stmt = $conec->prepare($consulta);    

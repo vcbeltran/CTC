@@ -24,8 +24,8 @@ and open the template in the editor.
              * si la acción es eliminar un usuario empresa también lo elimnina
             
              */
-            include ('consultasLocales.php');
-            include ('consultasEmpresas.php');
+            include ('../consultas/consultasLocales.php');
+            include ('../consultas/consultasEmpresas.php');
             
             $id = $_REQUEST['codigo'];
             $accion = $_REQUEST['accion'];
