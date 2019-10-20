@@ -33,7 +33,7 @@ and open the template in the editor.
 //            $_SESSION['useronline'] = $usuario;
 //            $_SESSION['tipo'] = 3;
             ?>
-            <div class="container" >
+            <div class="container mt-5" >
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                 <div class="alert alert-success">
