@@ -46,7 +46,7 @@ class consultasEmpresas {
     }
 
      /*
-     * Te devuelve una fila de una único empresa con el nombre del local asignado
+     * Te devuelve una fila de una única empresa con el nombre del local asignado
      */
     function seleccionarFila($codigoEmpresa){
         $consulta = "SELECT USUARIO.IDUSUARIO, USUARIO.NOMBRE, USUARIO.CORREO,"
@@ -80,9 +80,4 @@ class consultasEmpresas {
         }
     }
     
-    /* Consulta para saber qué local tiene asignado un usuario empresa y poder
-    asiganarle fecha, hora y precios   */
-    public function seleccionarLocal(){
-        $consulta = "SELECT * FROM USUARIO";
-    }
 }

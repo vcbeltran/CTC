@@ -19,7 +19,7 @@ $conexionTipo = array();
 //como el correo es unique me vale con preguntar con ese parámetro
 $conexionTipo = $conexion->compruebaTipoUsuario($mail);
 
- //si es un administrador, redirecciono a la página
+ /*SI ES UN ADMINISTRADOR SE REDIRECCIONA AL MENÚ */
 if ($conexionTipo[2] == 1){
    session_start();
    $_SESSION['tipo'] = $conexionTipo[1];
@@ -29,16 +29,20 @@ if ($conexionTipo[2] == 1){
    include 'administrador/menuAdministrador.php';
    header("location:administrador/menuAdministrador.php");
    //var_dump($conexionTipo);
-    
+   
+/*SI ES UN USUARIO EMPRESA SE REDIRECCIONA AL MENÚ */
 } elseif ($conexionTipo[2] == 2){
     session_start();
-   $_SESSION['tipo'] = $conexionTipo[1];
-   $_SESSION['id'] = $conexionTipo[2];
+    //nombre usuario
    $_SESSION['nombre'] = $conexionTipo[0];
+   //tipo de conexion en string
+   $_SESSION['tipo'] = $conexionTipo[1];
+   // id de la conexion
+   $_SESSION['id'] = $conexionTipo[2];
+   // id del local
    $_SESSION['local'] = $conexionTipo[3];
+   //literal nombre local
    $_SESSION['nombrelocal'] = $conexionTipo[4];
-   
-   session_start();
    
    header("location:empresa/menuEmpresa.php");
     
