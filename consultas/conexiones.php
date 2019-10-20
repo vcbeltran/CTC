@@ -50,24 +50,20 @@ class Conexiones {
         }
     }
 
-    public function dameLocal($mail){
-        $consulta = "SELECT LOCAL.IDLOCAL, LOCAL.NOMBRELOCAL FROM LOCAL"
-                . "INNER JOIN USUARIO ON "
-                . " LOCAL.IDLOCAL = USUARIO.IDLOCAL"
-                . "AND USUARIO.CORREO = '$mail'";
-         
+    public function dameLocal($mail) {
+        $consulta = "SELECT LOCAL.NOMBRELOCAL FROM LOCAL, USUARIO
+                        WHERE LOCAL.IDLOCAL =  USUARIO.IDLOCAL 
+                        AND USUARIO.CORREO = '$mail'";
+
         $conexion = Conexiones::getConexion();
-        $this->resultado = $conexion->query($consulta); 
-       // $datosLocal = array();
-        if ($this->resultado->num_rows != 0) {
-            $tipo = $resultado->fetch_array();
-            return $tipo;
-        }
+        $this->resultado = $conexion->query($consulta);
+        // $datosLocal = array();       
+        $tipo = $this->resultado->fetch_array();
+        return $tipo;
     }
-        
-    
+
     // desconecta de la base de datos
-    function desconectar() {
+    public function desconectar() {
         $this->conexion->close();
     }
     
