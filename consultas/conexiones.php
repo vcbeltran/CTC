@@ -6,6 +6,7 @@
  */
 class Conexiones {
     private $conexion;
+    private $resultado;
     //put your code here
     public function getConexion() {
         $this->conexion = new mysqli("localhost", "vero", "proyectodaw", "ctc");
@@ -20,11 +21,10 @@ class Conexiones {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, LOCAL.NOMBRELOCAL "
-                    . "FROM USUARIO AS USER, ROL AS TIPO, LOCAL "
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL "
+                    . "FROM USUARIO AS USER, ROL AS TIPO "
                     . " WHERE  USER.CORREO = ? "
-                    . " AND USER.IDROL = TIPO.IDROL"
-                    . " AND USER.IDLOCAL = LOCAL.IDLOCAL";
+                    . " AND USER.IDROL = TIPO.IDROL";
             $stmt = $conec->prepare($consulta);    
             $stmt->bind_param('s',$mail);
             $stmt->execute();
@@ -50,17 +50,28 @@ class Conexiones {
         }
     }
 
+    public function dameLocal($mail){
+        $consulta = "SELECT LOCAL.IDLOCAL, LOCAL.NOMBRELOCAL FROM LOCAL"
+                . "INNER JOIN USUARIO ON "
+                . " LOCAL.IDLOCAL = USUARIO.IDLOCAL"
+                . "AND USUARIO.CORREO = '$mail'";
+         
+        $conexion = Conexiones::getConexion();
+        $this->resultado = $conexion->query($consulta); 
+       // $datosLocal = array();
+        if ($this->resultado->num_rows != 0) {
+            $tipo = $resultado->fetch_array();
+            return $tipo;
+        }
+    }
+        
+    
     // desconecta de la base de datos
     function desconectar() {
         $this->conexion->close();
     }
     
-    
-    //cierra sesión de usuario
-    function cierreSesion(){
-        session_destroy();
-    }
+
+
 }
-
-
 

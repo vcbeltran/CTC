@@ -9,10 +9,13 @@
 include 'consultas/conexiones.php';
 //creo un objeto de la clase conexión
 $conexion = new Conexiones();
-
+$conexion2 =  new Conexiones();
 //rescato los datos del formulario
 $nombre = $_REQUEST['nombre'];
 $mail = $_REQUEST['mail'];
+
+var_dump($nombre);
+var_dump($mail);
 
 $conexionTipo = array();
 //llamo a la función que comprueba qué tipo de usuario es.
@@ -26,7 +29,7 @@ if ($conexionTipo[2] == 1){
    $_SESSION['id'] = $conexionTipo[2];
    $_SESSION['nombre'] = $conexionTipo[0];
    
-   include 'administrador/menuAdministrador.php';
+  // include 'administrador/menuAdministrador.php';
    header("location:administrador/menuAdministrador.php");
    //var_dump($conexionTipo);
    
@@ -34,6 +37,11 @@ if ($conexionTipo[2] == 1){
 } elseif ($conexionTipo[2] == 2){
     session_start();
     //nombre usuario
+  $extraeDatosLocal = array();
+   //extrae el id local
+   $extraeDatosLocal = $conexion2->dameLocal($mail);
+   var_dump($extraeDatosLocal);
+   //es el nombre
    $_SESSION['nombre'] = $conexionTipo[0];
    //tipo de conexion en string
    $_SESSION['tipo'] = $conexionTipo[1];
@@ -42,7 +50,7 @@ if ($conexionTipo[2] == 1){
    // id del local
    $_SESSION['local'] = $conexionTipo[3];
    //literal nombre local
-   $_SESSION['nombrelocal'] = $conexionTipo[4];
+   $_SESSION['nombrelocal'] = $extraeDatosLocal[1];
    
    header("location:empresa/menuEmpresa.php");
     
