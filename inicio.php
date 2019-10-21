@@ -2,12 +2,17 @@
     include ('consultas/conexiones.php');
     include ('consultas/consultasLocales.php');
     $conect = new Conexiones();
+    $totalFilasLocal = new consultasLocales();
     //var_dump($prueba);
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales
     $conexionLocales = new ConsultasLocales();
     $locales = array();
     $locales = $conexionLocales->listarLocales();
+    
+    $filas = $totalFilasLocal->totalFilas();
+    //var_dump($filas);
+    
 ?>
 
 <!--
@@ -42,6 +47,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         </div>       
        <div class="container mt-3">
              <?php
+             
+            $localesPorPagina = 8;
+            $totalArticulosPorPagina = $filas/$localesPorPagina;    
+            
             $contador = 1;
             foreach ($locales as $local):
                 if ($contador == 1) {
@@ -79,18 +88,21 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
               print("</div>");
             ?>                                           
             </div>
+        <div class="container mt-3">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
 <!--           <footer class="page-footer font-small blue">
            <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
                  <?php //echo date("Y-m-d H:i:s") ?>
            </div>
                    </footer>-->
-<div class="landing-footer">
-    <div class="footer-left">
-        <span class="footer-coopyrigth">@2019 Verónica Beltrán</span>
-    </div>
-    <div class="footer-rigth">
-        <span>fecha </span>
-    </div>
-</div>
     </body>
 </html>

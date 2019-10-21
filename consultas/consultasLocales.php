@@ -38,12 +38,25 @@ class ConsultasLocales {
         }
         return $locales;
     }
+    
+    /*Contar las filas del total de locales para la paginación*/
+    function totalFilas(){
+        $consulta = "SELECT * FROM LOCAL";
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $totalRegistros = $resultado->num_rows;
+        
+        return $totalRegistros;
+    }
+
+
     /*
      * Te devuelve una fila de un único local
      */
     function seleccionarFila($codigoLocal){
         $consulta = "SELECT * FROM LOCAL WHERE IDLOCAL = '$codigoLocal'";
-        $this->resultado = $this->conexion->query($consulta);
+       $this->conexion->query($consulta);
         
         $local = $this->resultado->fetch_array();
         
