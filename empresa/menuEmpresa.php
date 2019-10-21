@@ -21,7 +21,7 @@ Además permite ver algún listado de los locales.
             header("location:inicio.php");
         }
         $tipo = $_SESSION;
-        var_dump($tipo);
+        //var_dump($tipo);
         
         ?>
    

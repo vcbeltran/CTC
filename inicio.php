@@ -79,18 +79,19 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
               print("</div>");
             ?>                                           
             </div>
-<!--           <footer class="page-footer font-small blue">
-           <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
-                 <?php //echo date("Y-m-d H:i:s") ?>
-           </div>
-                   </footer>-->
-<div class="landing-footer">
-    <div class="footer-left">
-        <span class="footer-coopyrigth">@2019 Verónica Beltrán</span>
-    </div>
-    <div class="footer-rigth">
-        <span>fecha </span>
-    </div>
-</div>
-    </body>
+        <div class="container">
+            <div class="row">
+                  <div class="col-md-5"></div>
+                <div class="landing-footer">
+                    <div class="footer-left">
+                        <span class="footer-coopyrigth">@2019 Verónica Beltrán</span>
+                    </div>
+                    <div class="footer-rigth">
+                        <span>   <?php echo date("Y-m-d H:i:s") ?> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>
 </html>
