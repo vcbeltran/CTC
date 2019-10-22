@@ -6,11 +6,8 @@
     //var_dump($prueba);
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales
-    $conexionLocales = new ConsultasLocales();
-    $locales = array();
-    $locales = $conexionLocales->listarLocales();
-    
-    $filas = $totalFilasLocal->totalFilas();
+   
+   
     //var_dump($filas);
     
 ?>
@@ -30,13 +27,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified CSS -->
 <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">-->
-        
-        
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>
         <div class="container mt-5">
-            <div class="row">
+            <div class="row">               
                  <div class="col-md-8"></div>
                 <!-- MENU NAVEGACION -->
                 <nav class="navbar navbar-dark bg-primary" style="background-color:#b3d9ff;">  
@@ -47,18 +42,28 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         </div>       
        <div class="container mt-3">
              <?php
-             
-            $localesPorPagina = 8;
-            $totalArticulosPorPagina = $filas/$localesPorPagina;    
-            
+             //$_GET = 'pagina';
+             if (!$_GET) {
+                 header("location:inicio.php?pagina=1");
+             }           
+            $conexionLocales = new ConsultasLocales();
+            $localesPorPagina = 8;            
+            $iniciar = ($_GET['pagina']-1)*$localesPorPagina;
+            //el total de filas que hay en la bbdd de los artículos
+            $filas = $totalFilasLocal->totalFilas();
+            //todos los locales de la base de datos.
+            $locales = array();
+            $locales = $conexionLocales->listarLocales($iniciar,$localesPorPagina);
+            var_dump($iniciar);
+            var_dump($localesPorPagina);
+            var_dump($locales);
+            echo $iniciar;
             $contador = 1;
             foreach ($locales as $local):
                 if ($contador == 1) {
                     //empieza el row
                     print("<div class='row'>");
-                }
-                ?>
-                <?php
+                }                          
                 //empieza una col con su card dentro
                 print("<div class='col-md-3'>");
                 //empieza una card
@@ -91,18 +96,33 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <div class="container mt-3">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']-1 ?>">Anterior</a>
+                    </li>
+                    <?php   
+                    //botones de paginación                    
+                    
+                    $totalPaginas = ceil($filas / $localesPorPagina);
+                    //echo $filas;
+                    //echo $totalPaginas;
+                    for($i=0; $i<$totalPaginas ; $i++): ?>
+                    <li class="page-item <?php echo $_GET['pagina']== $i+1 ? 'active' : '' ?>">
+                        <a class="page-link" href="inicio.php?pagina=<?php echo $i+1 ?>"> <?php echo $i+1 ?></a>
+                    </li>
+                    <?php endfor;?>
+                    <li class="page-item <?php echo $_GET['pagina']>=$totalPaginas ? 'disabled' : '' ?>">
+                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                            Siguiente
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
-<!--           <footer class="page-footer font-small blue">
-           <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
-                 <?php //echo date("Y-m-d H:i:s") ?>
-           </div>
-                   </footer>-->
+        <!--           
+        <footer class="page-footer font-small blue">
+                   <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
+        <?php //echo date("Y-m-d H:i:s") ?>
+                   </div>
+        </footer>-->
     </body>
 </html>
