@@ -1,5 +1,4 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,23 +26,72 @@ class ConsultasLocales {
     /*
      * Te devuelve un array con todos los locales
      */
-    function listarLocales(){
-        $consulta = "SELECT * FROM LOCAL";
+    function listarLocales($iniciar,$localesPorPagina){
+        try {
+//          $consulta = "SELECT * FROM LOCAL LIMIT '$iniciar', '$localesPorPagina'";
+//          $this->resultado = $this->conexion->query($consulta);
+//         $locales = array();
+//        //mientras que haya una fila que lo vaya agregando al array
+//        while ($fila = $this->resultado->fetch_array()) {
+//            array_push($locales, $fila);
+//        }
+//        return $locales;
+          
+//          
+        $consulta = "SELECT * FROM LOCAL LIMIT ?, ?";
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->bind_param('ss', $iniciar, $localesPorPagina);
+        $stmt -> execute();
+        $this->resultado = $stmt->get_result();
         $locales = array();
-        
-        $this->resultado = $this->conexion->query($consulta);
-        //Se recorre el resultado con while añadiendo cada fila en array locales
-        while ($fila = $this->resultado->fetch_array()){
-            array_push($locales, $fila);
+            if ($this->resultado->num_rows != 0){
+                while ($fila = $this->resultado->fetch_array()){
+                    array_push($locales, $fila);
+                    return $locales;     
+                }                
+            } else {
+                return false;
+            }   
+        } catch (Excepcion $e){
+            echo 'Error en el metodo comprobar gestores '.$e->getMessage()."\n";
         }
-        return $locales;
+        
+//        $locales = array();        
+//        //$this->resultado = $this->conexion->query($consulta);
+//        //Se recorre el resultado con while añadiendo cada fila en array locales
+//        while ($fila = $this->resultado->fetch_array()){
+//            array_push($locales, $fila);
+//        }
+//        return $locales;
     }
+    
+    /*Contar las filas del total de locales para la paginación*/
+    function totalFilas(){
+        $consulta = "SELECT * FROM LOCAL";
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $totalRegistros = $resultado->num_rows;
+        
+        return $totalRegistros;
+    }
+
+//    public function limiteArticulos(){
+//        $consulta = "SELECT * FROM LOCAL LIMIT 1,8";
+//        $stmt = $this->conexion->prepare($consulta);
+//        $stmt->execute();
+//        //$resultado = $stmt->get_result();
+//        
+//        $resultado = $stmt->get_result();
+//        $totalRegistros = $resultado->num_rows;
+//        return $totalRegistros;
+//    }
     /*
      * Te devuelve una fila de un único local
      */
     function seleccionarFila($codigoLocal){
         $consulta = "SELECT * FROM LOCAL WHERE IDLOCAL = '$codigoLocal'";
-        $this->resultado = $this->conexion->query($consulta);
+       $this->conexion->query($consulta);
         
         $local = $this->resultado->fetch_array();
         
