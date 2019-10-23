@@ -50,7 +50,7 @@ class Conexiones {
         }
     }
 
-    public function dameLocal($mail) {
+    public function dameLocalUsuario($mail) {
         $consulta = "SELECT LOCAL.NOMBRELOCAL FROM LOCAL, USUARIO
                         WHERE LOCAL.IDLOCAL =  USUARIO.IDLOCAL 
                         AND USUARIO.CORREO = '$mail'";
@@ -61,7 +61,22 @@ class Conexiones {
         $tipo = $this->resultado->fetch_array();
         return $tipo;
     }
-
+    /*Comprueba correo y contraseña en bbdd para ver si son correctos */
+    public function compruebaLogin($mail, $pass){
+        $consulta = "SELECT * FROM USUARIO WHERE "
+                . "CORREO = ? AND PASSWORD = ? ";
+        
+        $conexion = Conexiones::getConexion();
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bind_param('ss', $mail,$pass);
+        $stmt->execute();
+        $this->resultado = $stmt->get_result();
+        
+        $fila = $this->resultado->fetch_assoc();
+        return $fila;
+    }
+    
+    
     // desconecta de la base de datos
     public function desconectar() {
         $this->conexion->close();
