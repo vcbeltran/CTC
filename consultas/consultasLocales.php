@@ -37,8 +37,7 @@ class ConsultasLocales {
         $locales = array();
             if ($this->resultado->num_rows != 0){
                 while ($fila = $this->resultado->fetch_array()){
-                    array_push($locales, $fila);
-                    
+                    array_push($locales, $fila);                    
                 }                
                 return $locales;     
             } else {

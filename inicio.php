@@ -42,7 +42,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                  header("location:inicio.php?pagina=1");
             }           
             $conexionLocales = new ConsultasLocales();
-            $localesPorPagina = 4;            
+            $localesPorPagina = 8;            
             //El segmento por página de los locales a mostrar
             $iniciar = ($_GET['pagina']-1)*$localesPorPagina;
             //el total de registros que hay en la bbdd de los locales
@@ -110,14 +110,12 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 </ul>
             </nav>
         </div>
-        <?php echo "Número total registros de la consulta:" . $filas ."<br>";
-              echo "Mostramos: " . $localesPorPagina  ."<br>";
-              echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
-              echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>
-      
-        <!--           
+        <!--<?php echo "Número total registros de la consulta:" . $filas ."<br>";
+         echo "Mostramos: " . $localesPorPagina  ."<br>";
+         echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
+         echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>-->
         <footer class="page-footer font-small blue">
             <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González       
-        </footer>-->
+        </footer>
     </body>
 </html>
