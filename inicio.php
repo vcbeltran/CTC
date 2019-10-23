@@ -5,13 +5,8 @@
     $totalFilasLocal = new consultasLocales();
     //var_dump($prueba);
     //Conecto con la clase locales para extraer un array con la información que hay en
-    //la bbdd referente a los locales
-   
-   
-    //var_dump($filas);
-    
+    //la bbdd referente a los locales 
 ?>
-
 <!--
 Muestra la pagina principal de la pagina donde aparecen todos los locales
 y donde da la opción de logearse (si ya estas registrado) o darse de alta. 
@@ -20,19 +15,19 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <html>
     <head>
         <meta charset="UTF-8">
-<!--        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
-           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified CSS -->
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">-->
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>
         <div class="container mt-5">
             <div class="row">               
-                 <div class="col-md-8"></div>
+                <div class="col-md-8"></div>
                 <!-- MENU NAVEGACION -->
                 <nav class="navbar navbar-dark bg-primary" style="background-color:#b3d9ff;">  
                     <a class="navbar-brand" href="formularioRegistro.php">Alta Nuevo Usuario</a>
@@ -40,30 +35,28 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 </nav>                
             </div>
         </div>       
-       <div class="container mt-3">
+       <div class="container mt-3"> 
+<!--           <div class='row'>-->
              <?php
-             //$_GET = 'pagina';
-             if (!$_GET) {
+            if (!$_GET) {
                  header("location:inicio.php?pagina=1");
-             }           
+            }           
             $conexionLocales = new ConsultasLocales();
-            $localesPorPagina = 3;            
+            $localesPorPagina = 4;            
+            //El segmento por página de los locales a mostrar
             $iniciar = ($_GET['pagina']-1)*$localesPorPagina;
-            //el total de filas que hay en la bbdd de los artículos
+            //el total de registros que hay en la bbdd de los locales
             $filas = $totalFilasLocal->totalFilas();
-            //todos los locales de la base de datos.
+            //todos los locales de la base de datos con LIMIT Y OFFSET 
             $locales = array();
-            $locales = $conexionLocales->listarLocales($iniciar,$localesPorPagina);
-            var_dump($iniciar);
-            var_dump($localesPorPagina);
-            var_dump($locales);
-            echo $iniciar ." " . "Locales por pagina" . $localesPorPagina;
+            $locales = $conexionLocales->listarLocalesPaginacion($iniciar,$localesPorPagina);
+            //var_dump($locales);
             $contador = 1;
             foreach ($locales as $local):
-                if ($contador == 1) {
+               if ($contador == 1) {
                     //empieza el row
                     print("<div class='row'>");
-                }                          
+                }                       
                 //empieza una col con su card dentro
                 print("<div class='col-md-3'>");
                 //empieza una card
@@ -82,50 +75,49 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("</div>");
                 //cierra col
                 print("</div>");
-
-                if ($contador == 4) {
+              if ($contador == 4) {
                     //cuando haya 4 card acaba el row
                     print("</div>");
                     $contador = 0;
                 } 
                 $contador++;
             endforeach;
-              print("</div>");
+              //print("</div>");
             ?>                                           
-            </div>
+<!--            </div>-->
+           </div>
         <div class="container mt-3">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <!--Boton anterior-->
-                    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
-                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']-1 ?>">Anterior</a>
+                    <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">Anterior</a>
                     </li>
-                    <?php   
+                    <?php
                     //botones de paginación             
                     $totalPaginas = ceil($filas / $localesPorPagina);
-                    //echo $filas;
-                    //echo $totalPaginas;
-                    for($i=0; $i<$totalPaginas ; $i++): ?>
-                    <li class="page-item <?php echo $_GET['pagina']== $i+1 ? 'active' : '' ?>">
-                        <a class="page-link" href="inicio.php?pagina=<?php echo $i+1 ?>"> <?php echo $i+1 ?></a>
-                    </li>
-                    <?php endfor;?>
-                    <li class="page-item <?php echo $_GET['pagina']>=$totalPaginas ? 'disabled' : '' ?>">
-                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                    for ($i = 0; $i < $totalPaginas; $i++):
+                        ?>
+                        <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                            <a class="page-link" href="inicio.php?pagina=<?php echo $i + 1 ?>"> <?php echo $i + 1 ?></a>
+                        </li>
+                    <?php endfor; ?>
+                    <li class="page-item <?php echo $_GET['pagina'] >= $totalPaginas ? 'disabled' : '' ?>">
+                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
                             Siguiente
                         </a>
                     </li>
                 </ul>
             </nav>
-                    <?php echo "numero registros de la consulta:" . $filas ."<br>";
-              echo "mostramos " . $localesPorPagina  ."<br>";
-              echo "mostramos la pagina :" . $_GET['pagina'] . " de " . $totalPaginas ."<br>" ?>
         </div>
+        <?php echo "Número total registros de la consulta:" . $filas ."<br>";
+              echo "Mostramos: " . $localesPorPagina  ."<br>";
+              echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
+              echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>
+      
         <!--           
         <footer class="page-footer font-small blue">
-                   <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González
-  
-                   </div>
+            <div class="footer-copyright text-center py-3"> © 2019 Desarrolado por: Verónica Beltrán González       
         </footer>-->
     </body>
 </html>
