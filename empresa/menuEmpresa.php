@@ -39,7 +39,7 @@ Además permite ver algún listado de los locales.
                         </a>                           
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                             <a class="dropdown-item" href="formularioFechaPrecio.php">Agregar Fechas Precio</a>
-                            <a class="dropdown-item" href="#">Consultar fechas precio</a>
+                            <a class="dropdown-item" href="editarFechaPrecio.php">Consultar fechas precio</a>
                         </div>               
                     </div>
                     <div class="dropdown">

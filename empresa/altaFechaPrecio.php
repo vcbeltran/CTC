@@ -28,7 +28,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php  if (empty($fecha) && empty($precio) && empty($horaIni) && empty($horaFin)) { ?>
+        <?php  if (empty($fecha)==false && empty($precio)==false && empty($horaIni)==false && empty($horaFin)==false) { ?>
         <div class="container mt-5">
             <div class="alert alert-danger mb-2" role="alert">
                Hay algún dato que es nulo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
@@ -42,7 +42,7 @@ and open the template in the editor.
                     </div>
                 </div>       
                <?php } else { ?>
-                <div class="container">
+                <div class="container mt-5">
                     <div class="alert alert-danger" role="alert">
                         Algo ha ido mal! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
                     </div>
