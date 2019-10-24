@@ -36,7 +36,7 @@ and open the template in the editor.
         </div>
         <?php } else {
                 if ($altaFecha->insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal)) { ?>
-                <div class="container">
+                <div class="container mt-5">
                     <div class="alert alert-success" role="alert">
                         Ha dado de alta correctamente el registro nuevo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
                     </div>
