@@ -9,8 +9,7 @@
         $horaIni = $_REQUEST['horaInicio'];
         $horaFin = $_REQUEST['horaFin'];
         $idlocal = $_SESSION['local'];
-        
-         
+      
     ?>
 <!DOCTYPE html>
 <!--
@@ -28,26 +27,22 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php  if (empty($fecha)==false && empty($precio)==false && empty($horaIni)==false && empty($horaFin)==false) { ?>
-        <div class="container mt-5">
-            <div class="alert alert-danger mb-2" role="alert">
-               Hay algún dato que es nulo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
-            </div>
-        </div>
-        <?php } else {
-                if ($altaFecha->insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal)) { ?>
-                <div class="container mt-5">
-                    <div class="alert alert-success" role="alert">
-                        Ha dado de alta correctamente el registro nuevo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
-                    </div>
-                </div>       
-               <?php } else { ?>
-                <div class="container mt-5">
-                    <div class="alert alert-danger" role="alert">
-                        Algo ha ido mal! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
-                    </div>
-                </div>
-                <?php }
-                }?>
+     
+        <?php  if (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin)){?> 
+             <?php   if ($altaFecha->insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal)) { ?>        
+                        <div class="container mt-5">
+                            <div class="alert alert-success" role="alert">
+                                Ha dado de alta correctamente el registro nuevo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
+                            </div>
+                        </div>            
+             <?php }                  
+            } else { ?>  
+                       <div class="container mt-5">
+                            <div class="alert alert-danger mb-2" role="alert">
+                               Hay algún dato que es nulo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
+                            </div>
+                        </div>   
+             <?php } ?>
+                
     </body>
 </html>

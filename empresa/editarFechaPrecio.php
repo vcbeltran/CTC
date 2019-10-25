@@ -14,9 +14,49 @@ and open the template in the editor.
         <title>Edite los datos de su Empresa</title>
     </head>
     <body>
-
+        
         <?php
-        // put your code here
+        include ('../consultas/consultasLocalFechaPrecio.php');
+        session_start();
+        $idLocal = $_SESSION['local'];
+        var_dump($idLocal);
+        //Consulto la lista de fechas precio disponibles para mi local
+        $datosFechaPrecio = new consultasLocalFechaPrecio();
+        $recuperaDatos = array();
+        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal);
+        var_dump($recuperaDatos);        
         ?>
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
