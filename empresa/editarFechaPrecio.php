@@ -19,42 +19,45 @@ and open the template in the editor.
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
         $idLocal = $_SESSION['local'];
-        var_dump($idLocal);
+        //var_dump($idLocal);
         //Consulto la lista de fechas precio disponibles para mi local
         $datosFechaPrecio = new consultasLocalFechaPrecio();
         $recuperaDatos = array();
         $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal);
-        var_dump($recuperaDatos);        
+        //var_dump($recuperaDatos);        
         ?>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#A9F5A9;">
+                    <a class="navbar-brand" href="menuEmpresa.php">Vuelva al menú Empresa</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
         <div class="container mt-5">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Hora Inicio</th>
+                        <th scope="col">Hora Fin</th>
+                        <th scope="col">Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                     <?php foreach ($recuperaDatos as $datos): ?>                         
+                        <th scope="row"><?php echo date("d/m/Y", strtotime($datos[1]))?></th>
+                        <td><?php echo $datos[2]?></td>
+                        <td><?php echo $datos[3]?></td>
+                        <td><?php echo $datos[4]?></td>
+                        <td><?php echo $datos[5]?></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
