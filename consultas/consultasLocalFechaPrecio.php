@@ -42,4 +42,14 @@ class consultasLocalFechaPrecio {
         }
         return $fechasPrecio;
     }
+    
+        /*recupera los datos de una fila del local fechas y precio*/
+    public function recuperaFilaLocalFechaPrecio($codigo){
+        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCALFECHAPRECIO = '$codigo'";
+
+        $resultado = $this->conexion->query($consulta);
+
+        $fila = $resultado->fetch_assoc();
+        return $fila;
+    }
 }

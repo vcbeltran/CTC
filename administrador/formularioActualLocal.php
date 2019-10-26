@@ -38,7 +38,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                      <h2>Edite los datos del Local</h2>
+                    <h2>Edite los datos del Local</h2>
                     <form action="actualizarLocal.php" method="POST" enctype="multipart/form-data">    
                         <div class="form-group"> 
                             <label for="InputName">Código local</label>
