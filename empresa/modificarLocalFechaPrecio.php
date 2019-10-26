@@ -26,6 +26,17 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="editarFechaPrecio.php">Vuelva a la lista de fechas</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
             <div class="container mt-5" >
             <div class="row mt-5">
                 <div class="col-md-2"></div>
