@@ -5,12 +5,14 @@
     
     echo  $_SESSION['nombrelocal'];
     $_SESSION['accion'] = "actualizar";
-    $idLocalFecha = $_REQUEST['codigo'];        
+    $idLocalFechaPrecio = $_REQUEST['codigo'];        
   
     $consultaFechas = new consultasLocalFechaPrecio();
     $fechaPrecioFila = array();
-    $fechaPrecioFila = $consultaFechas->recuperaFilaLocalFechaPrecio($idLocalFecha);    
+    $fechaPrecioFila = $consultaFechas->recuperaFilaLocalFechaPrecio($idLocalFechaPrecio);    
     var_dump($fechaPrecioFila['IDLOCALFECHAPRECIO']);
+    echo "id local fecha". $idLocalFechaPrecio;
+    echo "id local: ".$fechaPrecioFila['IDLOCALFECHAPRECIO'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -47,13 +49,17 @@ and open the template in the editor.
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Actualiza las fechas disponibles del local</legend>
                         <form action="altaFechaPrecio.php?accion=actualizar" method="GET">
-                            <div class="form-group">
-                                <label for="nombre" class="col-form-label"> Nombre de su local </label>               
-                                <input type="text" class="form-control" id="nombre"  name="nombre" value="<?php echo $_SESSION['nombrelocal'] ?>" readonly="true">
+                            <div class="form-group">                               
+                                <div class="col-5">
+                                       <label for="nombre" class="col-form-label"> Nombre de su local </label>    
+                                    <input type="text" class="form-control" id="nombre"  name="nombre" value="<?php echo $_SESSION['nombrelocal'] ?>" readonly="true">
+                                    <label for="codigo" class="col-form-label"> Codigo de su fecha disponible </label>               
+                                    <input type="text" class="form-control" id="codigo"  name="codigoFecha" value="<?php echo $idLocalFechaPrecio; ?>" readonly="true">
+                                </div>
                             </div>   
                            <div class="form-group">
                                 <label for="fecha" class="col-form-label"> Fecha </label>               
-                                <input type="date" class="form-control" id="fecha"  name="fecha" value="<?php echo date("d-m-Y",strtotime($fechaPrecioFila['FECHARESERVADA']))  ?>">
+                                <input type="text" class="form-control" id="fecha"  name="fecha" value="<?php echo date("d-m-Y",strtotime($fechaPrecioFila['FECHARESERVADA']))  ?>">
                             </div>      
                             <div class="form-group">
                                 <label for="precio" class="col-form-label">Precio</label>               

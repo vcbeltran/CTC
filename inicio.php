@@ -31,8 +31,8 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 <div class="col-md-8"></div>
                 <!-- MENU NAVEGACION -->
                 <nav class="navbar navbar-dark bg-primary" style="background-color:#b3d9ff;">  
-                    <a class="navbar-brand" href="formularioRegistro.php">Alta Nuevo Usuario</a>
-                    <a class="navbar-brand" href="formularioLogin.php">Acceso Usuarios</a>
+                    <a class="navbar-brand" href="formularioRegistro.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Alta Nuevo Usuario</a>
+                    <span>  </span><a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
                 </nav>                
             </div>
         </div>       

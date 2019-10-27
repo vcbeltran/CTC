@@ -44,7 +44,7 @@ and open the template in the editor.
         <?php
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
-        //$idLocal = $_SESSION['local'];
+        $idLocal = $_SESSION['local'];
         //var_dump($idLocal);
         //Consulto la lista de fechas precio disponibles para mi local
         $datosFechaPrecio = new consultasLocalFechaPrecio();
@@ -77,7 +77,7 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <?php foreach ($recuperaDatos as $datos): ?>                         
-                            <td scope="row"><?php echo date("d/m/Y", strtotime($datos[1])) ?></td>
+                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos[1])) ?></td>
                             <td><?php echo $datos[2] ?></td>
                             <td><?php echo $datos[3] ?></td>
                             <td><?php echo $datos[4] ?></td>                 
