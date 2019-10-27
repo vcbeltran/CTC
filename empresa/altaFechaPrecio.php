@@ -11,11 +11,6 @@
         $horaFin = $_REQUEST['horaFin'];
         $idlocal = $_SESSION['local'];
         $accion = $_SESSION['accion'];
-        $codigoFechaPrecio = $_REQUEST['codigoFecha'];
-        var_dump($accion);
-       
-        var_dump($fecha);
-
       
     ?>
 <!DOCTYPE html>
@@ -37,13 +32,13 @@ and open the template in the editor.
     <body>
      
         <?php  
-        if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin)  && ($fecha < now()) ) {
+        if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin) /* &&($fecha < now())*/ ) {
             if ($accion == "alta") {
                 if ($altaFecha->insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal)) {
                     ?>        
                     <div class="container mt-5">
-                        <div class="alert alert-success" role="alert">
-                            Ha dado de alta correctamente el registro nuevo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
+                        <div class="alert alert-success mb-2" role="alert">
+                            <i class="fa fa-check" aria-hidden="true"></i> Ha dado de alta correctamente el registro nuevo! <a href="formularioFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
                         </div>
                     </div>            
                     <?php
@@ -56,13 +51,14 @@ and open the template in the editor.
                     </div>   
             <?php }
             }
+                 $codigoFechaPrecio = $_REQUEST['codigoFecha'];
              if ($accion == "actualizar"){
                 print("<br>");
                 var_dump($fecha);
                 if ($actualizaFecha->actualizarFechaPrecio($fecha, $precio, $horaIni, $horaFin, $codigoFechaPrecio)){ ?>
                     <div class="container mt-5">
                         <div class="alert alert-success mb-2" role="alert">
-                            Has actualizado el registro <a href="editarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
+                            <i class="fa fa-check" aria-hidden="true"></i>vHas actualizado el registro <a href="editarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
                         </div>
                     </div>  
              <?php   } else {?>
