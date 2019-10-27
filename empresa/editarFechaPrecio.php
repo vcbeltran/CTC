@@ -44,7 +44,7 @@ and open the template in the editor.
         <?php
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
-        $idLocal = $_SESSION['local'];
+        //$idLocal = $_SESSION['local'];
         //var_dump($idLocal);
         //Consulto la lista de fechas precio disponibles para mi local
         $datosFechaPrecio = new consultasLocalFechaPrecio();
@@ -56,7 +56,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#A9F5A9;">
-                    <a class="navbar-brand" href="menuEmpresa.php">Vuelva al menú Empresa</a>
+                    <a class="navbar-brand" href="menuEmpresa.php"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Vuelva al menú Empresa</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -82,7 +82,7 @@ and open the template in the editor.
                             <td><?php echo $datos[3] ?></td>
                             <td><?php echo $datos[4] ?></td>                 
                             <td>                          
-                                <a class="btn btn-primary" href='modificarLocalFechaPrecio.php?codigo=<?php echo $datos[0] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[0] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                 <button type="button" class="btn btn-danger" data-id="<?php $datos[0] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>

@@ -20,15 +20,18 @@ and open the template in the editor.
                 <div class="col-md-8">
                     <form action="adminLogin.php" method="POST">
                         <div class="form-group" >
+                           <span class="input-group-addon"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                             <label for="inputNombre" class="col-form-label"> Nombre </label>               
                             <input type="text" class="form-control" id="inputNombre" placeholder="Introduzca su nombre" name="nombre">
                         </div>        
                         <div class="form-group" >
-                            <label for="inputEmail3" class="col-form-label">Email</label>               
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+                            <label for="inputEmail3" class="col-form-label">Email</label>                            
                             <input type="email" class="form-control is-valid" id="inputEmail3" placeholder="Email" name="mail">
                         </div>             
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-form-label">Password</label>                
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
+                            <label for="inputPassword3" class="col-form-label">Password</label>                              
                             <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra" required>
                         </div> 
                         <div class="form-group">

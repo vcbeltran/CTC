@@ -4,11 +4,13 @@
     session_start();
     
     echo  $_SESSION['nombrelocal'];
+    $_SESSION['accion'] = "actualizar";
     $idLocalFecha = $_REQUEST['codigo'];        
   
     $consultaFechas = new consultasLocalFechaPrecio();
     $fechaPrecioFila = array();
-    $fechaPrecioFila = $consultaFechas->recuperaFilaLocalFechaPrecio($idLocalFecha);        
+    $fechaPrecioFila = $consultaFechas->recuperaFilaLocalFechaPrecio($idLocalFecha);    
+    var_dump($fechaPrecioFila['IDLOCALFECHAPRECIO']);
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,6 +25,7 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+         <script src="https://use.fontawesome.com/9572130963.js"></script>
         <title></title>
     </head>
     <body>
@@ -30,7 +33,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="editarFechaPrecio.php">Vuelva a la lista de fechas</a>
+                    <a class="navbar-brand" href="editarFechaPrecio.php"><i class="fa fa-arrow-left" aria-hidden="true"></i> Vuelva a la lista de fechas</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -42,15 +45,15 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Actualiza los datos del local</legend>
-                        <form action= ../ method="POST">
+                        <legend class="scheduler-border">Actualiza las fechas disponibles del local</legend>
+                        <form action="altaFechaPrecio.php?accion=actualizar" method="GET">
                             <div class="form-group">
                                 <label for="nombre" class="col-form-label"> Nombre de su local </label>               
                                 <input type="text" class="form-control" id="nombre"  name="nombre" value="<?php echo $_SESSION['nombrelocal'] ?>" readonly="true">
                             </div>   
                            <div class="form-group">
                                 <label for="fecha" class="col-form-label"> Fecha </label>               
-                                <input type="date" class="form-control" id="fecha"  name="fecha" value="<?php echo date("d/m/Y",strtotime($fechaPrecioFila['FECHARESERVADA']))  ?>">
+                                <input type="date" class="form-control" id="fecha"  name="fecha" value="<?php echo date("d-m-Y",strtotime($fechaPrecioFila['FECHARESERVADA']))  ?>">
                             </div>      
                             <div class="form-group">
                                 <label for="precio" class="col-form-label">Precio</label>               
@@ -58,11 +61,11 @@ and open the template in the editor.
                             </div>             
                             <div class="form-group">
                                 <label for="horaini" class="col-form-label">Hora inicio</label>                
-                                <input  type="time" class="form-control" id="horaini"  name="horaini"  value="<?php echo $fechaPrecioFila['HORAINICIO']?>">
+                                <input  type="time" class="form-control" id="horaini"  name="horaInicio"  value="<?php echo $fechaPrecioFila['HORAINICIO']?>">
                             </div> 
                             <div class="form-group">
-                                <label for="horaini" class="col-form-label">Hora Fin</label>                
-                                <input  type="time" class="form-control" id="horaini"  name="horaini"  value="<?php echo $fechaPrecioFila['HORAFIN']?>">
+                                <label for="horafin" class="col-form-label">Hora Fin</label>                
+                                <input  type="time" class="form-control" id="horaini"  name="horaFin"  value="<?php echo $fechaPrecioFila['HORAFIN']?>">
                             </div> 
                             <div class="form-group">
                                 <div class="col-auto">

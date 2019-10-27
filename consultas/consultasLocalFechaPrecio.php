@@ -1,9 +1,7 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Consultas relativas a la gestión y disponibilidad de los loscales fechas y precio
  */
 
 /**
@@ -24,12 +22,13 @@ class consultasLocalFechaPrecio {
     }
 
     public function insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal){
-        $alta = "INSERT INTO LOCALFECHAPRECIO (FECHARESERVADA, PRECIO, HORAINICIO, HORAFIN, IDLOCAL)"
-                . " VALUES ('$fecha','$precio','$horaIni','$horaFin', '$idlocal')";
        
-        if($this->conexion->query($alta)){
-            return true;
-        }        
+            $alta = "INSERT INTO LOCALFECHAPRECIO (FECHARESERVADA, PRECIO, HORAINICIO, HORAFIN, IDLOCAL, RESERVADO)"
+                        . " VALUES ('$fecha','$precio','$horaIni','$horaFin', '$idlocal', 0)";
+
+                if ($this->conexion->query($alta)) {
+                    return true;
+            }        
     }
     /*recupera los datos del local fechas y precio*/
     public function recuperaDatosLocalFechaPrecio($idLocal){
@@ -43,7 +42,7 @@ class consultasLocalFechaPrecio {
         return $fechasPrecio;
     }
     
-        /*recupera los datos de una fila del local fechas y precio*/
+    /*recupera los datos de una fila del local fechas y precio*/
     public function recuperaFilaLocalFechaPrecio($codigo){
         $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCALFECHAPRECIO = '$codigo'";
 
@@ -51,5 +50,15 @@ class consultasLocalFechaPrecio {
 
         $fila = $resultado->fetch_assoc();
         return $fila;
+    }
+    
+    public function actualizarFechaPrecio($fechareservada, $precio, $horainicio, $horafin, $codigo){
+        $consulta = "UPDATE LOCALFECHAPRECIO SET FECHARESERVADA = '$fechareservada', PRECIO = '$precio', "
+                . "HORAINICIO = '$horainicio', HORAFIN = '$horafin' WHERE IDLOCALFECHAPRECIO = '$codigo'";
+        
+        if ($this->conexion->query($consulta)){
+            return true;
+        }
+        
     }
 }
