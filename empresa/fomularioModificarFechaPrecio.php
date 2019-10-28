@@ -75,7 +75,7 @@ and open the template in the editor.
                             </div> 
                             <div class="form-group">
                                 <div class="col-auto">
-                                    <button type="submit" class="btn btn-secondary mb-2">Actualizar</button>
+                                    <button type="submit" class="btn btn-success mb-2">Actualizar</button>
                                 </div>
                             </div>
                         </form>                        

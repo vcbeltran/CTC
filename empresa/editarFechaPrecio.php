@@ -53,22 +53,19 @@ and open the template in the editor.
             if (!$_GET) {
                  header("location:editarFechaPrecio.php?pagina=1");
             }    
-        $fechasPorPagina = 10;
+        $fechasPorPagina = 2;
         //El segmento por página de los locales a mostrar
         $iniciar = ($_GET['pagina']-1)*$fechasPorPagina;
         
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
         $idLocal = $_SESSION['local'];
-        var_dump($idLocal);
-        $cuentaFilas = new consultasLocalFechaPrecio();
-        $filas = $cuentaFilas->contarFilasLocalFechaPrecio();
-  
+        //var_dump($idLocal);         
         //Consulto la lista de fechas precio disponibles para mi local
         $datosFechaPrecio = new consultasLocalFechaPrecio();
         try {
         $recuperaDatos = array();
-        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($iniciar,$fechasPorPagina);
+        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal,$iniciar,$fechasPorPagina);
         } catch (Exception $e){
              echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
         }
@@ -107,7 +104,7 @@ and open the template in the editor.
                                 <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[0] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                 <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[0] ?>' data-id="<?php $datos[0] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>
-                        </tr>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -121,9 +118,8 @@ and open the template in the editor.
                     </li>
                  
                     <?php
-                    $cuentaFilas = new consultasLocalFechaPrecio();
-                    $filas = $cuentaFilas->contarFilasLocalFechaPrecio();
-                    $fechasPorPagina = 10;
+                    //$cuentaFilas = new consultasLocalFechaPrecio();
+                    $filas = $datosFechaPrecio->contarFilasLocalFechaPrecio($idLocal);                  
                     //botones de paginación             
                     $totalPaginas = ceil($filas / $fechasPorPagina);
                     for ($i = 0; $i < $totalPaginas; $i++):

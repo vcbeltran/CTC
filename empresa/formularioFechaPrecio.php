@@ -12,7 +12,7 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/9572130963.js"></script>
-        <title>Formulario Empresa</title>
+        <title>Formulario Fecha Empresa</title>
     </head>
     <body>
         <?php
@@ -39,7 +39,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <h2>Añada nueva fecha para su empresa</h2>
+                    <h3>Añada nueva fecha para su empresa</h3>
                     <form action="altaFechaPrecio.php" method="GET">
                         <div class="form-group row">
                             <label for="example-texto-local" class="col-2 col-form-label">Tu local es </label>
@@ -67,14 +67,42 @@ and open the template in the editor.
                         </div>
                         <div class="form-group row">
                             <label for="example-time-input2" class="col-2 col-form-label">Hora Fin</label>
-                            <div class="col-10">
-                                <input class="form-control" type="time" id="example-time-input2" name="horaFin">
+                            <div class="col-10"> 
+                            <input class="form-control" type="time" id="example-time-input2" name="horaFin">
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary mb-2">Dar alta</button>
-                            <input class="btn btn-primary mb-2" type="reset" value="Reset">
-                        </div>                   
+<!--                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success mb-2">Dar alta</button>
+                            <input class="btn btn-success mb-2" type="reset" value="Reset">
+                        </div>   -->
+                        <div class="form-group row">
+                            <div class="col-3">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                Alta Fecha
+                            </button> 
+                            </div>
+                            <input class="btn btn-success" type="reset" value="Reset">
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Va a añadir un registro</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Seguro que quiere agregar los datos?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button>
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
                     </form>
                 </div>
             </div>

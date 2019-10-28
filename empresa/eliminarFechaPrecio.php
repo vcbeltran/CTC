@@ -15,10 +15,13 @@ and open the template in the editor.
         session_start();
         $codigo = $_REQUEST['codigo'];
         
+        var_dump($codigo);
+        $consultaEliminar = new consultasLocalFechaPrecio();
         
-        
-        
-        
-        ?>
+        if ($consultaEliminar->borrarFechaPrecio($codigo)){ ?>
+            
+            
+            
+        <?php } ?>
     </body>
 </html>

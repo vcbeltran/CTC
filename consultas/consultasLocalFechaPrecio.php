@@ -30,8 +30,9 @@ class consultasLocalFechaPrecio {
                     return true;
             }        
     }
-    /*recupera los datos del local fechas y precio*/
-//    public function recuperaDatosLocalFechaPrecio($idLocal){
+    /*recupera los datos del local fechas y precio
+    lo comento porque hago paginación    */
+//   public function recuperaDatosLocalFechaPrecio($idLocal){
 //        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = '$idLocal'";
 //        
 //        $resultado = $this->conexion->query($consulta);
@@ -41,12 +42,13 @@ class consultasLocalFechaPrecio {
 //        }
 //        return $fechasPrecio;
 //    }
-      public function recuperaDatosLocalFechaPrecio($iniciar,$fechasPorPagina){
+    /*Consulta para traer los datos de la tabla de fechas precio paginados. */
+      public function recuperaDatosLocalFechaPrecio($idLocal,$iniciar,$fechasPorPagina){
         try {
-        $consulta = "SELECT * FROM LOCALFECHAPRECIO  LOCAL LIMIT ?, ? ";
+        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = ? LIMIT ?, ? ";
 
         $stmt = $this->conexion->prepare($consulta);
-        $stmt->bind_param('ss',$iniciar,$fechasPorPagina);
+        $stmt->bind_param('iss',$idLocal,$iniciar,$fechasPorPagina);
         $stmt -> execute();
         $this->resultado = $stmt->get_result();
         $fechasPrecio = array();
@@ -72,16 +74,16 @@ class consultasLocalFechaPrecio {
         return $fila;
     }
     
-        /*cuenta el totoal de filas*/
-    public function contarFilasLocalFechaPrecio(){
-        $consulta = "SELECT * FROM LOCALFECHAPRECIO";
+    /*Cuenta el total de filas*/
+    public function contarFilasLocalFechaPrecio($idLocal){
+        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = '$idLocal'";
 
         $resultado = $this->conexion->query($consulta);
 
         $fila = $resultado->num_rows;
         return $fila;
     }
-    
+    /* Actualiza un registro de fecha precio */
     public function actualizarFechaPrecio($fechareservada, $precio, $horainicio, $horafin, $codigo){
         $consulta = "UPDATE LOCALFECHAPRECIO SET FECHARESERVADA = '$fechareservada', PRECIO = '$precio', "
                 . "HORAINICIO = '$horainicio', HORAFIN = '$horafin' WHERE IDLOCALFECHAPRECIO = '$codigo'";
@@ -91,8 +93,13 @@ class consultasLocalFechaPrecio {
         }
         
     }
-    
+    /* Se borra un registro de fecha */
     public function borrarFechaPrecio($codigo){
-        $consulta = "DELETE LOCALFECHAPRECIO WHERE CODIGO = '$CODIGO'";
+        $consulta = "DELETE FROM LOCALFECHAPRECIO WHERE IDLOCALFECHAPRECIO = '$codigo'";
+        
+        if ($this->conexion->query($consulta)){
+            return true;
+        }
+        
     }
 }

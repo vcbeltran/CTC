@@ -1,0 +1,56 @@
+    <?php
+        
+        include ('../consultas/consultasLocalFechaPrecio.php');
+        session_start();
+        $altaFecha = new consultasLocalFechaPrecio();     
+        $actualizaFecha = new consultasLocalFechaPrecio();
+        //los datos del formulario y un dato que necesito de la sesión que, es el local asignado a empresa
+        $fecha = date("Y-m-d",strtotime($_REQUEST['fecha']));
+        $precio = $_REQUEST['precio'];
+        $horaIni = $_REQUEST['horaInicio'];
+        $horaFin = $_REQUEST['horaFin'];
+        $idlocal = $_SESSION['local'];
+        $accion = $_SESSION['accion'];
+        $codigoFechaPrecio = $_REQUEST['codigoFecha'];
+      
+    ?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+         if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin) /* &&($fecha < now())*/ ) {
+          if ($accion == "actualizar"){
+                print("<br>");
+                var_dump($fecha);
+                if ($actualizaFecha->actualizarFechaPrecio($fecha, $precio, $horaIni, $horaFin, $codigoFechaPrecio)){ ?>
+                    <div class="container mt-5">
+                        <div class="alert alert-success mb-2" role="alert">
+                            <i class="fa fa-check" aria-hidden="true"></i> Has actualizado el registro <a href="editarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
+                        </div>
+                    </div>  
+             <?php   } else {?>
+                     <div class="container mt-5">
+                        <div class="alert alert-danger mb-2" role="alert">
+                            Algo ha ido mal!  <a href="fomularioModificarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al fomulario</strong></a>
+                        </div>
+                    </div>   
+              <?php  }               
+              }
+        } else { ?>   
+        <div class="container mt-5">
+                <div class="alert alert-danger mb-2" role="alert">
+                    Hay algún dato que es nulo! <a href="menuEmpresa.php" class="alert-link"><strong>Pulse aquí para volver al menú principal</strong></a>
+                </div>
+        </div>  
+        <?php } ?>   
+    </body>
+</html>
