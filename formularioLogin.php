@@ -21,17 +21,13 @@ and open the template in the editor.
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Acceso usuarios registrados</legend>
                         <form action="adminLogin.php" method="POST">
-<!--                            <div class="form-group">
-                                <label for="inputNombre" class="col-form-label"> Nombre </label>               
-                                <input type="text" class="form-control" id="inputNombre" placeholder="Introduzca su nombre" name="nombre">
-                            </div>        -->
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-form-label">Email</label>               
                                 <input type="email" class="form-control is-valid" id="inputEmail3" placeholder="Email" name="mail">
                             </div>             
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-form-label">Password</label>                
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra" required>
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra">
                             </div> 
                             <div class="form-group">
                                 <div class="col-auto">
