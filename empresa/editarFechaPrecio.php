@@ -16,8 +16,22 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <title>Edite los datos de su Empresa</title>
     </head>
-<!--    <body>
-       <script>
+    <script type="text/javascript">
+ $(document).ready(function(){
+        $(document).on('click', '[data-id]', function(e){ 
+         var form = document.getElementById('miBoton');
+         form.addEventListener('submit', function(event) {
+           // si es false entonces que no haga el submit
+           if (!confirm('Realmente desea eliminar?')) {
+             event.preventDefault();
+           }
+         }, false);
+       })();
+     }); 
+   });
+    </script>
+  <body>
+<!--     <script>
         $(document).ready(function(){
             $(document).on('click', '[data-id]', function(e){ 
                 e.preventDefault();
@@ -53,7 +67,7 @@ and open the template in the editor.
             if (!$_GET) {
                  header("location:editarFechaPrecio.php?pagina=1");
             }    
-        $fechasPorPagina = 2;
+        $fechasPorPagina = 10;
         //El segmento por página de los locales a mostrar
         $iniciar = ($_GET['pagina']-1)*$fechasPorPagina;
         
@@ -62,10 +76,11 @@ and open the template in the editor.
         $idLocal = $_SESSION['local'];
         //var_dump($idLocal);         
         //Consulto la lista de fechas precio disponibles para mi local
+        $reservado = 0;
         $datosFechaPrecio = new consultasLocalFechaPrecio();
         try {
         $recuperaDatos = array();
-        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal,$iniciar,$fechasPorPagina);
+        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal,$reservado,$iniciar,$fechasPorPagina);
         } catch (Exception $e){
              echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
         }
@@ -102,7 +117,7 @@ and open the template in the editor.
                             <td><?php echo $datos[4] ?></td>                 
                             <td>                          
                                 <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[0] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[0] ?>' data-id="<?php $datos[0] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[0] ?>&boton=eliminar' data-id="<?php $datos[0] ?>" name="botonElimina" id="miBoton""><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
                             </td>
                     </tr>
                     <?php endforeach; ?>

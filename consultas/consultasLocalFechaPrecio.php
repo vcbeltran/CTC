@@ -43,12 +43,12 @@ class consultasLocalFechaPrecio {
 //        return $fechasPrecio;
 //    }
     /*Consulta para traer los datos de la tabla de fechas precio paginados. */
-      public function recuperaDatosLocalFechaPrecio($idLocal,$iniciar,$fechasPorPagina){
+      public function recuperaDatosLocalFechaPrecio($idLocal,$reservado,$iniciar,$fechasPorPagina){
         try {
-        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = ? LIMIT ?, ? ";
+        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = ? AND RESERVADO = ? ORDER BY FECHARESERVADA DESC LIMIT ?, ? ";
 
         $stmt = $this->conexion->prepare($consulta);
-        $stmt->bind_param('iss',$idLocal,$iniciar,$fechasPorPagina);
+        $stmt->bind_param('iiss',$idLocal,$reservado,$iniciar,$fechasPorPagina);
         $stmt -> execute();
         $this->resultado = $stmt->get_result();
         $fechasPrecio = array();
@@ -76,7 +76,7 @@ class consultasLocalFechaPrecio {
     
     /*Cuenta el total de filas*/
     public function contarFilasLocalFechaPrecio($idLocal){
-        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = '$idLocal'";
+        $consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = '$idLocal' ";
 
         $resultado = $this->conexion->query($consulta);
 

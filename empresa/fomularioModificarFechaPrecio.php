@@ -3,16 +3,16 @@
         
     session_start();
     
-    echo  $_SESSION['nombrelocal'];
+    //echo  $_SESSION['nombrelocal'];
     $_SESSION['accion'] = "actualizar";
     $idLocalFechaPrecio = $_REQUEST['codigo'];        
   
     $consultaFechas = new consultasLocalFechaPrecio();
     $fechaPrecioFila = array();
     $fechaPrecioFila = $consultaFechas->recuperaFilaLocalFechaPrecio($idLocalFechaPrecio);    
-    var_dump($fechaPrecioFila['IDLOCALFECHAPRECIO']);
-    echo "id local fecha". $idLocalFechaPrecio;
-    echo "id local: ".$fechaPrecioFila['IDLOCALFECHAPRECIO'];
+    //var_dump($fechaPrecioFila['IDLOCALFECHAPRECIO']);
+    //echo "id local fecha". $idLocalFechaPrecio;
+   
 ?>
 <!DOCTYPE html>
 <!--

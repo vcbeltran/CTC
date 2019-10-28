@@ -32,7 +32,7 @@ and open the template in the editor.
     <body>
      
         <?php  
-        if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin) /* &&($fecha < now())*/ ) {
+        if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin)  && !($fecha < date("Y-m-d")) ) {
             if ($accion == "alta") {
                 if ($altaFecha->insertaPrecio($fecha, $precio, $horaIni, $horaFin, $idlocal)) {
                     ?>        
