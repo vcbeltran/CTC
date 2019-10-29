@@ -54,7 +54,7 @@ and open the template in the editor.
         } else { ?>   
         <div class="container mt-5">
                 <div class="alert alert-danger mb-2" role="alert">
-                    Hay algún dato que es nulo o la fecha es menor que la fecha actual <a href="menuEmpresa.php" class="alert-link"><strong>Pulse aquí para volver al menú principal</strong></a>
+                    Hay algún dato que es nulo o la fecha es menor que la fecha actual <a href="fomularioModificarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver al menú principal</strong></a>
                 </div>
         </div>  
         <?php } ?>   

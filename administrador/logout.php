@@ -3,9 +3,9 @@
     session_start();
     
     if (isset($_SESSION['tipo'])){
-        session_destroy();
-        
+        session_destroy(); 
     }
-    header("location:../inicio.php");
+       header("location:../inicio.php");
+    
 
 ?>

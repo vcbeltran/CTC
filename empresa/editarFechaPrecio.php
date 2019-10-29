@@ -17,7 +17,7 @@ and open the template in the editor.
         <title>Edite los datos de su Empresa</title>
     </head>
     <script type="text/javascript">
- $(document).ready(function(){
+    $(document).ready(function(){
         $(document).on('click', '[data-id]', function(e){ 
          var form = document.getElementById('miBoton');
          form.addEventListener('submit', function(event) {

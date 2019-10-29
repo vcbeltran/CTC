@@ -9,7 +9,6 @@
 include 'consultas/conexiones.php';
 //creo un objeto de la clase conexión
 $conexion = new Conexiones();
-$conexion2 = new Conexiones();
 $compruebaLogin = new Conexiones();
 //rescato los datos del formulario
 //$nombre = $_REQUEST['nombre'];
@@ -40,12 +39,12 @@ if (isset($mail) && isset($pass)){
             include 'administrador/menuAdministrador.php';
             header("location:administrador/menuAdministrador.php");
             //var_dump($conexionTipo);
-            /* SI ES UN USUARIO EMPRESA SE REDIRECCIONA AL MENÚ */
+       /* SI ES UN USUARIO EMPRESA SE REDIRECCIONA AL MENÚ */
         } elseif ($conexionTipo[2] == 2) {
             session_start();
             //nombre usuario  
             //extrae el nombre local
-            $extraeDatosLocal = $conexion2->dameLocalUsuario($mail);
+            $extraeDatosLocal = $conexion->dameLocalUsuario($mail);
             //es el nombre
             $_SESSION['nombre'] = $conexionTipo[0];
             //tipo de conexion en string
@@ -58,12 +57,25 @@ if (isset($mail) && isset($pass)){
             $_SESSION['nombrelocal'] = $extraeDatosLocal[0];
 
             header("location:empresa/menuEmpresa.php");
+        /* SI ES UN USUARIO ONLINE REDIRECCIONA PERMITIENDO RESERVAS */
+        } elseif ($conexionTipo[2] == 3){
+            session_start();
+            //id de la conexion
+            $_SESSION['id'] = $conexionTipo[2];
+            //nombre tipo de usuario conectado
+            $_SESSION['nombre'] = $conexionTipo[0];
+            //tipo conexion en string
+             $_SESSION['tipo'] = $conexionTipo[1];
+             //nombre del usuario online
+            $_SESSION['nombreUsuario'] = $conexionTipo[4];
+            header("location:inicio.php");
         } 
+        
+        
     } else {
-            echo "Login no ok";
-        }
-
+        echo "Login no ok";
     }
+ }
 
 
 

@@ -26,14 +26,37 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>
+        <?php             
+         session_start(); 
+        ?>
         <div class="container mt-5">
             <div class="row">               
-                <div class="col-md-8"></div>
+               
                 <!-- MENU NAVEGACION -->
-                <nav class="navbar navbar-dark bg-primary" style="background-color:#b3d9ff;">  
+          <?php if (!isset($_SESSION['id'])) { ?>
+                <!-- Muestra los botones de LOGIN Y ACCESO SI EL USUARIO NO ESTÁ CONECTADO -->
+                 <div class="col-md-8"></div>
+                <nav class="navbar navbar-dark bg-warning" style="background-color:#b3d9ff;">  
                     <a class="navbar-brand" href="formularioRegistro.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Alta Nuevo Usuario</a>
-                    <span>  </span><a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
-                </nav>                
+                    <a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
+                     </nav>      
+          <?php } else {                   
+                    $tipoUsuario = $_SESSION['id'];
+                    $nombreUsuario = $_SESSION['nombre'];
+                    //var_dump($nombreUsuario);  ?>
+                 <div class="row">                          
+                        <div class="col md-3">
+                            <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo  $_SESSION['nombreUsuario']; ?></button>
+                        </div>
+                      <div class="col md-6"></div>
+                        <div class="col md-3">
+                          <nav class="navbar navbar-dark bg-warning" > 
+                                <a class="navbar-brand" href="logoutUser.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Cierra sesión </a> 
+                            </nav>  
+                        </div>
+                </div>
+         <?php }?>
+                         
             </div>
         </div>       
        <div class="container mt-3"> 
@@ -70,6 +93,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
+                //if ($_SESSION[''])
                 //cierra card body
                 print("</div>");
                 //cierra card
@@ -83,10 +107,9 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 } 
                 $contador++;
             endforeach;
-              //print("</div>");
-            ?>                                           
-<!--            </div>-->
-           </div>
+           
+            ?> 
+       </div>
         <div class="container mt-3">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
