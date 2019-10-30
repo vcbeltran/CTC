@@ -26,34 +26,36 @@ Además permite ver algún listado de los locales.
         
         ?>
    
-        <div class="container mt-5">
+        <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-md-2">
                     <button type="button" class="btn btn-success"><i class="fa fa-user-o" aria-hidden="true"></i> Usuario conectado: <?php echo $tipo['nombre']; ?></button>                    
-                </div>                
+                </div>   
                 <!-- MENU NAVEGACION -->
-                <nav class="navbar navbar-light" style="background-color:#A9F5A9;">  
-<!--                  <!-- Navbar content -->
-                    <div class="dropdown">
-                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Gestion Fechas
-                        </a>                           
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="formularioFechaPrecio.php"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span> Agregar Fechas Precio</a>
-                            <a class="dropdown-item" href="editarFechaPrecio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Consultar fechas precio</a>
-                        </div>               
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Consultar reservas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="#"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
-                        </div>  
-                    </div>
-                    <a class="navbar-brand" href="#">Ver Listados</a>
-                    <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
-                </nav>
+                <div class="col-md-8">
+                    <nav class="navbar navbar-light" style="background-color:#A9F5A9;">  
+                        <!--                  <!-- Navbar content -->
+                        <div class="dropdown">
+                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Gestion Fechas
+                            </a>                           
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                <a class="dropdown-item" href="formularioFechaPrecio.php"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span> Agregar Fechas Precio</a>
+                                <a class="dropdown-item" href="editarFechaPrecio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Consultar fechas precio</a>
+                            </div>               
+                        </div>
+                        <div class="dropdown">
+                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Consultar reservas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                <a class="dropdown-item" href="#"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
+                            </div>  
+                        </div>
+                        <a class="navbar-brand" href="#">Ver Listados</a>
+                        <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
+                    </nav>
+                </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-success">Su local es: <?php echo $tipo['nombrelocal']; ?></button>                
                 </div>
