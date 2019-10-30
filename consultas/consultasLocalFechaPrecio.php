@@ -31,36 +31,29 @@ class consultasLocalFechaPrecio {
             }        
     }
 
-    
+    public function recuperaDatosLocalFechaPrecioSinPaginar($idLocal,$reservado,$idUsuario){
+        return $this->recuperaDatosLocalFechaPrecio($idLocal,$reservado,$idUsuario,null,null);
+    } 
 
     public function recuperaDatosLocalFechaPrecio($idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina){
         try {
-            //$consulta = "SELECT * FROM LOCALFECHAPRECIO WHERE IDLOCAL = ? AND RESERVADO = ? ORDER BY FECHARESERVADA DESC LIMIT ?, ? ";
-            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,false);
-            $consulta = $consulta .  " LIMIT ?, ? ";
-
+            $select = " local.idlocal, local.nombrelocal, local.imagen, "
+             . " usuario.idusuario, usuario.nombre as nombreusuario, usuario.correo, "
+             . " localfechaprecio.idlocalfechaprecio, localfechaprecio.fechareservada, "
+             . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado ";            
+            $where = null;
+            $groupBy = null;
+            $orderBy = " order by local.nombrelocal, localfechaprecio.fechareservada desc ";
+            $limit = null;
+             if (isset($fechasPorPagina)){
+                $limit = " LIMIT ?, ? ";
+            }
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
                    
             $stmt = $this->conexion->prepare($consulta);
 
-            //0 es nulo, 1 no es nulo
-            if (!isset($idLocal) && !isset($reservado) && !isset($idUsuario)){ //000
-                $stmt->bind_param('ss',$iniciar,$fechasPorPagina);
-            } else if (!isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//001
-                $stmt->bind_param('iss',$idUsuario,$iniciar,$fechasPorPagina);
-            } else if (!isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//010
-                $stmt->bind_param('iss',$reservado,$iniciar,$fechasPorPagina);
-            } else if (!isset($idLocal) && isset($reservado) && isset($idUsuario)) {//011
-                $stmt->bind_param('iiss',$reservado,$idUsuario,$iniciar,$fechasPorPagina);
-            } else if (isset($idLocal) && !isset($reservado) && !isset($idUsuario)) {//100
-                $stmt->bind_param('iss',$idLocal,$iniciar,$fechasPorPagina);
-            } else if (isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//101
-                $stmt->bind_param('iiss',$idLocal,$idUsuario,$iniciar,$fechasPorPagina);
-            } else if (isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//110
-                $stmt->bind_param('iiss',$idLocal,$reservado,$iniciar,$fechasPorPagina);
-            } else if (isset($idLocal) && isset($reservado) && isset($idUsuario)) {//111
-                $stmt->bind_param('iiiss',$idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina);
-            }
-
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina);
             $stmt -> execute();
             $resultado = $stmt->get_result();
             
@@ -82,30 +75,18 @@ class consultasLocalFechaPrecio {
     //Cuenta el total de filas
     public function contarFilasLocalFechaPrecio($idLocal,$reservado,$idUsuario){
         try {
-            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,true);
+            $select = " count(*) as total ";
+            $where = null;
+            $groupBy = null;
+            $orderBy = null;
+            $limit = null;
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
             
             $stmt = $this->conexion->prepare($consulta);
 
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,null,null);
             
-            //0 es nulo, 1 no es nulo
-            if (!isset($idLocal) && !isset($reservado) && !isset($idUsuario)){ //000
-                //no hay ningún parámetro no hago bind_param
-            } else if (!isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//001
-                $stmt->bind_param('i',$idUsuario);
-            } else if (!isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//010
-                $stmt->bind_param('i',$reservado);
-            } else if (!isset($idLocal) && isset($reservado) && isset($idUsuario)) {//011
-                $stmt->bind_param('ii',$reservado,$idUsuario);
-            } else if (isset($idLocal) && !isset($reservado) && !isset($idUsuario)) {//100
-                $stmt->bind_param('i',$idLocal);
-            } else if (isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//101
-                $stmt->bind_param('ii',$idLocal,$idUsuario);
-            } else if (isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//110
-                $stmt->bind_param('ii',$idLocal,$reservado);
-            } else if (isset($idLocal) && isset($reservado) && isset($idUsuario)) {//111
-                $stmt->bind_param('iii',$idLocal,$reservado,$idUsuario);
-            }
-
             $stmt -> execute();
             $this->resultado = $stmt->get_result();
 
@@ -121,24 +102,18 @@ class consultasLocalFechaPrecio {
     }
 
 
-    private function consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$bTotal){
-        $consulta = " select ";
 
-        if ($bTotal){
-            $consulta = $consulta . " count(*) as total ";
-        } else {
-             $consulta = $consulta . " local.idlocal, local.nombrelocal, local.imagen, "
-             . " usuario.idusuario, usuario.nombre as nombreusuario, usuario.correo, "
-             . " localfechaprecio.idlocalfechaprecio, localfechaprecio.fechareservada, "
-             . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado ";
-        }
+    
+    private function consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit){
+        $consulta = " select ";
+        $consulta = $consulta . $select;
+
+
         $consulta = $consulta . " from "
-          . " local inner join localfechaprecio on (local.idlocal = localfechaprecio.idlocal) "
+          . " local left join localfechaprecio on (local.idlocal = localfechaprecio.idlocal) "
           . " left join reserva on (localfechaprecio.idlocalfechaprecio = reserva.idlocalfechaprecio) "
           . " left join usuario on (reserva.idusuario = usuario.idusuario ) "
           . " where (1=1) ";
-
-        
         
         if (isset($idLocal)) {
             $consulta = $consulta . " and local.idlocal=? ";
@@ -150,12 +125,125 @@ class consultasLocalFechaPrecio {
             $consulta = $consulta . " and usuario.idusuario=? ";
         }
         
-        if (!$bTotal){
-            $consulta = $consulta . " order by local.nombrelocal, localfechaprecio.fechareservada desc ";
+        if (isset($where)) {
+            $consulta = $consulta . $where;
+        }
+
+        if (isset($groupBy)){
+            $consulta = $consulta . $groupBy;
+        }
+        
+        if ($orderBy){
+            $consulta = $consulta . $orderBy;
         }        
 
+        if ($limit) {
+            $consulta = $consulta . $limit;
+        }
+        
         return $consulta;
     }
+    
+    
+    private function bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina){
+            //0 es nulo, 1 no es nulo
+            if (!isset($idLocal) && !isset($reservado) && !isset($idUsuario)){ //000
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('ss',$iniciar,$fechasPorPagina);
+                } else {
+                    ;
+                }
+            } else if (!isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//001
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iss',$idUsuario,$iniciar,$fechasPorPagina);               
+                } else {
+                    $stmt->bind_param('i',$idUsuario);    
+                }                
+                
+            } else if (!isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//010
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iss',$idUsuario,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('i',$reservado);
+                }                
+                
+            } else if (!isset($idLocal) && isset($reservado) && isset($idUsuario)) {//011
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iiss',$reservado,$idUsuario,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('ii',$reservado,$idUsuario);
+                }                
+                
+            } else if (isset($idLocal) && !isset($reservado) && !isset($idUsuario)) {//100
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iss',$idLocal,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('i',$idLocal);    
+                }                
+                
+            } else if (isset($idLocal) && !isset($reservado) && isset($idUsuario)) {//101
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iiss',$idLocal,$idUsuario,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('ii',$idLocal,$idUsuario);    
+                }                
+                
+            } else if (isset($idLocal) && isset($reservado) && !isset($idUsuario)) {//110
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iiss',$idLocal,$reservado,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('ii',$idLocal,$reservado);
+                }                
+                
+            } else if (isset($idLocal) && isset($reservado) && isset($idUsuario)) {//111
+                if (isset($fechasPorPagina)){
+                    $stmt->bind_param('iiiss',$idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina);
+                } else {
+                    $stmt->bind_param('iii',$idLocal,$reservado,$idUsuario);    
+                }                
+            }
+        
+        return $stmt;
+    }    
+    
+    
+    
+     public function informeTotalReservasPorLocales($idLocal){
+        try {
+            $reservado = null;           
+            $idUsuario = null;
+            
+            $select = " local.idlocal, local.nombrelocal, sum(nvl(localfechaprecio.reservado, 0)) as total  ";
+            $where = null;
+            $groupBy = " group by local.idlocal, local.nombrelocal ";
+            $orderBy = null;
+            $limit = null;
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
+
+            $stmt = $this->conexion->prepare($consulta);
+
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,null,null);
+            
+            $stmt -> execute();
+            $resultado = $stmt->get_result();
+
+            $fechasPrecio = array();
+            
+            
+            if ($resultado->num_rows != 0){
+                while ($fila = $resultado->fetch_assoc()){
+                    array_push($fechasPrecio, $fila);                    
+                }      
+                return $fechasPrecio;     
+            } 
+        } catch (Excepcion $e){
+            echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
+        }
+    }
+    
+    
+    
     
     
     
