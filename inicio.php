@@ -44,18 +44,18 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     $tipoUsuario = $_SESSION['id'];
                     $nombreUsuario = $_SESSION['nombre'];
                     //var_dump($nombreUsuario);  ?>
+                 <div class="container-fluid">
                  <div class="row">                          
-                        <div class="col md-3">
-                            <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo  $_SESSION['nombreUsuario']; ?></button>
-                        </div>
-                      <div class="col md-6"></div>
-                        <div class="col md-3">
-                          <nav class="navbar navbar-dark bg-warning" > 
-                                <a class="navbar-brand" href="logoutUser.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Cierra sesión </a> 
-                            </nav>  
-                        </div>
-                </div>
-         <?php }?>
+                         <div class="col md-2">
+                             <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
+                         </div>
+                         <div class="col md-8"></div>                      
+                         <div class="col-md-2 ">
+                            <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
+                         </div>
+    <!--                                <a class="navbar-brand" href="logoutUser.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Cierra sesión </a> -->
+                 </div>
+         <?php }?></div>
                          
             </div>
         </div>       
