@@ -21,7 +21,7 @@ Además permite ver algún listado de los locales.
         $codigoLocal = $_SESSION['local'];
         $consultaDatosLocal = new ConsultasLocales();
         $infoLocal = $consultaDatosLocal->seleccionarFila($codigoLocal);
-        var_dump($infoLocal);
+        //var_dump($infoLocal);
         if (!isset($_SESSION['id'])) {
             header("location:inicio.php");
         }
@@ -69,9 +69,9 @@ Además permite ver algún listado de los locales.
                 <div class="col-md-6">
                     <div class="collapse" id="collapseExample">
                         <div class="card text-center">
-                        <div class="card-header">
-                            Los datos de su local
-                        </div>
+                            <div class="card-header">
+                                LOS DATOS DE SU LOCAL
+                            </div>
                         </div>
                         <img class="card-img-top" src="../administrador/<?php echo $infoLocal['IMAGEN'] ?>" alt="Card image cap">
                         <div class="card card-body"> 
