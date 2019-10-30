@@ -17,7 +17,11 @@ Además permite ver algún listado de los locales.
     <body>
         <?php
         session_start();
-       
+        include ('../consultas/consultasLocales.php');
+        $codigoLocal = $_SESSION['local'];
+        $consultaDatosLocal = new ConsultasLocales();
+        $infoLocal = $consultaDatosLocal->seleccionarFila($codigoLocal);
+        var_dump($infoLocal);
         if (!isset($_SESSION['id'])) {
             header("location:inicio.php");
         }
@@ -34,7 +38,7 @@ Además permite ver algún listado de los locales.
                 <!-- MENU NAVEGACION -->
                 <div class="col-md-8">
                     <nav class="navbar navbar-light" style="background-color:#A9F5A9;">  
-                        <!--                  <!-- Navbar content -->
+                        <!-- Navbar content -->
                         <div class="dropdown">
                             <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Gestion Fechas
@@ -52,13 +56,31 @@ Además permite ver algún listado de los locales.
                                 <a class="dropdown-item" href="#"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
                             </div>  
                         </div>
-                        <a class="navbar-brand" href="#">Ver Listados</a>
+                        <a class="navbar-brand" href="#"> Listados </a>
                         <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
                     </nav>
                 </div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-success">Su local es: <?php echo $tipo['nombrelocal']; ?></button>                
+                    <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Su local es: <?php echo $tipo['nombrelocal']; ?></button>                
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="collapse" id="collapseExample">
+                        <div class="card text-center">
+                        <div class="card-header">
+                            Los datos de su local
+                        </div>
+                        </div>
+                        <img class="card-img-top" src="../administrador/<?php echo $infoLocal['IMAGEN'] ?>" alt="Card image cap">
+                        <div class="card card-body"> 
+                            <p class='card-text'>Dirección: <?php echo $infoLocal['DIRECCION'] ?></p>
+                            <p class='card-text'>Aforo: <?php echo $infoLocal['AFORO'] ?></p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-2"></div>
             </div>
         </div>      
     </body>
