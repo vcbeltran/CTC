@@ -67,13 +67,13 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <?php foreach ($recuperaDatos as $datos): ?>                         
-                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos[6])) ?></td>
-                            <td><?php echo $datos[9] ?></td>
-                            <td><?php echo $datos[7] ?></td>
-                            <td><?php echo $datos[8] ?></td>                 
+                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></td>
+                            <td><?php echo $datos['precio'] ?></td>
+                            <td><?php echo $datos['horainicio'] ?></td>
+                            <td><?php echo $datos['horafin'] ?></td>                 
                             <td>                          
-                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[5] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[5] ?>&boton=eliminar' onclick="if (Swal.fire({ title: 'Are you sure?',  text: 'You won\'t be able to revert this!',  type: 'warning',  showCancelButton: true,  confirmButtonColor: '#3085d6',  cancelButtonColor: '#d33',  confirmButtonText: 'Yes, delete it!'}).then((result) => {  if (result.value) {    Swal.fire(      'Deleted!',      'Your file has been deleted.',      'success'    )  }})   )  return false;"><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
+                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>&boton=eliminar' onclick="if !(confirm()) return false"><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
                             </td>
                     </tr>
                     <?php endforeach; ?>
