@@ -12,57 +12,12 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/9572130963.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <title>Edite los datos de su Empresa</title>
-    </head>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $(document).on('click', '[data-id]', function(e){ 
-         var form = document.getElementById('miBoton');
-         form.addEventListener('submit', function(event) {
-           // si es false entonces que no haga el submit
-           if (!confirm('Realmente desea eliminar?')) {
-             event.preventDefault();
-           }
-         }, false);
-       })();
-     }); 
-   });
-    </script>
+    </head>   
   <body>
-<!--     <script>
-        $(document).ready(function(){
-            $(document).on('click', '[data-id]', function(e){ 
-                e.preventDefault();
-                var request = $(this).attr('data-id');
-                $.ajax({
-                    type: "POST",
-                    url: "eliminarFechaPrecio.php",
-                    data: request,
-                    success:function(data){
-                            swal({
-                            title: "Está seguro?",
-                            text: "El elemento será borrado!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true,
-                            }) 
-                         .then((willDelete) => {
-                                if (willDelete) {
-                                  swal("Poof! Your imaginary file has been deleted!", {
-                                    icon: "success",
-                                  });
-                                } else {
-                                  swal("Your imaginary file is safe!");
-                                }
-                            }); 
-                        }  
-                    });                    
-                }); 
-            });
-      
-        </script>-->
         <?php
             if (!$_GET) {
                  header("location:editarFechaPrecio.php?pagina=1");
@@ -77,10 +32,11 @@ and open the template in the editor.
         //var_dump($idLocal);         
         //Consulto la lista de fechas precio disponibles para mi local
         $reservado = 0;
+        $idUsuario = null;
         $datosFechaPrecio = new consultasLocalFechaPrecio();
         try {
         $recuperaDatos = array();
-        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal,$reservado,$iniciar,$fechasPorPagina);
+        $recuperaDatos = $datosFechaPrecio->recuperaDatosLocalFechaPrecio($idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina);
         } catch (Exception $e){
              echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
         }
@@ -111,13 +67,13 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <?php foreach ($recuperaDatos as $datos): ?>                         
-                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos[1])) ?></td>
-                            <td><?php echo $datos[2] ?></td>
-                            <td><?php echo $datos[3] ?></td>
-                            <td><?php echo $datos[4] ?></td>                 
+                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos[6])) ?></td>
+                            <td><?php echo $datos[9] ?></td>
+                            <td><?php echo $datos[7] ?></td>
+                            <td><?php echo $datos[8] ?></td>                 
                             <td>                          
-                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[0] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[0] ?>&boton=eliminar' data-id="<?php $datos[0] ?>" name="botonElimina" id="miBoton""><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
+                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos[5] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos[5] ?>&boton=eliminar' onclick="if (Swal.fire({ title: 'Are you sure?',  text: 'You won\'t be able to revert this!',  type: 'warning',  showCancelButton: true,  confirmButtonColor: '#3085d6',  cancelButtonColor: '#d33',  confirmButtonText: 'Yes, delete it!'}).then((result) => {  if (result.value) {    Swal.fire(      'Deleted!',      'Your file has been deleted.',      'success'    )  }})   )  return false;"><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
                             </td>
                     </tr>
                     <?php endforeach; ?>
@@ -134,7 +90,9 @@ and open the template in the editor.
                  
                     <?php
                     //$cuentaFilas = new consultasLocalFechaPrecio();
-                    $filas = $datosFechaPrecio->contarFilasLocalFechaPrecio($idLocal);                  
+                   
+                    $filas = $datosFechaPrecio->contarFilasLocalFechaPrecio($idLocal,$reservado,$idUsuario);    
+                     
                     //botones de paginación             
                     $totalPaginas = ceil($filas / $fechasPorPagina);
                     for ($i = 0; $i < $totalPaginas; $i++):
