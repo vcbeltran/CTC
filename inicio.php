@@ -15,7 +15,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <html>
     <head>
         <meta charset="UTF-8">
-<!--    <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
+         <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -33,29 +33,30 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
             <div class="row">               
                
                 <!-- MENU NAVEGACION -->
-          <?php if (!isset($_SESSION['id'])) { ?>
-                <!-- Muestra los botones de LOGIN Y ACCESO SI EL USUARIO NO ESTÁ CONECTADO -->
-                 <div class="col-md-8"></div>
-                <nav class="navbar navbar-dark bg-warning" style="background-color:#b3d9ff;">  
-                    <a class="navbar-brand" href="formularioRegistro.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Alta Nuevo Usuario</a>
-                    <a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
-                     </nav>      
-          <?php } else {                   
+                <?php if (!isset($_SESSION['id'])) { ?>
+                    <!-- Muestra los botones de LOGIN Y ACCESO SI EL USUARIO NO ESTÁ CONECTADO -->
+                    <div class="col-md-8"></div>
+                    <nav class="navbar navbar-dark bg-info" >  
+                        <a class="navbar-brand" href="formularioRegistro.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Alta Nuevo Usuario</a>
+                        <a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
+                    </nav>      
+                <?php
+                } else {
                     $tipoUsuario = $_SESSION['id'];
                     $nombreUsuario = $_SESSION['nombre'];
-                    //var_dump($nombreUsuario);  ?>
-                 <div class="container-fluid">
-                 <div class="row">                          
-                         <div class="col md-2">
-                             <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
-                         </div>
-                         <div class="col md-8"></div>                      
-                         <div class="col-md-2 ">
-                            <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
-                         </div>
-    <!--                                <a class="navbar-brand" href="logoutUser.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Cierra sesión </a> -->
-                 </div>
-         <?php }?></div>
+                    //var_dump($nombreUsuario);  
+                    ?>
+                    <div class="container-fluid">
+                        <div class="row">                          
+                            <div class="col md-2">
+                                <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
+                            </div>
+                            <div class="col md-8"></div>                      
+                            <div class="col-md-2 ">
+                                <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
+                            </div>
+                        </div>
+                <?php } ?></div>
                          
             </div>
         </div>       
@@ -97,6 +98,9 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 //cierra card body
                 print("</div>");
                 //cierra card
+                if (isset($_SESSION['id'])){
+                     print('<button class=\'btn btn-warning\'> Accede a reservas </button>');
+                }
                 print("</div>");
                 //cierra col
                 print("</div>");
