@@ -31,7 +31,7 @@ and open the template in the editor.
                 <div class="col-md-4"></div>
                 <div class="col-md-8">
                     <div class="alert alert-success">
-                        <strong>¡Ya está actualizada la empresa!</strong> Puedes volver a la página de administrador <a href="menuAdministrador.php" class="alert-link">pulsando aquí</a>.
+                        <strong>¡Ya está actualizada la empresa!</strong> Puedes volver al menú edición <a href="editarEmpresa.php" class="alert-link">pulsando aquí</a>.
                     </div> 
                 </div>
             </div>
@@ -40,7 +40,7 @@ and open the template in the editor.
                 <div class="col-md-4"></div>
                 <div class="col-md-8">
                     <div class="alert alert-danger">
-                        <strong>¡Lo sentimos!</strong> El nombre de la empresa ya está en uso.<a href="formularioAltaEmpresa.php" class="alert-link"> Pulse para volver atrás</a>
+                        <strong>¡Lo sentimos!</strong> El nombre de la empresa ya está en uso.<a href="editarEmpresa.php" class="alert-link"> Pulse para volver atrás</a>
                     </div>  
                 </div>
             </div>    

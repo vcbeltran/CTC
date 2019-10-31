@@ -28,7 +28,7 @@ $datosLogin = $compruebaLogin->compruebaLogin($mail, $pass);
 
 if (isset($mail) && isset($pass)){  
     /*Comparo si coincide el tipo y el valor*/
-    if (($datosLogin['CORREO'] === $mail) && ($datosLogin['PASSWORD'] === $pass)){
+    if (($datosLogin['CORREO'] == $mail) && ($datosLogin['PASSWORD'] == $pass)){
         /* SI ES UN ADMINISTRADOR SE REDIRECCIONA AL MENÚ */
         if ($conexionTipo[2] == 1) {
             session_start();

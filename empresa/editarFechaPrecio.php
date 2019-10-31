@@ -12,10 +12,11 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/9572130963.js"></script>
-<!--        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="../JS/ctc.js" ></script>
         <title>Edite los datos de su Empresa</title>
+        
     </head>   
   <body>
         <?php
@@ -65,18 +66,20 @@ and open the template in the editor.
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <?php foreach ($recuperaDatos as $datos): ?>                         
-                            <td scope="row"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></td>
-                            <td><?php echo $datos['precio'] ?></td>
-                            <td><?php echo $datos['horainicio'] ?></td>
-                            <td><?php echo $datos['horafin'] ?></td>                 
-                            <td>                          
-                                <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                <a class="btn btn-danger" href='eliminarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>&boton=eliminar' onclick="if !(confirm()) return false"><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
-                            </td>
-                    </tr>
-                    <?php endforeach; ?>
+                    <?php if (isset($recuperaDatos)):?>
+                        <?php foreach ($recuperaDatos as $datos): ?>        
+                            <tr>                                       
+                                <td scope="row"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></td>
+                                <td><?php echo $datos['precio'] ?></td>
+                                <td><?php echo $datos['horainicio'] ?></td>
+                                <td><?php echo $datos['horafin'] ?></td>                 
+                                <td>                          
+                                    <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                    <a class="btn btn-danger" href='' onclick="javascript:if (!funcion_confirmar('eliminarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>')) return false" ><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
+                                </td>
+                            </tr>
+                        <?php  endforeach; ?>
+                    <?php  endif;?>
                 </tbody>
             </table>
         </div>

@@ -22,9 +22,7 @@ and open the template in the editor.
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
         $codigo = $_REQUEST['codigo'];
-        $boton = $_REQUEST['boton'];
-        var_dump($boton);
-        var_dump($codigo);
+           
         $consultaEliminar = new consultasLocalFechaPrecio();       
       
          
