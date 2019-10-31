@@ -7,4 +7,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="../JS/ctc.js" ></script>        
-
+        <link rel="stylesheet" type="text/css" href="../CSS/imagenes.css">
+        <!-- Para que se entere en el menú de inicio de los archivos-->
+        <script src="includes/ctc.js" ></script>        
+        <link rel="stylesheet" type="text/css" href="includes/imagenes.css">

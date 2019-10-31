@@ -1,0 +1,17 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-oct-2019, 18:55:08
+    Author     : Vero
+*/
+body{
+    background-image: url('../administrador/imagenes/fondo_cumple2.jpg');
+/*    background-size:cover;*/
+    background-size:contain;
+    /*background-color:powderblue;*/
+}
+
+
