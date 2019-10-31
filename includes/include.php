@@ -9,5 +9,5 @@
         <script src="../JS/ctc.js" ></script>        
         <link rel="stylesheet" type="text/css" href="../CSS/imagenes.css">
         <!-- Para que se entere en el menú de inicio de los archivos-->
-        <script src="includes/ctc.js" ></script>        
-        <link rel="stylesheet" type="text/css" href="includes/imagenes.css">
+<!--        <script src="includes/ctc.js" ></script>        
+        <link rel="stylesheet" type="text/css" href="includes/imagenes.css">-->
