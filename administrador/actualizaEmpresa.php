@@ -21,7 +21,12 @@ and open the template in the editor.
         $codigo = $_REQUEST['codigo'];
         $nombre = $_REQUEST['nombre'];
         $correo = $_REQUEST['correo'];
-        $contra = md5($_REQUEST['contra']);
+        $contra = null;
+        
+        if (!empty($_REQUEST['contra'])){
+            $contra = md5($_REQUEST['contra']);
+        } 
+        
         $local = $_REQUEST['idlocal'];
                
         
