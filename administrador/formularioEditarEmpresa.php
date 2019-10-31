@@ -59,8 +59,8 @@ and open the template in the editor.
                             <input type="text" class="form-control" id="InputDireccion" placeholder="Introduzca dirección" name="correo" value="<?php echo $filaEmpresa[2] ?>">
                         </div>
                         <div class="form-group">
-                            <label for="InputAforo">Password</label>
-                            <input type="text" class="form-control" id="InputAforo" placeholder="Introduzca número" name="contra" value="<?php echo $filaEmpresa[3] ?>">
+                            <label for="Inputpass">Password</label>
+                            <input type="text" class="form-control" id="Inputpass" placeholder="Introduzca password" name="contra" value="">
                         </div>  
                         <div class="form-group">
                             <label for="InputDireccion">Local asignado</label>
