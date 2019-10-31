@@ -53,7 +53,7 @@ Además permite ver algún listado de los locales.
                             <a class="dropdown-item" href="editarEmpresa.php"> <i class="fa fa-pencil fa-fw"></i> Modificar / Eliminar Empresa</a>
                         </div>  
                     </div>
-                    <a class="navbar-brand" href="#">Ver Listados</a>
+                    <a class="navbar-brand" href="#">Ver Informes</a>
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
                 </nav>                
             </div>

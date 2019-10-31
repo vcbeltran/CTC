@@ -56,7 +56,7 @@ Además permite ver algún listado de los locales.
                                 <a class="dropdown-item" href="#"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
                             </div>  
                         </div>
-                        <a class="navbar-brand" href="#"> Listados </a>
+                        <a class="navbar-brand" href="#"> Ver Informes </a>
                         <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
                     </nav>
                 </div>
