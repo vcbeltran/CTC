@@ -7,14 +7,26 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <?php include ('../includes/include.php'); ?>
+        <title>Confirmar reserva</title>
     </head>
     <body>
         <?php
             session_start();
-            $idReserva = $_REQUEST['codigo'];
-            echo $idReserva;
-       
+            $idCodigoFecha = $_REQUEST['idCodigoFecha'];
+            echo "Su id de reserva: ". $idCodigoFecha;
+            include '../consultas/consultasLocalFechaPrecio.php';
+            $idUsuario = null;
+            $reservado = 0;
+            $idLocal = $_SESSION['idLocal'];
+            
+            var_dump($_SESSION);
+            $consultaDetalle = new consultasLocalFechaPrecio();
+            $datosReservaSeleccionada = array();
+            $datosReservaSeleccionada = $consultaDetalle->recuperaDatosLocalFechaPrecioSinPaginar($idLocal, $reservado, $idUsuario);
+            foreach($datosReservaSeleccionada as $datos):
+            var_dump($datos['horainicio']);
+            endforeach;
        ?>
         
         

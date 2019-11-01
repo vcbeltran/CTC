@@ -68,6 +68,8 @@ if (isset($mail) && isset($pass)){
              $_SESSION['tipo'] = $conexionTipo[1];
              //nombre del usuario online
             $_SESSION['nombreUsuario'] = $conexionTipo[4];
+            
+            $_SESSION['idLocal'] = null;
             header("location:inicio.php");
         } 
         

@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
          <?php include ('../includes/include.php'); ?>
-        <title></title>
+        <title>Seleccione día</title>
     </head>
     <body>
         <?php
@@ -39,6 +39,7 @@ and open the template in the editor.
         //var_dump($datosFechaPrecio);
         $detalleLocal = new ConsultasLocales();
         $datosDetalleLocal = $detalleLocal->seleccionarFila($idLocal);
+        $_SESSION['idLocal'] = $idLocal;
         
         $nombre = $datosDetalleLocal[1];
         echo ($datosDetalleLocal[4]);
@@ -77,7 +78,7 @@ and open the template in the editor.
                                 <td><?php echo $datos['horainicio'] ?></td>
                                 <td><?php echo $datos['horafin'] ?></td>                 
                                 <td>                          
-                             <a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a>
+                             <a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idCodigoFecha=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a>
 <!--                                  <a class="btn btn-danger" href='' onclick="javascript:if (!funcion_confirmar('eliminarFechaPrecio.php?codigo=<?php //echo $datos['idlocalfechaprecio'] ?>')) return false" ><i class="fa fa-trash-o" aria-hidden="true" ></i></a>-->
                                 </td>
                             </tr>
