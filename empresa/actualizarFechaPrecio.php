@@ -36,7 +36,7 @@ and open the template in the editor.
                 if ($actualizaFecha->actualizarFechaPrecio($fecha, $precio, $horaIni, $horaFin, $codigoFechaPrecio)){ ?>
                     <div class="container mt-5">
                         <div class="alert alert-success mb-2" role="alert">
-                            <i class="fa fa-check" aria-hidden="true"></i> Has actualizado el registro <a href="editarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
+                            <i class="fa fa-check" aria-hidden="true"></i> Has actualizado el registro <a href="detalleEditarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
                         </div>
                     </div>  
              <?php   } else {?>

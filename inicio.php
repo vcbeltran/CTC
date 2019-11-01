@@ -3,6 +3,7 @@
     include ('consultas/consultasLocales.php');
     $conect = new Conexiones();
     $totalFilasLocal = new consultasLocales();
+    //echo $_SERVER['DOCUMENT_ROOT']. "/CTC"; 
     //var_dump($prueba);
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales 
@@ -24,8 +25,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
          session_start(); 
         ?>
         <div class="container mt-5">
-            <div class="row">               
-               
+            <div class="row">             
                 <!-- MENU NAVEGACION -->
                 <?php if (!isset($_SESSION['id'])) { ?>
                     <!-- Muestra los botones de LOGIN Y ACCESO SI EL USUARIO NO ESTÁ CONECTADO -->
@@ -93,7 +93,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("</div>");
                 //cierra card
                 if (isset($_SESSION['id'])){
-                     print('<button class=\'btn btn-warning\'> Accede a reservas </button>');
+                     print("<a class='btn btn-warning' href='usuarioOnline/listaLocalFechaPrecioDisponible.php?pagina=1&codigo=" . $local[0] . " '><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> Consultar disponibilidad </a> ");
                 }
                 print("</div>");
                 //cierra col

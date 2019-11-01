@@ -40,7 +40,7 @@ Además permite ver algún listado de los locales.
                             </a>                           
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                                 <a class="dropdown-item" href="formularioFechaPrecio.php"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span> Agregar Fechas Precio</a>
-                                <a class="dropdown-item" href="editarFechaPrecio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Consultar fechas precio</a>
+                                <a class="dropdown-item" href="detalleEditarFechaPrecio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Consultar fechas precio</a>
                             </div>               
                         </div>
                         <div class="dropdown">

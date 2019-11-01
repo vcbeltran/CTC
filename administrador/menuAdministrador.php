@@ -36,7 +36,7 @@ Además permite ver algún listado de los locales.
                             Gestion Local
                         </a>                           
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="formularioAltaLocal.php">Alta Local</a>
+                            <a class="dropdown-item" href="formularioAltaLocal.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Alta Local</a>
                             <a class="dropdown-item" href="editarLocal.php"><i class="fa fa-pencil fa-fw"></i> Modificar / Eliminar Local</a>
                         </div>               
                     </div>
@@ -45,7 +45,7 @@ Además permite ver algún listado de los locales.
                             Gestión empresas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="formularioAltaEmpresa.php">Alta Empresa</a>
+                            <a class="dropdown-item" href="formularioAltaEmpresa.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Alta Empresa</a>
                             <a class="dropdown-item" href="editarEmpresa.php"> <i class="fa fa-pencil fa-fw"></i> Modificar / Eliminar Empresa</a>
                         </div>  
                     </div>
