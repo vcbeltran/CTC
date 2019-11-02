@@ -61,13 +61,8 @@ and open the template in the editor.
          </div>
         <div class="container mt-5">
             <div class="row">
-                <div class="col md-2"></div>
-                             
+                <div class="col md-2"></div>                             
                     <a class="btn list-group-item-info" href='listaLocalFechaPrecioDisponible.php?pagina=<?php echo $pagina ?>&codigo=<?php echo $idLocal ?>'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
- 
-<!--                <div class="col md-2"> 
-                    <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a>
-                </div>-->
             </div>
         </div>
         <div class="container mt-5"></div>

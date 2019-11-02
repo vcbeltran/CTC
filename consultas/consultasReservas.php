@@ -25,11 +25,11 @@ class consultasReservas {
     public function insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario){
         $alta = "INSERT INTO RESERVA (FECHAREALIZA, IDLOCALFECHAPRECIO, IDUSUARIO) "
                 . " VALUES ('$fechaRealiza', '$idCodigoFecha', '$idUsuario')";
-        echo $alta;
-    if ($this->conexion->query($alta)) {
-        $this->actualizaReservado($idCodigoFecha);
-            return true;
-        }
+       
+        if ($this->conexion->query($alta)) {
+            $this->actualizaReservado($idCodigoFecha);
+                return true;
+            }
     }
     
     private function actualizaReservado($idCodigoFecha){
@@ -39,5 +39,20 @@ class consultasReservas {
             return true;
         }
         
+    }
+        public function eliminarReserva($idCodigoFecha){
+        $alta = "DELETE FROM RESERVA WHERE IDLOCALFECHAPRECIO = '$idCodigoFecha' ";
+        echo $alta;
+            if ($this->conexion->query($alta)) {
+                $this->actualizaReservadoLibre($idCodigoFecha);
+                return true;
+            }
+    }
+        private function actualizaReservadoLibre($idCodigoFecha){
+        $actualizar = "UPDATE LOCALFECHAPRECIO SET RESERVADO = 0 WHERE IDLOCALFECHAPRECIO = '$idCodigoFecha'";
+        
+        if($this->conexion->query($actualizar)){
+            return true;
+        }        
     }
 }

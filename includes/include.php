@@ -9,6 +9,7 @@
         <script src="https://kit.fontawesome.com/972d9e5e02.js" crossorigin="anonymous"></script>
         <script src="../JS/ctc.js" ></script>   
         <script src="../JS/funcionConfirmar.js" ></script>  
+        <script src="../JS/funcionAnular.js" ></script>  
         <link rel="stylesheet" type="text/css" href="../CSS/imagenes.css">
         <!-- Para que se entere en el menú de inicio de los archivos-->
 <!--        <script src="includes/ctc.js" ></script>        
