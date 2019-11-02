@@ -35,16 +35,16 @@ and open the template in the editor.
             <div class="row">
                 <div class="col list-group-item-info py-3 px-lg-5">Foto Local</div>
                 <div class="col list-group-item-info py-3 px-lg-5">Nombre Local</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Horario de Fin</div>
+                <div class="col list-group-item-info py-3 px-lg-5">Fecha </div>
                 <div class="col list-group-item-info py-3 px-lg-5">Precio</div>
                 <div class="col list-group-item-info py-3 px-lg-5">Anular reserva</div>
                 <div class="w-100"></div>
         <?php foreach ($datosMisReservas as $datos): ?>
                 <div class="col  py-3 px-lg-5"> <img src='../administrador/<?php echo $datos['imagen'] ?>' alt="local" class="img-thumbnail"/></div>
                 <div class="col  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
-                <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="far fa-calendar-times"></i> Anular </a></div>
+                <div class="col  py-3 px-lg-5"><?php echo $datos['fechareservada'] ?></div>
+                <div class="col  py-3 px-lg-5"><?php echo $datos['precio']." €" ?></div>
+                <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_reservar('detalleReservaLocalFechaPrecio.php?idReserva=<?php echo $datos['idlocalfechaprecio'] ?>')) return false"><i class="far fa-calendar-times"></i> Anular </a></div>
                   <div class="w-100"></div>
         <?php endforeach; ?>
                
