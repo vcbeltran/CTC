@@ -91,7 +91,8 @@ and open the template in the editor.
                                             ¿Seguro que quiere cambiar los datos?
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button><span>   f </span>
+                                                
                                             <button type="submit" class="btn btn-success">Guardar</button>
                                         </div>
                                     </div>

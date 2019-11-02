@@ -6,6 +6,7 @@
         <script src="https://use.fontawesome.com/9572130963.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://kit.fontawesome.com/972d9e5e02.js" crossorigin="anonymous"></script>
         <script src="../JS/ctc.js" ></script>        
         <link rel="stylesheet" type="text/css" href="../CSS/imagenes.css">
         <!-- Para que se entere en el menú de inicio de los archivos-->

@@ -247,7 +247,7 @@ class consultasLocalFechaPrecio {
             $idLocal = null;
             $reservado = null;           
             $idUsuario = null;            
-            $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin  ";
+            $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin, local.imagen, local.nombrelocal  ";
             $where =  " and localfechaprecio.idlocalfechaprecio = '$idLocalFechaPrecio' ";
             $groupBy = null;
             $orderBy = null;
@@ -257,7 +257,7 @@ class consultasLocalFechaPrecio {
             $stmt = $this->conexion->prepare($consulta);
 
             $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,null,null);
-            echo $consulta;
+           
             $stmt -> execute();
             $resultado = $stmt->get_result();
 

@@ -49,43 +49,36 @@ and open the template in the editor.
                 <div class="col md-2">
                     <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                 </div>
-                <div class="col md-2">
-                    <img src='../administrador/<?php echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
-                </div>
+<!--                <div class="col md-2">
+                    <img src='../administrador/<?php //echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
+                </div>-->
                 <div class="col md-6">
-                    <button type='button' class="btn btn-warning" > <i class="fa fa-angellist" aria-hidden="true"></i> <?php echo "Está reservando para el local: " . $datosDetalleLocal[1] ?> </button>
+                    <button type='button' class="btn btn-warning" > <i class="far fa-hand-peace"></i> <?php echo "Está reservando para el local: " . $datosDetalleLocal[1] ?> </button>
                 </div>
             </div>
         </div>
-         <div class="container mt-5">
+        <div class="container mt-5">
             <h1>Fechas disponibles </h1>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Hora Inicio</th>
-                        <th scope="col">Hora Fin</th>
-                        <th scope="col">Accion</th>
-                    </tr>
-                </thead>
-                <tbody>
+             <div class="container mt-5">            
+               <div class="row">
+                    <div class="col list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
+                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
+                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
+                    <div class="col list-group-item-warning py-3 px-lg-5">Precio</div>
+                    <div class="col list-group-item-warning py-3 px-lg-5">Acción</div>
+                    <div class="w-100"></div>
                     <?php if (isset($datosFechaPrecio)):?>
-                        <?php foreach ($datosFechaPrecio as $datos): ?>       
-                            <tr>                                       
-                                <td scope="row"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></td>
-                                <td><?php echo $datos['precio'] ?></td>
-                                <td><?php echo $datos['horainicio'] ?></td>
-                                <td><?php echo $datos['horafin'] ?></td>                 
-                                <td>                          
-                             <a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idCodigoFecha=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a>
-<!--                                  <a class="btn btn-danger" href='' onclick="javascript:if (!funcion_confirmar('eliminarFechaPrecio.php?codigo=<?php //echo $datos['idlocalfechaprecio'] ?>')) return false" ><i class="fa fa-trash-o" aria-hidden="true" ></i></a>-->
-                                </td>
-                            </tr>
-                        <?php  endforeach; ?>
-                    <?php  endif;?>
-                </tbody>
-            </table>
+                     <?php foreach ($datosFechaPrecio as $datos): ?>       
+                        <div class="col list-group-flush  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
+                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
+                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
+                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
+                        <div class="col list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idCodigoFecha=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
+                       <div class="w-100"></div>
+                    <?php endforeach; ?>
+                  <?php  endif;?>
+                </div>
+         </div>
         </div>
        <div class="container mt-3">
             <nav aria-label="Page navigation example">
