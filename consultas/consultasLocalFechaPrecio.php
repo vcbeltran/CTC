@@ -247,7 +247,7 @@ class consultasLocalFechaPrecio {
             $idLocal = null;
             $reservado = null;           
             $idUsuario = null;            
-            $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin, local.imagen, local.nombrelocal  ";
+            $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin, local.imagen, local.nombrelocal, reserva.fecharealiza  ";
             $where =  " and localfechaprecio.idlocalfechaprecio = '$idLocalFechaPrecio' ";
             $groupBy = null;
             $orderBy = null;
