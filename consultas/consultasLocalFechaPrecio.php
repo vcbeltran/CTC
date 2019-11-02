@@ -238,11 +238,42 @@ class consultasLocalFechaPrecio {
                 return $fechasPrecio;     
             } 
         } catch (Excepcion $e){
-            echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
+            echo 'Error en el metodo informe Total Reservas por Locales '.$e->getMessage()."\n";
         }
     }
     
-    
+    public function detalleLocalFechaPrecio($idLocalFechaPrecio){
+        try {
+            $idLocal = null;
+            $reservado = null;           
+            $idUsuario = null;            
+            $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin  ";
+            $where =  " and localfechaprecio.idlocalfechaprecio = '$idLocalFechaPrecio' ";
+            $groupBy = null;
+            $orderBy = null;
+            $limit = null;
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
+            $stmt = $this->conexion->prepare($consulta);
+
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,null,null);
+            echo $consulta;
+            $stmt -> execute();
+            $resultado = $stmt->get_result();
+
+            $fechasPrecio = array();
+            
+            
+            if ($resultado->num_rows != 0){
+                while ($fila = $resultado->fetch_assoc()){
+                    array_push($fechasPrecio, $fila);                    
+                }      
+                return $fechasPrecio;     
+            } 
+        } catch (Excepcion $e){
+            echo 'Error en el metodo comprobar detalle local fecha precio '.$e->getMessage()."\n";
+        }
+    }
     
     
     
