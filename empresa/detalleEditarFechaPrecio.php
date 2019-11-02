@@ -13,7 +13,7 @@ and open the template in the editor.
   <body>
         <?php
             if (!$_GET) {
-                 header("location:editarFechaPrecio.php?pagina=1");
+                 header("location:detalleEditarFechaPrecio.php?pagina=1");
             }    
         $fechasPorPagina = 10;
         //El segmento por página de los locales a mostrar
@@ -66,7 +66,7 @@ and open the template in the editor.
                                 <td><?php echo $datos['horainicio'] ?></td>
                                 <td><?php echo $datos['horafin'] ?></td>                 
                                 <td>                          
-                                    <a class="btn btn-warning" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                    <a class="btn btn-primary" href='fomularioModificarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                     <a class="btn btn-danger" href='' onclick="javascript:if (!funcion_confirmar('eliminarFechaPrecio.php?codigo=<?php echo $datos['idlocalfechaprecio'] ?>')) return false" ><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
                                 </td>
                             </tr>
