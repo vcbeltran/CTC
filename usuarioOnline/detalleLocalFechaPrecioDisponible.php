@@ -20,7 +20,7 @@ and open the template in the editor.
             $reservado = 0;
             $idLocal = $_SESSION['idLocal'];
             $pagina = $_GET['pagina'];
-            echo $pagina;
+            //echo $pagina;
             
             $consultaDetalle = new consultasLocalFechaPrecio();
             $datosReservaSeleccionada = array();
@@ -48,22 +48,26 @@ and open the template in the editor.
                     <div class="col list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
                     <div class="col list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
                     <div class="col list-group-item-warning py-3 px-lg-5">Precio</div>
+                    <div class="col list-group-item-warning py-3 px-lg-5">Realizar reserva</div>
                     <div class="w-100"></div>
                      <?php foreach ($datosReservaSeleccionada as $datos): ?>       
                         <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
                         <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
                         <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
                         <div class="col  py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
+                        <div class="col  py-3 px-lg-5">   <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a></div>
                     <?php endforeach; ?>
                 </div>
          </div>
         <div class="container mt-5">
             <div class="row">
                 <div class="col md-2"></div>
-                 <div class="col md-8">
-                    <a class="btn list-group-item-info" href="altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>"><i class="fas fa-check-circle"></i> Reservar</a>
-                   <a class="btn list-group-item-info" href='listaLocalFechaPrecioDisponible.php?pagina=<?php echo $pagina ?>&codigo=<?php echo $idLocal ?>'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
-                  </div>  
+                             
+                    <a class="btn list-group-item-info" href='listaLocalFechaPrecioDisponible.php?pagina=<?php echo $pagina ?>&codigo=<?php echo $idLocal ?>'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
+ 
+<!--                <div class="col md-2"> 
+                    <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a>
+                </div>-->
             </div>
         </div>
         <div class="container mt-5"></div>

@@ -27,7 +27,17 @@ class consultasReservas {
                 . " VALUES ('$fechaRealiza', '$idCodigoFecha', '$idUsuario')";
         echo $alta;
     if ($this->conexion->query($alta)) {
+        $this->actualizaReservado($idCodigoFecha);
             return true;
         }
+    }
+    
+    private function actualizaReservado($idCodigoFecha){
+        $actualizar = "UPDATE LOCALFECHAPRECIO SET RESERVADO = 1 WHERE IDLOCALFECHAPRECIO = '$idCodigoFecha'";
+        
+        if($this->conexion->query($actualizar)){
+            return true;
+        }
+        
     }
 }

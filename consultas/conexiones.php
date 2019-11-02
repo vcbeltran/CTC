@@ -21,7 +21,7 @@ class Conexiones {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, USER.NOMBRE "
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, USER.NOMBRE, USER.IDUSUARIO "
                     . "FROM USUARIO AS USER, ROL AS TIPO "
                     . " WHERE  USER.CORREO = ? "
                     . " AND USER.IDROL = TIPO.IDROL";
