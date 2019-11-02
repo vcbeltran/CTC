@@ -20,8 +20,8 @@ and open the template in the editor.
         }    
         $fechasPorPagina = 10;    
     
-        var_dump(" numero pagina : " . $pagina);
-        var_dump(" numero local : " . $idLocal);
+        //var_dump(" numero pagina : " . $pagina);
+        //var_dump(" numero local : " . $idLocal);
         //El segmento por página de las fechas disponibles a mostrar
         $iniciar = ($pagina-1)*$fechasPorPagina;
         session_start();
@@ -42,7 +42,7 @@ and open the template in the editor.
         $_SESSION['idLocal'] = $idLocal;
         
         $nombre = $datosDetalleLocal[1];
-        echo ($datosDetalleLocal[4]);
+        //echo ($datosDetalleLocal[4]);
         ?>
         <div class="container mt-5">
             <div class='row'>

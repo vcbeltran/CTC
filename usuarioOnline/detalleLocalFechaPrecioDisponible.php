@@ -61,7 +61,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col md-2"></div>
                  <div class="col md-8">
-                   <a class="btn list-group-item-info"><i class="fas fa-check-circle"></i> Reservar</a>
+                    <a class="btn list-group-item-info" href="altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>"><i class="fas fa-check-circle"></i> Reservar</a>
                    <a class="btn list-group-item-info" href='listaLocalFechaPrecioDisponible.php?pagina=<?php echo $pagina ?>&codigo=<?php echo $idLocal ?>'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
                   </div>  
             </div>
