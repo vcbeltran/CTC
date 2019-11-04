@@ -16,7 +16,7 @@ and open the template in the editor.
         
         include ('../consultas/consultasLocales.php');
         session_start();
-         echo $_SESSION['tipo'];
+        // echo $_SESSION['tipo'];
         $id = $_REQUEST['codigo'];
         $nombre = strtoupper($_REQUEST['nombre']);
         $direccion = strtoupper($_REQUEST['direccion']);
