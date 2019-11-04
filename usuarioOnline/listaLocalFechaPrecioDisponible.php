@@ -49,9 +49,9 @@ and open the template in the editor.
                 <div class="col md-2">
                     <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                 </div>
-<!--                <div class="col md-2">
-                    <img src='../administrador/<?php //echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
-                </div>-->
+                <div class="col md-2">
+                    <img src='../administrador/<?php echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
+                </div>
                 <div class="col md-6">
                     <button type='button' class="btn btn-warning" > <i class="far fa-hand-peace"></i> <?php echo "Está reservando para el local: " . $datosDetalleLocal[1] ?> </button>
                 </div>

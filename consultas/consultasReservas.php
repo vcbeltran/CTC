@@ -25,7 +25,7 @@ class consultasReservas {
     public function insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario){
         $alta = "INSERT INTO RESERVA (FECHAREALIZA, IDLOCALFECHAPRECIO, IDUSUARIO) "
                 . " VALUES ('$fechaRealiza', '$idCodigoFecha', '$idUsuario')";
-        echo $alta;
+       
     if ($this->conexion->query($alta)) {
         $this->actualizaReservado($idCodigoFecha);
             return true;

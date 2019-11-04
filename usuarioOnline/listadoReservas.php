@@ -14,20 +14,19 @@ and open the template in the editor.
         <?php
         session_start();
         include '../consultas/consultasLocalFechaPrecio.php';
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
     
         
         $idUsuario = $_SESSION['idUsuario'];
-            echo 'Hola esta es su reserva' . $idUsuario;
+        // echo 'Hola esta es su reserva' . $idUsuario;
    
         $idLocal = null;
         $reservado = 1;
         
         $consultaReservas = new consultasLocalFechaPrecio();
         $datosMisReservas = array();
-        $datosMisReservas = $consultaReservas->recuperaDatosLocalFechaPrecioSinPaginar($idLocal, $reservado, $idUsuario);
-        
-        var_dump($datosMisReservas);
+        $datosMisReservas = $consultaReservas->recuperaDatosLocalFechaPrecioSinPaginar($idLocal, $reservado, $idUsuario);        
+        //var_dump($datosMisReservas);
         
         ?>
         <div class="container mt-5">
@@ -46,9 +45,15 @@ and open the template in the editor.
                 <div class="col  py-3 px-lg-5"><?php echo $datos['precio']." €" ?></div>
                 <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='detalleReservaLocalFechaPrecio.php?idReserva=<?php echo $datos['idlocalfechaprecio'] ?>' ><i class="far fa-calendar-times"></i> Anular </a></div>
                <div class="w-100"></div>
-        <?php endforeach; ?>
-               
+        <?php endforeach; ?>               
         </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">           
+                <div class="col md-2">
+                    <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

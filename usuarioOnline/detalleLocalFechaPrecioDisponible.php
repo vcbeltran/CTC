@@ -36,11 +36,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-       <?php
-        
-                endforeach;
-               
-        ?>
+       <?php  endforeach; ?>
        <div class="container mt-5">
             <h1>Los datos de su reserva </h1>
                <div class="row">
@@ -61,11 +57,9 @@ and open the template in the editor.
          </div>
         <div class="container mt-5">
             <div class="row">
-                <div class="col md-2"></div>
-                             
+                <div class="col md-2"></div>                             
                     <a class="btn list-group-item-info" href='listaLocalFechaPrecioDisponible.php?pagina=<?php echo $pagina ?>&codigo=<?php echo $idLocal ?>'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
- 
-<!--                <div class="col md-2"> 
+            <!--<div class="col md-2"> 
                     <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a>
                 </div>-->
             </div>

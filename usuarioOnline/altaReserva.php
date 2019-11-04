@@ -17,10 +17,6 @@ Esta página formaliza una reserva a un usuario.
         $idCodigoFecha = $_GET['idReserva'];
         $fechaRealiza = date("Y-m-d");
         
-        echo $idUsuario;
-        echo $idCodigoFecha;
-        echo $fechaRealiza;
-        
         $altaReserva = new consultasReservas();
         if ($altaReserva->insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario)){ ?>
             <div class="container mt-5">
