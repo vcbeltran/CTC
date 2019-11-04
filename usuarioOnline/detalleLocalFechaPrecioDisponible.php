@@ -38,7 +38,7 @@ and open the template in the editor.
             </div>
        <?php  endforeach; ?>
        <div class="container mt-5">
-            <h1>Los datos de su reserva </h1>
+            <h1>Confirme los datos de su reserva </h1>
                <div class="row">
                     <div class="col list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
                     <div class="col list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>

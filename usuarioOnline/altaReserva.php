@@ -11,6 +11,9 @@ Esta página formaliza una reserva a un usuario.
     <body>
         <?php
         include '../consultas/consultasReservas.php';
+        include '../consultas/consultasLocalFechaPrecio.php';
+        include '../correo/enviarCorreo.php';
+        
         session_start();
         var_dump($_SESSION);
         $idUsuario = $_SESSION['idUsuario'];
@@ -18,7 +21,41 @@ Esta página formaliza una reserva a un usuario.
         $fechaRealiza = date("Y-m-d");
         
         $altaReserva = new consultasReservas();
-        if ($altaReserva->insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario)){ ?>
+        
+        if ($altaReserva->insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario)){
+            //consulto los datos de la reserva
+            $consultaLocalFechaPrecio = new consultasLocalFechaPrecio();
+            $datosReservaSeleccionada = $consultaLocalFechaPrecio->detalleLocalFechaPrecio($idCodigoFecha);
+
+            $direccionEmail = $_SESSION['nombre'];
+            $nombreUsuario = $_SESSION['nombreUsuario'];
+            $nombreLocal = null;
+            $fechaReservada = null;
+            $horaInicio = null;
+            $horaFin = null;
+            $precio = null;
+            $fechaRealiza = null;
+
+            
+            foreach ($datosReservaSeleccionada as $datos):
+                $nombreLocal = $datos['nombrelocal'];
+                $fechaReservada = date("d-m-Y", strtotime($datos['fechareservada']));
+                $precio = $datos['precio'] . " €";
+                $horaInicio = $datos['horainicio'];
+                $horaFin = $datos['horafin'];
+                $fechaRealiza = date("d-m-Y", strtotime($datos['fecharealiza']));
+            endforeach;
+            
+
+            $subject = 'Aviso de reserva de CTC';
+            
+            $texto = "Estimado " . $nombreUsuario . ": Con fecha " . $fechaRealiza . " ha realizado una reserva en el local " . $nombreLocal . " para el día " . $fechaReservada . " de " . $horaInicio . " a " . $horaFin .
+                    " por un precio de " .$precio;
+
+            $enviarCorreo = new enviarCorreo();     
+            $enviarCorreo->enviarConPlantilla($direccionEmail, $texto, $subject);
+                    
+            ?>
             <div class="container mt-5">
                 <div class="alert alert-success mb-2" role="alert">
                     <i class="fa fa-check" aria-hidden="true"></i> Has relizado una reserva! Consulte su mail para más información <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
