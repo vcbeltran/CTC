@@ -78,7 +78,7 @@ if (isset($mail) && isset($pass)){
         
         
     } else {
-        echo "Login no ok";
+       header("location:relogin.php");
     }
  }
 

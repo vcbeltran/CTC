@@ -15,23 +15,21 @@ and open the template in the editor.
         session_start();
         include '../consultas/consultasLocalFechaPrecio.php';
         //var_dump($_SESSION);     
-        $idCodigoFecha = $_GET['idReserva'];
+        $idLocalFechaPrecio = $_GET['idLocalFechaPrecio'];
         $idUsuario = null;
-            //echo 'Hola esta es su reserva' . $idUsuario;
-   
+               
         $idLocal = null;
         $reservado = null;
         
            
         $consultaDetalle = new consultasLocalFechaPrecio();
         $datosReservaSeleccionada = array();
-        $datosReservaSeleccionada = $consultaDetalle->detalleLocalFechaPrecio($idCodigoFecha);
+        $datosReservaSeleccionada = $consultaDetalle->detalleLocalFechaPrecio($idLocalFechaPrecio);
         
         ?>
-        <div class="container">
         <div class="container-fluid  mt-5">
-            <h1>Detalle de la reserva </h1>
-            <div class="row">  
+            <h1 class="ml-md-3">Mis reservas </h1>
+            <div class="row mr-md-3 ml-md-3">  
                 <div class="col list-group-item-info py-3 px-lg-5">Nombre Local</div>
                 <div class="col list-group-item-info py-3 px-lg-5">Fecha </div>
                 <div class="col list-group-item-info py-3 px-lg-5">Precio</div>
@@ -40,23 +38,19 @@ and open the template in the editor.
                 <div class="col list-group-item-info py-3 px-lg-5">Fecha alta</div>
                 <div class="col list-group-item-info py-3 px-lg-5">Anular reserva</div>
                 <div class="w-100"></div>
-        <?php foreach ($datosReservaSeleccionada as $datos): ?>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['precio']." €" ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
-                <div class="col  py-3 px-lg-5"><?php echo $datos['horafin']?></div>      
-                <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fecharealiza'])) ?></div>
-                <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('eliminaReserva.php?idReserva=<?php echo $idCodigoFecha ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
-       <?php endforeach; ?>
-                <div class="container mt-5">
-                    <div class="row">
-                        <div class="col md-2"></div>                             
-                        <a class="btn list-group-item-info" href='listadoReservas.php'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>
-                    </div>
-                </div>
-        </div>
-        </div>
+                <?php foreach ($datosReservaSeleccionada as $datos): ?>
+                    <div class="col  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>
+                    <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
+                    <div class="col  py-3 px-lg-5"><?php echo $datos['precio'] . " €" ?></div>
+                    <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
+                    <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>      
+                    <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fecharealiza'])) ?></div>
+                    <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('detalleReservaLocalFechaPrecio.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
+                <?php endforeach; ?>
             </div>
+        </div>
+        <div class="container">
+            <a class="btn list-group-item-info" href='listadoReservas.php'><i class="fas fa-arrow-alt-circle-left"></i> Volver atrás</a>            
+        </div>
     </body>
 </html>

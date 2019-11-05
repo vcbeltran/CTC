@@ -53,6 +53,7 @@ Además permite ver algún listado de los locales.
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
                 </nav>                
             </div>
-        </div>      
+        </div>  
+            <?php include ('../includes/includeFooter.php'); ?>
     </body>
 </html>

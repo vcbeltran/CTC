@@ -33,7 +33,7 @@ and open the template in the editor.
         include ('../consultas/consultasLocales.php');
         $consultaDisponibilidadLocal = new consultasLocalFechaPrecio();
         $datosFechaPrecio = array();
-        $datosFechaPrecio = $consultaDisponibilidadLocal->recuperaDatosLocalFechaPrecio($idLocal, $reservado, $idUsuario,$iniciar,$fechasPorPagina);
+        $datosFechaPrecio = $consultaDisponibilidadLocal->recuperaDatosLocalFechaPrecioFuturas($idLocal, $reservado, $idUsuario,$iniciar,$fechasPorPagina);
         //var_dump($_GET['pagina']);
         //var_dump($iniciar);        
         //var_dump($datosFechaPrecio);
@@ -73,7 +73,7 @@ and open the template in the editor.
                         <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
                         <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
                         <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
-                        <div class="col list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idCodigoFecha=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
+                        <div class="col list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
                        <div class="w-100"></div>
                     <?php endforeach; ?>
                   <?php  endif;?>
@@ -91,7 +91,7 @@ and open the template in the editor.
                     <?php
                    $cuentaFilas = new consultasLocalFechaPrecio();
                    $filas = array();
-                   $filas = $cuentaFilas->contarFilasLocalFechaPrecio($idLocal,$reservado,$idUsuario);    
+                   $filas = $cuentaFilas->contarFilasLocalFechaPrecioFuturas($idLocal,$reservado,$idUsuario);    
                     //var_dump($filas);
                     //botones de paginación             
                     $totalPaginas = ceil($filas / $fechasPorPagina);

@@ -48,7 +48,7 @@ Además permite ver algún listado de los locales.
                                 Consultar reservas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                <a class="dropdown-item" href="#"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
+                                <a class="dropdown-item" href="listadoReservasEmpresa.php"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
                             </div>  
                         </div>
                         <a class="navbar-brand" href="#"> Ver Informes </a>
@@ -77,6 +77,7 @@ Además permite ver algún listado de los locales.
                 </div>
                  <div class="col-md-2"></div>
             </div>
-        </div>      
+        </div>  
+         <?php include ('../includes/includeFooter.php'); ?>
     </body>
 </html>

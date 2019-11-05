@@ -17,15 +17,15 @@ Esta página formaliza una reserva a un usuario.
         session_start();
         var_dump($_SESSION);
         $idUsuario = $_SESSION['idUsuario'];
-        $idCodigoFecha = $_GET['idReserva'];
+        $idLocalFechaPrecio = $_GET['idLocalFechaPrecio'];
         $fechaRealiza = date("Y-m-d");
         
         $altaReserva = new consultasReservas();
         
-        if ($altaReserva->insertarReserva($fechaRealiza, $idCodigoFecha, $idUsuario)){
+        if ($altaReserva->insertarReserva($fechaRealiza, $idLocalFechaPrecio, $idUsuario)){
             //consulto los datos de la reserva
             $consultaLocalFechaPrecio = new consultasLocalFechaPrecio();
-            $datosReservaSeleccionada = $consultaLocalFechaPrecio->detalleLocalFechaPrecio($idCodigoFecha);
+            $datosReservaSeleccionada = $consultaLocalFechaPrecio->detalleLocalFechaPrecio($idLocalFechaPrecio);
 
             $direccionEmail = $_SESSION['nombre'];
             $nombreUsuario = $_SESSION['nombreUsuario'];
