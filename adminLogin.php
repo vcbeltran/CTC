@@ -78,7 +78,7 @@ if (isset($mail) && isset($pass)){
         
         
     } else {
-       header("location:reloguin.php");
+       header("location:relogin.php");
     }
  }
 

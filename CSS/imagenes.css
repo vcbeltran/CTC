@@ -7,9 +7,34 @@ and open the template in the editor.
     Created on : 06-oct-2019, 18:55:08
     Author     : Vero
 */
-body{    
+/*body{    
      background-image: url("../administrador/imagenes/fondo_cumple.jpg");
      background-size: cover;
-/*     background-color: blueviolet;*/
+        
+    
+   
+     background: rgba(76, 175, 80, 0.3); 
+     background-color: blueviolet;
+}*/
+html{ 
+    height:100%; 
+}
+body{ 
+    background-image: url("../administrador/imagenes/fondo_cumple2.jpg");
+    background-size: cover;
+    min-height:100%; padding:0; margin:0; position:relative; 
+}
+
+body::after{ 
+    content:''; 
+    display:block; 
+    height:100px; 
+}
+
+footer{ 
+  position:absolute; 
+  bottom:0; 
+  width:100%; 
+  height:100px; 
 }
 

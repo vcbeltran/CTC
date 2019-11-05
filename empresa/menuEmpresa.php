@@ -77,6 +77,7 @@ Además permite ver algún listado de los locales.
                 </div>
                  <div class="col-md-2"></div>
             </div>
-        </div>      
+        </div>  
+         <?php include ('../includes/includeFooter.php'); ?>
     </body>
 </html>

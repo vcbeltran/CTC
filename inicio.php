@@ -142,8 +142,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
          echo "Mostramos: " . $localesPorPagina  ."<br>";
          echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
          echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>-->
-        <footer class="navbar-fixed-bottom">
-            <div class="footer-copyright text-center py-3"> &copy 2019 Desarrollado por: Verónica Beltrán González       
-        </footer>
+<!--         <div class="container-fluid mb-3">
+              <div class="col list-group-item-info bg-info rounded">
+                 <div class="footer-copyright text-center text-white py-3"> &copy 2019 Desarrollado por: Verónica Beltrán González </div>                   
+              </div>
+         </div>-->
+  <?php include ('includes/includeFooter.php'); ?>
     </body>
 </html>
