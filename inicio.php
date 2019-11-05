@@ -15,11 +15,14 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include ('includes/include.php'); ?>
+        <?php include ('includes/include.php'); ?>   
+<!--        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
+
         <meta charset="UTF-8">                       
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>
+        <?php include ('includes/includeCabecera.php'); ?>
         <?php             
          session_start(); 
         ?>

@@ -7,8 +7,9 @@ and open the template in the editor.
     Created on : 06-oct-2019, 18:55:08
     Author     : Vero
 */
-/*body{
-    
-     background-color: teal;
-}*/
+body{    
+     background-image: url("../administrador/imagenes/fondo_cumple.jpg");
+     background-size: cover;
+/*     background-color: blueviolet;*/
+}
 

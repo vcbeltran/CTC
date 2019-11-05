@@ -33,7 +33,7 @@ and open the template in the editor.
         include ('../consultas/consultasLocales.php');
         $consultaDisponibilidadLocal = new consultasLocalFechaPrecio();
         $datosFechaPrecio = array();
-        $datosFechaPrecio = $consultaDisponibilidadLocal->recuperaDatosLocalFechaPrecio($idLocal, $reservado, $idUsuario,$iniciar,$fechasPorPagina);
+        $datosFechaPrecio = $consultaDisponibilidadLocal->recuperaDatosLocalFechaPrecioFuturas($idLocal, $reservado, $idUsuario,$iniciar,$fechasPorPagina);
         //var_dump($_GET['pagina']);
         //var_dump($iniciar);        
         //var_dump($datosFechaPrecio);
@@ -91,7 +91,7 @@ and open the template in the editor.
                     <?php
                    $cuentaFilas = new consultasLocalFechaPrecio();
                    $filas = array();
-                   $filas = $cuentaFilas->contarFilasLocalFechaPrecio($idLocal,$reservado,$idUsuario);    
+                   $filas = $cuentaFilas->contarFilasLocalFechaPrecioFuturas($idLocal,$reservado,$idUsuario);    
                     //var_dump($filas);
                     //botones de paginación             
                     $totalPaginas = ceil($filas / $fechasPorPagina);

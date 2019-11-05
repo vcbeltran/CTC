@@ -40,7 +40,8 @@ class consultasLocalFechaPrecio {
             $select = " local.idlocal, local.nombrelocal, local.imagen, "
              . " usuario.idusuario, usuario.nombre as nombreusuario, usuario.correo, "
              . " localfechaprecio.idlocalfechaprecio, localfechaprecio.fechareservada, "
-             . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado ";            
+             . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado, "
+             . " usuario.correo ";            
             $where = null;
             $groupBy = null;
             $orderBy = " order by local.nombrelocal, localfechaprecio.fechareservada desc ";
@@ -101,7 +102,68 @@ class consultasLocalFechaPrecio {
         }
     }
 
+    public function recuperaDatosLocalFechaPrecioFuturas($idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina){
+        try {
+            $select = " local.idlocal, local.nombrelocal, local.imagen, "
+             . " usuario.idusuario, usuario.nombre as nombreusuario, usuario.correo, "
+             . " localfechaprecio.idlocalfechaprecio, localfechaprecio.fechareservada, "
+             . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado ";            
+            $where = " and localfechaprecio.fechareservada >= DATE(sysdate()) ";
+            $groupBy = null;
+            $orderBy = " order by local.nombrelocal, localfechaprecio.fechareservada desc ";
+            $limit = null;
+             if (isset($fechasPorPagina)){
+                $limit = " LIMIT ?, ? ";
+            }
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
+                   
+            $stmt = $this->conexion->prepare($consulta);
 
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,$iniciar,$fechasPorPagina);
+            $stmt -> execute();
+            $resultado = $stmt->get_result();
+            
+            $fechasPrecio = array();
+            if ($resultado->num_rows != 0){
+                while ($fila = $resultado->fetch_assoc()){
+                    array_push($fechasPrecio, $fila);                    
+                }             
+                return $fechasPrecio;     
+            } 
+        } catch (Excepcion $e){
+            echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
+        }
+    }
+
+    public function contarFilasLocalFechaPrecioFuturas($idLocal,$reservado,$idUsuario){
+        try {
+            $select = " count(*) as total ";
+            $where = " and localfechaprecio.fechareservada >= DATE(sysdate()) ";
+            $groupBy = null;
+            $orderBy = null;
+            $limit = null;
+            
+            $consulta = $this->consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit);
+            
+            $stmt = $this->conexion->prepare($consulta);
+
+            $this->bindeaPreparedStatement($stmt, $idLocal,$reservado,$idUsuario,null,null);
+            
+            $stmt -> execute();
+            $this->resultado = $stmt->get_result();
+
+            if ($this->resultado->num_rows != 0){
+                $fila = $this->resultado->fetch_assoc(); //fetch_array();
+                return $fila['total'];
+            } else {
+                return 0;
+            }
+        } catch (Excepcion $e){
+            echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
+        }
+    }    
+    
 
     
     private function consultaMaestraLocalFechaPrecio($idLocal,$reservado,$idUsuario,$select,$where,$groupBy,$orderBy,$limit){
