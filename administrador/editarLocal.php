@@ -56,9 +56,10 @@ and open the template in the editor.
                 //empieza primer parrafo
                 print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
-                print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
-                print("<a class='btn btn-primary' href='formularioActualLocal.php?codigo=" . $local[0] . " '> Modificar </a>" . " "
-                        . "<a href='eliminaLocalEmpresa.php?accion=eliminaLocal&codigo=". $local[0] ."' class='btn btn-danger' >Eliminar</a>");
+                print("<p class='card-text'> AFORO: " . $local[3] . "</p>");?>
+                <a class='btn btn-primary' href='formularioActualLocal.php?codigo=<?php echo $local[0]  ?>'><i class="fa fa-pencil fa-fw"></i> Modificar </a>
+                <a  class='btn btn-danger' href='' onclick="javascript:if (!funcion_confirmar('eliminaLocalEmpresa.php?accion=eliminaLocal&codigo=<?php echo $local[0] ?>'))return false "> <i class="far fa-trash-alt"></i> Eliminar</a>                       
+                <?php
                 //cierra card body
                 print("</div>");
                 //cierra card
@@ -75,29 +76,7 @@ and open the template in the editor.
                 $contador2++;
             endforeach;
             print("</div>");
-            ?>      
-        <script>
-            $('#botonEliminar').click(function(){
-                    swal({
-                       title: "Are you sure?",
-                       text: "You will not be able to recover this imaginary file!",
-                       type: "warning",
-                       showCancelButton: true,
-                       confirmButtonClass: "btn-danger",
-                       confirmButtonText: "Yes, delete it!",
-                       cancelButtonText: "No, cancel plx!",
-                       closeOnConfirm: false,
-                       closeOnCancel: false
-                     },
-                     function(isConfirm) {
-                       if (isConfirm) {
-                         swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                       } else {
-                         swal("Cancelled", "Your imaginary file is safe :)", "error");
-                       }
-                     });
-            });
-        </script> 
-            </div>
+            ?>     
+        </div>
     </body>
 </html>

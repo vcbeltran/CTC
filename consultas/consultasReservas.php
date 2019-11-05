@@ -30,7 +30,7 @@ class consultasReservas {
             $this->actualizaReservado($idCodigoFecha);
                 return true;
             }
-    }
+        }
     
     private function actualizaReservado($idCodigoFecha){
         $actualizar = "UPDATE LOCALFECHAPRECIO SET RESERVADO = 1 WHERE IDLOCALFECHAPRECIO = '$idCodigoFecha'";

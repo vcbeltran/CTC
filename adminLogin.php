@@ -60,15 +60,16 @@ if (isset($mail) && isset($pass)){
         /* SI ES UN USUARIO ONLINE REDIRECCIONA PERMITIENDO RESERVAS */
         } elseif ($conexionTipo[2] == 3){
             session_start();
-            //id del tipo la conexion
-            $_SESSION['id'] = $conexionTipo[2];
-            //nombre tipo de usuario conectado
+            
+            //correo usuario conectado
             $_SESSION['nombre'] = $conexionTipo[0];
             //tipo conexion en string
              $_SESSION['tipo'] = $conexionTipo[1];
+            //id del tipo la conexion
+            $_SESSION['id'] = $conexionTipo[2];
              //nombre del usuario online
             $_SESSION['nombreUsuario'] = $conexionTipo[4];
-            
+            //idusuario
             $_SESSION['idUsuario'] = $conexionTipo[5];
             
             $_SESSION['idLocal'] = null;

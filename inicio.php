@@ -3,8 +3,8 @@
     include ('consultas/consultasLocales.php');
     $conect = new Conexiones();
     $totalFilasLocal = new consultasLocales();
-    //echo $_SERVER['DOCUMENT_ROOT']. "/CTC"; 
-    //var_dump($prueba);
+
+  
     //Conecto con la clase locales para extraer un array con la información que hay en
     //la bbdd referente a los locales 
 ?>
@@ -15,9 +15,8 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">        
-        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">
         <?php include ('includes/include.php'); ?>
+        <meta charset="UTF-8">                       
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body>

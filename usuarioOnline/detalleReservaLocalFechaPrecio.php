@@ -14,7 +14,7 @@ and open the template in the editor.
         <?php
         session_start();
         include '../consultas/consultasLocalFechaPrecio.php';
-        var_dump($_SESSION);     
+        //var_dump($_SESSION);     
         $idCodigoFecha = $_GET['idReserva'];
         $idUsuario = null;
             //echo 'Hola esta es su reserva' . $idUsuario;
