@@ -242,11 +242,11 @@ class consultasLocalFechaPrecio {
         }
     }
     
-    public function detalleLocalFechaPrecio($idLocalFechaPrecio){
+    public function detalleLocalFechaPrecioUsuarioReserva($idLocalFechaPrecio, $idUsuario, $reservado){
         try {
             $idLocal = null;
-            $reservado = null;           
-            $idUsuario = null;            
+            //$reservado = null; viene por parámetro
+            //$idUsuario = null; viene por parámetro
             $select = " localfechaprecio.fechareservada, localfechaprecio.precio, localfechaprecio.horainicio , localfechaprecio.horafin, local.imagen, local.nombrelocal, reserva.fecharealiza  ";
             $where =  " and localfechaprecio.idlocalfechaprecio = '$idLocalFechaPrecio' ";
             $groupBy = null;
@@ -269,10 +269,16 @@ class consultasLocalFechaPrecio {
                     array_push($fechasPrecio, $fila);                    
                 }      
                 return $fechasPrecio;     
-            } 
+            }  else {
+                return null;
+            }
         } catch (Excepcion $e){
             echo 'Error en el metodo comprobar detalle local fecha precio '.$e->getMessage()."\n";
-        }
+        }        
+    }    
+    
+    public function detalleLocalFechaPrecio($idLocalFechaPrecio){
+        return $this->detalleLocalFechaPrecioUsuarioReserva($idLocalFechaPrecio, null, null);
     }
     
     
