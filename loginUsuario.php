@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php include ('ncludes/include.php'); ?>
+        <?php include ('includes/include.php'); ?>
         <title>Bienvenido</title>
     </head>
     <body>

@@ -45,7 +45,7 @@ and open the template in the editor.
                     <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
                     <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>      
                     <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fecharealiza'])) ?></div>
-                    <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('detalleReservaLocalFechaPrecio.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
+                    <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('eliminaReserva.php?idLocalFechaPrecio=<?php echo $idLocalFechaPrecio ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
                 <?php endforeach; ?>
             </div>
         </div>

@@ -72,7 +72,7 @@ and open the template in the editor.
                         <div class="col list-group-flush  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
                         <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
                         <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
-                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
+                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ." € " ?></div>
                         <div class="col list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
                        <div class="w-100"></div>
                     <?php endforeach; ?>

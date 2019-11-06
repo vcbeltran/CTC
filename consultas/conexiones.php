@@ -21,7 +21,7 @@ class Conexiones {
         try {
             $conec = Conexiones::getConexion();
 
-            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, USER.NOMBRE, USER.IDUSUARIO "
+            $consulta = "SELECT USER.CORREO, TIPO.NOMBRE, TIPO.IDROL, USER.IDLOCAL, USER.NOMBRE, USER.IDUSUARIO, USER.TELEFONO "
                     . "FROM USUARIO AS USER, ROL AS TIPO "
                     . " WHERE  USER.CORREO = ? "
                     . " AND USER.IDROL = TIPO.IDROL";
@@ -75,7 +75,54 @@ class Conexiones {
         $fila = $this->resultado->fetch_assoc();
         return $fila;
     }
-    
+  
+    public function actualizaUsuario($nombre, $correo, $password, $telefono, $idUsuario){
+        $conexion = Conexiones::getConexion();        
+ 
+        $consulta = "UPDATE USUARIO SET NOMBRE =? , CORREO =? , PASSWORD =? , TELEFONO =? "
+                . " WHERE IDUSUARIO = ? ";   
+     
+        $stmt = $conexion->prepare($consulta);
+        //00001 solo viene el id
+        if (!isset($nombre) && !isset($correo) && !isset($password) && !isset($telefono) && isset($idUsuario)) {
+            $stmt->bind_param('i', $idUsuario);
+        }
+        //10001 //solo viene el nombre
+        if (isset($nombre) && !isset($correo) && !isset($password) && !isset($telefono) && isset($idUsuario)) {
+            $stmt->bind_param('si', $nombre, $idUsuario);
+        }
+        //11001 //solo viene nombre y correo
+        if (isset($nombre) && isset($correo) && !isset($password) && !isset($telefono) && isset($idUsuario)) {
+            $stmt->bind_param('ssi', $nombre, $correo, $idUsuario);
+        }
+        //11101 solo viene nombre , correo y password
+        if (isset($nombre) && isset($correo) && isset($password) && !isset($telefono) && isset($idUsuario)) {
+            $stmt->bind_param('sssi', $nombre, $correo, $password, $idUsuario);
+        }
+        //11111 viene nombre , correo,  password y telefono
+        if (isset($nombre) && isset($correo) && isset($password) && isset($telefono) && isset($idUsuario)) {
+            echo "pasa por aqui\n";
+            $stmt->bind_param('ssssi', $nombre, $correo, $password, $telefono, $idUsuario);            
+        }
+        $stmt->execute();        
+         if ( $stmt->execute()){
+             echo "ha pasado por aqui \n";
+      
+        } else {
+            echo "no ha hecho el update\n";    
+        }
+    }
+
+   /* public function actualizaUsuario($nombre, $correo, $password, $telefono, $idUsuario){
+         $consulta = "UPDATE USUARIO SET NOMBRE = '$nombre' , CORREO = '$correo' , PASSWORD = '$password' , TELEFONO = '$telefono' "
+                . " WHERE IDUSUARIO = '$idUsuario' ";
+        var_dump($consulta);
+        $conexion = Conexiones::getConexion();
+
+        $conexion->query($consulta);
+
+        }*/
+
     
     // desconecta de la base de datos
     public function desconectar() {

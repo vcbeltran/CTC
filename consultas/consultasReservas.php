@@ -55,4 +55,19 @@ class consultasReservas {
         return false;
         
     }
+        public function eliminarReserva($idLocalFechaPrecio){
+        $alta = "DELETE FROM RESERVA WHERE IDLOCALFECHAPRECIO = '$idLocalFechaPrecio' ";
+        echo $alta;
+            if ($this->conexion->query($alta)) {
+                $this->actualizaReservadoLibre($idLocalFechaPrecio);
+                return true;
+            }
+    }
+        private function actualizaReservadoLibre($idLocalFechaPrecio){
+        $actualizar = "UPDATE LOCALFECHAPRECIO SET RESERVADO = 0 WHERE IDLOCALFECHAPRECIO = '$idLocalFechaPrecio'";
+        
+        if($this->conexion->query($actualizar)){
+            return true;
+        }        
+    }
 }

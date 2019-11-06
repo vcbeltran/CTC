@@ -44,17 +44,18 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     ?>
                     <div class="container-fluid">
                         <div class="row">                          
-                            <div class="col md-2">
-                                <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
-                            </div>
-                            <div class="col md-8">
-                                <div class="col md-2">
-                                   <button type="button" class="btn btn-warning"><i class="far fa-address-book"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="usuarioOnline/listadoReservas.php"> Consulte sus reservas</a> </button>
+                                <div class="col md-3">
+                                    <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
+                                </div>                      
+                                <div class="col md-3">
+                                    <button type="button" class="btn btn-warning"><i class="far fa-address-book"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="usuarioOnline/listadoReservas.php"> Consulte sus reservas</a> </button>
+                                </div>                               
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-user-tag"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="usuarioOnline/formularioDatosUser.php"> Datos personales </a></button>
                                 </div>
-                            </div>                      
-                            <div class="col-md-2 ">
-                                <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
-                            </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
+                                </div>
                         </div>
                 <?php } ?></div>
                          

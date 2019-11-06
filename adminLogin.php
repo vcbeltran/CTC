@@ -15,8 +15,8 @@ $compruebaLogin = new Conexiones();
 $mail = $_REQUEST['mail'];
 $pass = md5($_REQUEST['contra']);
 //var_dump($nombre);
-var_dump($mail);
-var_dump($pass);
+//var_dump($mail);
+//var_dump($pass);
 
 $conexionTipo = array();
 //llamo a la función que comprueba qué tipo de usuario es.
@@ -71,7 +71,8 @@ if (isset($mail) && isset($pass)){
             $_SESSION['nombreUsuario'] = $conexionTipo[4];
             //idusuario
             $_SESSION['idUsuario'] = $conexionTipo[5];
-            
+            //telefono 
+            $_SESSION['telefono'] = $conexionTipo[6];
             $_SESSION['idLocal'] = null;
             header("location:inicio.php");
         } 
