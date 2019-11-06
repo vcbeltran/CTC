@@ -12,8 +12,7 @@ html{
     height:100%; 
 }
 body{ 
-/*    background-image: url("../administrador/imagenes/background-confetti.png");*/
-    background-image: url("../administrador/imagenes/confetti-transparent.png");
+/*    background-image: url("../administrador/imagenes/confetti-transparent.png");*/
     background-size: cover;
     min-height:100%; padding:0; margin:0; position:relative; 
 }

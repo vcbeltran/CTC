@@ -71,10 +71,9 @@ if (isset($mail) && isset($pass)){
             $_SESSION['nombreUsuario'] = $conexionTipo[4];
             //idusuario
             $_SESSION['idUsuario'] = $conexionTipo[5];
-            //telefono 
-            $_SESSION['telefono'] = $conexionTipo[6];
+      
             $_SESSION['idLocal'] = null;
-            header("location:inicio.php");
+            header("location:inicio.php?pagina=1");
         } 
         
         

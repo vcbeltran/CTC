@@ -25,6 +25,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <?php include ('includes/includeCabecera.php'); ?>
         <?php             
          session_start(); 
+         
+        if (!$_GET) {
+            header("location:inicio.php?pagina=1");
+        } 
         ?>
         <div class="container mt-5">
             <div class="row">             
@@ -40,7 +44,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 } else {
                     $tipoUsuario = $_SESSION['id'];
                     $nombreUsuario = $_SESSION['nombre'];
-                    //var_dump($nombreUsuario);  
+                    //var_dump($_SESSION);  
                     ?>
                     <div class="container-fluid">
                         <div class="row">                          
@@ -64,9 +68,9 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
        <div class="container mt-3"> 
 <!--           <div class='row'>-->
              <?php
-            if (!$_GET) {
-                 header("location:inicio.php?pagina=1");
-            }           
+//            if (!$_GET) {
+//                 header("location:inicio.php?pagina=1");
+//            }   
             $conexionLocales = new ConsultasLocales();
             $localesPorPagina = 8;            
             //El segmento por página de los locales a mostrar
@@ -100,7 +104,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("</div>");
                 //cierra card
                 if (isset($_SESSION['id'])){
-                     print("<a class='btn btn-warning' href='usuarioOnline/listaLocalFechaPrecioDisponible.php?pagina=1&codigo=" . $local[0] . " '><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> Consultar disponibilidad </a> ");
+                     print("<a class='btn btn-info' href='usuarioOnline/listaLocalFechaPrecioDisponible.php?pagina=1&codigo=" . $local[0] . " '><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> Consultar disponibilidad </a> ");
                 }
                 print("</div>");
                 //cierra col
@@ -132,7 +136,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                         </li>
                     <?php endfor; ?>
                     <li class="page-item <?php echo $_GET['pagina'] >= $totalPaginas ? 'disabled' : '' ?>">
-                        <a class="page-link" href="inicio.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
+                        <a class="page-link " href="inicio.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
                             Siguiente
                         </a>
                     </li>
