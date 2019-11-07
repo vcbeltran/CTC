@@ -9,7 +9,7 @@
 <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark pt-4">
   <!-- Copyright -->
-  <div class="footer-copyright text-center text-white  py-3 list-group-item-primary rounded">© 2019 Desarrollado por:
+  <div class="footer-copyright text-center text-white  py-3 list-group-item-primary rounded" style="background-color: #009CCA ">© 2019 Desarrollado por:
       <div class="col ">Verónica Beltrán González</div>
   </div>
   <!-- Copyright -->

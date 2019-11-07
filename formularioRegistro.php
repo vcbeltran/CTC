@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container" >
+            <div class="card"></div>
             <div class="row mt-5">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
