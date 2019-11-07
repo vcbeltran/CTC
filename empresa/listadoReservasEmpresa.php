@@ -23,7 +23,6 @@ and open the template in the editor.
     
         $iniciar = ($pagina-1)*$fechasPorPagina;
        
-        echo "tipo usuario: " . $_SESSION['tipo'];  
         $reservado = 1;
         $idUsuario = null;
         

@@ -80,7 +80,7 @@ and open the template in the editor.
                 <ul class="pagination">
                     <!--Boton anterior-->
                     <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
-                        <a class="page-link" href="editarFechaPrecio.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">Anterior</a>
+                        <a class="page-link" href="detalleEditarFechaPrecio.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">Anterior</a>
                     </li>
                  
                     <?php
@@ -93,11 +93,11 @@ and open the template in the editor.
                     for ($i = 0; $i < $totalPaginas; $i++):
                         ?>
                         <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
-                            <a class="page-link" href="editarFechaPrecio.php?pagina=<?php echo $i + 1 ?>"> <?php echo $i + 1 ?></a>
+                            <a class="page-link" href="detalleEditarFechaPrecio.php?pagina=<?php echo $i + 1 ?>"> <?php echo $i + 1 ?></a>
                         </li>
                     <?php endfor; ?>
                     <li class="page-item <?php echo $_GET['pagina'] >= $totalPaginas ? 'disabled' : '' ?>">
-                        <a class="page-link" href="editarFechaPrecio.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
+                        <a class="page-link" href="detalleEditarFechaPrecio.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
                             Siguiente
                         </a>
                     </li>
