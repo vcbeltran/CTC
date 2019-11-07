@@ -49,7 +49,7 @@ class enviarCorreo {
                 $mail ->addAttachment($fichero);
             }
             if($mail -> send()){ 
-                echo 'El correo fue enviado correctamente.<br>';
+                ;
             } else { 
                 echo 'Hubo un problema. Contacta con un administrador.';
             } 

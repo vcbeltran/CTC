@@ -61,19 +61,19 @@ and open the template in the editor.
             <h1>Fechas disponibles </h1>
              <div class="container mt-5">            
                <div class="row">
-                    <div class="col list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Precio</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Acción</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Precio</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Acción</div>
                     <div class="w-100"></div>
                     <?php if (isset($datosFechaPrecio)):?>
                      <?php foreach ($datosFechaPrecio as $datos): ?>       
-                        <div class="col list-group-flush  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
-                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
-                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
-                        <div class="col list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ." € " ?></div>
-                        <div class="col list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
+                        <div class="col-md list-group-flush  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ." € " ?></div>
+                        <div class="col-md list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
                        <div class="w-100"></div>
                     <?php endforeach; ?>
                   <?php  endif;?>

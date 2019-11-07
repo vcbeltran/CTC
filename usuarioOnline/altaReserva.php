@@ -15,7 +15,7 @@ Esta página formaliza una reserva a un usuario.
         include '../correo/enviarCorreo.php';
         
         session_start();
-        var_dump($_SESSION);
+        
         $idUsuario = $_SESSION['idUsuario'];
         $idLocalFechaPrecio = $_GET['idLocalFechaPrecio'];
         $fechaRealiza = date("Y-m-d");
@@ -58,13 +58,17 @@ Esta página formaliza una reserva a un usuario.
             ?>
             <div class="container mt-5">
                 <div class="alert alert-success mb-2" role="alert">
-                    <i class="fa fa-check" aria-hidden="true"></i> Has relizado una reserva! Consulte su mail para más información <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
+                    <h4 class="alert-heading"><i class="far fa-smile-wink"></i>¡Enhorabuena!</h4>
+                    <hr>
+                    <p class="mb-0">Has relizado una reserva! Consulte su mail para más información <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a></p>
                 </div>
             </div>  
         <?php } else {?>
         <div class="container mt-5">
                 <div class="alert alert-danger mb-2" role="alert">
-                    <i class="fa fa-check" aria-hidden="true"></i> Algo ha ido mal <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
+                    h4 class="alert-heading"><i class="far fa-smile-wink"></i>¡Lo sentimos!</h4>
+                    <hr>
+                    <p class="mb-0"><i class="fas fa-exclamation-triangle"></i> Algo ha ido mal <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a></p>
                 </div>
             </div>  
         <?php   }

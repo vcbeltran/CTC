@@ -50,7 +50,7 @@ and open the template in the editor.
           }  else { ?>   
         <div class="container mt-5">
                 <div class="alert alert-danger mb-2" role="alert">
-                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Hay algún dato que es nulo! <a href="menuEmpresa.php" class="alert-link"><strong>Pulse aquí para volver al menú principal</strong></a>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡Hay algún dato que es nulo o la fecha es menor a hoy! <a href="menuEmpresa.php" class="alert-link"><strong>Pulse aquí para volver al menú principal</strong></a>
                 </div>
         </div>  
         <?php } ?>        

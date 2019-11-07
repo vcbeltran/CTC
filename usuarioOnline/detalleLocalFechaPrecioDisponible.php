@@ -40,18 +40,18 @@ and open the template in the editor.
        <div class="container mt-5">
             <h1>Confirme los datos de su reserva </h1>
                <div class="row">
-                    <div class="col list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Precio</div>
-                    <div class="col list-group-item-warning py-3 px-lg-5">Realizar reserva</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Fecha Reserva</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Horario de Inicio</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Horario de Fin</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Precio</div>
+                    <div class="col-md list-group-item-warning py-3 px-lg-5">Realizar reserva</div>
                     <div class="w-100"></div>
                      <?php foreach ($datosReservaSeleccionada as $datos): ?>       
-                        <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
-                        <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
-                        <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
-                        <div class="col  py-3 px-lg-5"><?php echo $datos['precio'] ?></div>
-                        <div class="col  py-3 px-lg-5">   <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idLocalFechaPrecio=<?php echo $idLocalFechaPrecio ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a></div>
+                        <div class="col-md  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
+                        <div class="col-md  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
+                        <div class="col-md  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
+                        <div class="col-md  py-3 px-lg-5"><?php echo $datos['precio'] . " €" ?></div>
+                        <div class="col-md  py-3 px-lg-5">   <a class="btn list-group-item-info" href='' onclick="javascript:if (!funcion_reservar('altaReserva.php?idLocalFechaPrecio=<?php echo $idLocalFechaPrecio ?>')) return false"><i class="fas fa-check-circle"></i> Reservar</a></div>
                     <?php endforeach; ?>
                 </div>
          </div>

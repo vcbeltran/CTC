@@ -28,24 +28,24 @@ and open the template in the editor.
         
         ?>
         <div class="container-fluid  mt-5">
-            <h1 class="ml-md-3">Mis reservas </h1>
+            <h1 class="ml-md-3">Detalle de mi reserva </h1>
             <div class="row mr-md-3 ml-md-3">  
-                <div class="col list-group-item-info py-3 px-lg-5">Nombre Local</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Fecha </div>
-                <div class="col list-group-item-info py-3 px-lg-5">Precio</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Hora Inicio</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Hora Fin</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Fecha alta</div>
-                <div class="col list-group-item-info py-3 px-lg-5">Anular reserva</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Nombre Local</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Fecha </div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Precio</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Hora Inicio</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Hora Fin</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Fecha alta</div>
+                <div class="col-md list-group-item-info py-3 px-lg-5">Anular reserva</div>
                 <div class="w-100"></div>
                 <?php foreach ($datosReservaSeleccionada as $datos): ?>
-                    <div class="col  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>
-                    <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
-                    <div class="col  py-3 px-lg-5"><?php echo $datos['precio'] . " €" ?></div>
-                    <div class="col  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
-                    <div class="col  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>      
-                    <div class="col  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fecharealiza'])) ?></div>
-                    <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('eliminaReserva.php?idLocalFechaPrecio=<?php echo $idLocalFechaPrecio ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
+                    <div class="col-md  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>
+                    <div class="col-md  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
+                    <div class="col-md  py-3 px-lg-5"><?php echo $datos['precio'] . " €" ?></div>
+                    <div class="col-md  py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
+                    <div class="col-md  py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>      
+                    <div class="col-md  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fecharealiza'])) ?></div>
+                    <div class="col-md  py-3 px-lg-5"><a class="btn list-group-item-danger" href='' onclick="javascript:if (!funcion_anular('eliminaReserva.php?idLocalFechaPrecio=<?php echo $idLocalFechaPrecio ?>')) return false"><i class="far fa-calendar-times"></i> Confirma Anular </a></div>                
                 <?php endforeach; ?>
             </div>
         </div>

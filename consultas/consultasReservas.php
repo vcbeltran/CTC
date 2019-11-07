@@ -57,7 +57,7 @@ class consultasReservas {
     }
         public function eliminarReserva($idLocalFechaPrecio){
         $alta = "DELETE FROM RESERVA WHERE IDLOCALFECHAPRECIO = '$idLocalFechaPrecio' ";
-        echo $alta;
+        
             if ($this->conexion->query($alta)) {
                 $this->actualizaReservadoLibre($idLocalFechaPrecio);
                 return true;

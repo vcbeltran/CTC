@@ -6,32 +6,34 @@ and open the template in the editor.
 -->
 <html>
     <head>
-     <meta charset="UTF-8">
-     <?php include ('includes/include.php'); ?>
+        <meta charset="UTF-8">
+        <?php include ('includes/include.php'); ?>
     </head>
     <body>
         <div class="container mt-5" >
-            <div class="row mt-5">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Acceso usuarios registrados</legend>
-                        <form action="adminLogin.php" method="POST">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-form-label">Email</label>               
-                                <input type="email" class="form-control is-valid" id="inputEmail3" placeholder="Email" name="mail">
-                            </div>             
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-form-label">Password</label>                
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra">
-                            </div> 
-                            <div class="form-group">
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-secondary mb-2">Acceder</button>
+            <div class="card">
+                <div class="row mt-5">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">Acceso usuarios registrados</legend>
+                            <form action="adminLogin.php" method="POST">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-form-label">Email</label>               
+                                    <input type="email" class="form-control is-valid" id="inputEmail3" placeholder="Email" name="mail">
+                                </div>             
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-form-label">Password</label>                
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="contra">
+                                </div> 
+                                <div class="form-group">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-secondary mb-2">Acceder</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>                        
-                    </fieldset>
+                            </form>                        
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </div>

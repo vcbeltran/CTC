@@ -44,7 +44,7 @@ class consultasLocalFechaPrecio {
              . " usuario.correo ";            
             $where = null;
             $groupBy = null;
-            $orderBy = " order by local.nombrelocal, localfechaprecio.fechareservada desc ";
+            $orderBy = " order by localfechaprecio.fechareservada desc ";
             $limit = null;
              if (isset($fechasPorPagina)){
                 $limit = " LIMIT ?, ? ";
