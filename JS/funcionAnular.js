@@ -8,7 +8,7 @@
     function funcion_anular(url) {
                     swal({
                       title: "¿Seguro que desea anular la reserva?",
-                      text: "Si acepta se le mandará un mail",
+                      text: "Si acepta se cancelará su reserva",
                       icon: "warning",
                       buttons: true,
                       dangerMode: true,

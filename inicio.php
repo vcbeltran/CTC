@@ -36,7 +36,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 <?php if (!isset($_SESSION['id'])) { ?>
                     <!-- Muestra los botones de LOGIN Y ACCESO SI EL USUARIO NO ESTÁ CONECTADO -->
                     <div class="col-md-8"></div>
-                    <nav class="navbar navbar-dark bg-info" >  
+                    <nav class="navbar navbar-dark bg-info" style="background-color: #009CCA">  
                         <a class="navbar-brand" href="formularioRegistro.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Alta Nuevo Usuario</a>
                         <a class="navbar-brand" href="formularioLogin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Acceso Usuarios</a>
                     </nav>      

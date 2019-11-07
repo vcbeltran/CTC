@@ -16,7 +16,7 @@ and open the template in the editor.
         include '../consultas/consultasLocalFechaPrecio.php';
                
         $idUsuario = $_SESSION['idUsuario'];
-          
+      
         $idLocal = null;
         $reservado = 1;
         
@@ -34,6 +34,7 @@ and open the template in the editor.
                 <div class="col-md  list-group-item-info py-3 px-lg-5">Fecha </div>
                 <div class="col-md  list-group-item-info py-3 px-lg-5">Precio</div>
                 <div class="col-md  list-group-item-info py-3 px-lg-5">Anular reserva</div>
+                <div class="col-md  list-group-item-info py-3 px-lg-5">Puntuar reserva</div>
                 <div class="w-100"></div>
         <?php 
         if (isset($datosMisReservas)) :
@@ -44,8 +45,10 @@ and open the template in the editor.
                 <div class="col-md  py-3 px-lg-5"><?php echo $datos['precio']." €" ?></div>
                 <?php if (date("Ymd", strtotime($datos['fechareservada'])) >  date("Ymd")){ ?>
                     <div class="col  py-3 px-lg-5"><a class="btn list-group-item-danger" href='detalleReservaLocalFechaPrecio.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>' ><i class="far fa-calendar-times"></i> Anular </a></div>
+                     <div class="col  py-3 px-lg-5"><button class='btn btn-danger'><i class="fas fa-ban"></i> Espere </button></div>
                 <?php } else { ?>
-                    <div class="col-md  py-3 px-lg-5"><buton class='btn btn-danger'><i class="fas fa-ban"></i> No anulable</buton></div>
+                    <div class="col-md  py-3 px-lg-5"><button class='btn btn-danger'><i class="fas fa-ban"></i> No anulable</button></div>
+                    <div class="col-md  py-3 px-lg-5"><a class="btn list-group-item-success" href='puntuarLocal.php?idlocal=<?php echo $datos['idlocal'] ?>' ><i class="far fa-thumbs-up"></i> Puntuar </a></div>
                 <?php } ?>
                  <div class="w-100"></div>
             <?php endforeach; 

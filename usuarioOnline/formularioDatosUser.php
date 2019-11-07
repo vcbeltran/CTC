@@ -9,33 +9,13 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <?php include ('../includes/include.php'); ?>
         <title>Modifique sus datos</title>
-
-        <script type="text/javascript">
-            function mostrarPassword() {
-                var cambio = document.getElementById("txtPassword");
-                if (cambio.type == "password") {
-                    cambio.type = "text";
-                    $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-                } else {
-                    cambio.type = "password";
-                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-                }
-            }
-
-            $(document).ready(function () {
-                //CheckBox mostrar contraseña
-                $('#ShowPassword').click(function () {
-                    $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-                });
-            });
-        </script>
     </head>
     <body>
         <?php
         include('../consultas/conexiones.php');
-        $consultas = new Conexiones();        
+        $consultas = new Conexiones();
         session_start();
-   
+
         $mail = $_SESSION['nombre'];
         //var_dump($_SESSION['nombre']);
         $datos = $consultas->compruebaTipoUsuario($mail);
@@ -51,13 +31,13 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="staticName" class="col-sm-2 col-form-label">Nombre</label>  
                             <div class="col-sm-10">
-                                <input type="text"  class="form-control" id="staticName" value="<?php echo $datos[4] ?>" name="nombre" required="true">
+                                <input type="text"  class="form-control" id="staticName" value="<?php echo $datos[4] ?>" name="nombre" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="text"  class="form-control" id="staticEmail" value="<?php echo $datos[0] ?>" name="mail" required="true">
+                                <input type="text"  class="form-control" id="staticEmail" value="<?php echo $datos[0] ?>" name="mail" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,17 +46,17 @@ and open the template in the editor.
                                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                             </div> 
                         </div>
-<!--                        <div class="form-group row">
-                            <div class="input-group row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                <input id="Password" type="Password" Class="form-control" name="password">
-                                <div class="input-group-append"> 
-                                    <span class="input-group-text">
-                                        <input ID="ShowPassword" type="checkbox" />
-                                    </span> 
-                                </div>
-                            </div>
-                        </div>  -->
+                        <!--                        <div class="form-group row">
+                                                    <div class="input-group row">
+                                                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                                        <input id="Password" type="Password" Class="form-control" name="password">
+                                                        <div class="input-group-append"> 
+                                                            <span class="input-group-text">
+                                                                <input ID="ShowPassword" type="checkbox" />
+                                                            </span> 
+                                                        </div>
+                                                    </div>
+                                                </div>  -->
                         <div class="form-group row">
                             <label for="inputPhone" class="col-sm-2 col-form-label">Teléfono (opcional) </label>
                             <div class="col-sm-10">
@@ -86,18 +66,37 @@ and open the template in the editor.
 
                         <div class="container mt-5">
                             <div class="row">
-                                <div class="col md-2">
+                                <div class="col md-3">
                                     <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                                 </div>
                                 <div class="col md-2">
-                                    <button class="btn btn-warning" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Actualizar</button>
+                                    <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil" aria-hidden="true"></i> Actualizar</button>
                                 </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Va a actualizar sus datos personales</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ¿Seguro que quiere actualizar los datos?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button>
+                                                <button type="submit" class="btn btn-warning">Guardar cambios</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+
+    </body>
 </html>
