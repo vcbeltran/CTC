@@ -47,7 +47,7 @@ and open the template in the editor.
                     ?>
                 <div class="container mt-5" >
                         <div class="col-md-2"></div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="alert alert-success">
                                 <strong>¡Ya está añadido el archivo!</strong> Puedes volver a la página de edición <a href="editarLocal.php" class="alert-link">pulsando aquí</a>.
                             </div> 

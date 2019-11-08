@@ -72,12 +72,6 @@ and open the template in the editor.
                                 ?>
                             </select>
                         </div>
-                        <!-- Este botón submite el formulario de forma normal, sin abrir la ventana con la pregunta
-                        <div class="form-group  mt-5">
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary mb-2">Modificar</button>
-                            </div>
-                        </div>-->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Actualizar
