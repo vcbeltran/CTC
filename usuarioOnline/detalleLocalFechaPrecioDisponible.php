@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+           include ('../includes/includeCabecera.php');
             session_start();
             $idLocalFechaPrecio = $_REQUEST['idLocalFechaPrecio'];
             //echo "Su id de reserva: ". $idCodigoFecha;

@@ -73,9 +73,18 @@ class consultasReservas {
     
     public function insertaPuntuacion($puntuacion, $idLocalFechaPrecio){
         $insertar = "UPDATE RESERVA SET PUNTUACION = '$puntuacion' WHERE IDLOCALFECHAPRECIO = '$idLocalFechaPrecio' ";
-        echo $insertar;
+        
         if($this->conexion->query($insertar)){
             return true;
         }      
+    }
+    
+    public function consultaMedia(){
+        $consulta = "SELECT IFNULL(AVG(PUNTUACION), 0) FROM RESERVA";
+        
+        $resultado = $this->conexion->query($consulta);
+        if ($fila = $this->conexion->query($consulta)){
+            return $fila;
+        }
     }
 }

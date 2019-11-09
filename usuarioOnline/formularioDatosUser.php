@@ -11,7 +11,7 @@ and open the template in the editor.
         <title>Modifique sus datos</title>
     </head>
     <body>
-        <?php
+        <?php   
         include('../consultas/conexiones.php');
         $consultas = new Conexiones();
         session_start();

@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        include ('../includes/includeCabecera.php');
         session_start();
         include '../consultas/consultasReservas.php';
         $idLocalFechaPrecio = $_GET['idLocalFechaPrecio'];

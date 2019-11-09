@@ -11,7 +11,7 @@ Además permite ver algún listado de los locales.
         <title>Bienvenido al menu de Empresa</title>
     </head>
     <body>
-        <?php
+        <?php    
         session_start();
         include ('../consultas/consultasLocales.php');
         $codigoLocal = $_SESSION['local'];

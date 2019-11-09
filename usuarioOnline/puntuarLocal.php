@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        include ('../includes/includeCabecera.php');
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();
          // var_dump($_SESSION) ;

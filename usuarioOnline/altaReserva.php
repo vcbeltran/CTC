@@ -10,6 +10,7 @@ Esta página formaliza una reserva a un usuario.
     </head>
     <body>
         <?php
+        include ('../includes/includeCabecera.php');
         include '../consultas/consultasReservas.php';
         include '../consultas/consultasLocalFechaPrecio.php';
         include '../correo/enviarCorreo.php';

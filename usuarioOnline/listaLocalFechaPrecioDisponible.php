@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        include ('../includes/includeCabecera.php');
         //$idLocal = $_REQUEST['codigo'];
        $pagina= $_GET['pagina'];
        $idLocal = $_GET['codigo'];
@@ -49,9 +50,9 @@ and open the template in the editor.
                 <div class="col md-2">
                     <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                 </div>
-                <div class="col md-2">
-                    <img src='../administrador/<?php echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
-                </div>
+<!--                <div class="col md-2">
+                    <img src='../administrador/<?php// echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>
+                </div>-->
                 <div class="col md-6">
                     <button type='button' class="btn btn-warning" > <i class="far fa-hand-peace"></i> <?php echo "Está reservando para el local: " . $datosDetalleLocal[1] ?> </button>
                 </div>
@@ -69,10 +70,10 @@ and open the template in the editor.
                     <div class="w-100"></div>
                     <?php if (isset($datosFechaPrecio)):?>
                      <?php foreach ($datosFechaPrecio as $datos): ?>       
-                        <div class="col-md list-group-flush  py-3 px-lg-5"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></div>
-                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['horainicio'] ?></div>
-                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['horafin'] ?></div>
-                        <div class="col-md list-group-flush py-3 px-lg-5"><?php echo $datos['precio'] ." € " ?></div>
+                        <div class="col-md list-group-flush  py-3 px-lg-5"><strong><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></strong></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><strong><?php echo $datos['horainicio'] ?></strong></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><strong><?php echo $datos['horafin'] ?></strong></div>
+                        <div class="col-md list-group-flush py-3 px-lg-5"><strong><?php echo $datos['precio'] ." € " ?></strong></div>
                         <div class="col-md list-group-flush py-3 px-xs-5"><a class="btn btn-warning" href='detalleLocalFechaPrecioDisponible.php?idLocalFechaPrecio=<?php echo $datos['idlocalfechaprecio'] ?>&pagina=<?php echo $_GET['pagina']?>'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Reservar</a></div>
                        <div class="w-100"></div>
                     <?php endforeach; ?>
