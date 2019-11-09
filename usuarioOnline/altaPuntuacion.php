@@ -16,11 +16,9 @@ and open the template in the editor.
         session_start();
         include '../consultas/consultasReservas.php';
         $puntuacion = $_REQUEST['puntos'];
-            var_dump($_SESSION);
+           
         $idLocalFechaPrecio = $_SESSION['idLocalFechaPrecio'];
-        var_dump($puntuacion);
-        var_dump($_SESSION['idLocalFechaPrecio']);
-        var_dump($_SESSION);
+       
         $altaPuntuacion = new consultasReservas();
          
         if ($altaPuntuacion->insertaPuntuacion($puntuacion, $idLocalFechaPrecio)){?>
