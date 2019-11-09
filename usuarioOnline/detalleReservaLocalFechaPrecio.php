@@ -16,6 +16,7 @@ and open the template in the editor.
         include '../consultas/consultasLocalFechaPrecio.php';
         //var_dump($_SESSION);     
         $idLocalFechaPrecio = $_GET['idLocalFechaPrecio'];
+        $_SESSION['idLocalFechaPrecio'] = $idLocalFechaPrecio;
         $idUsuario = null;
                
         $idLocal = null;

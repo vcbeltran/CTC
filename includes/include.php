@@ -10,4 +10,5 @@
         <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/ctc.js" ></script>   
         <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionConfirmar.js" ></script>  
         <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionAnular.js" ></script>  
+        <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionPuntuar.js" ></script>  
         <link rel="stylesheet" type="text/css" href="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/CSS/imagenes.css">

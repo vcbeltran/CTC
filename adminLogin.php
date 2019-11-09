@@ -73,6 +73,8 @@ if (isset($mail) && isset($pass)){
             $_SESSION['idUsuario'] = $conexionTipo[5];
       
             $_SESSION['idLocal'] = null;
+            
+            $_SESSION['idLocalFechaPrecio']  = null;
             header("location:inicio.php?pagina=1");
         } 
         

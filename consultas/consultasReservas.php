@@ -70,4 +70,12 @@ class consultasReservas {
             return true;
         }        
     }
+    
+    public function insertaPuntuacion($puntuacion, $idLocalFechaPrecio){
+        $insertar = "UPDATE RESERVA SET PUNTUACION = '$puntuacion' WHERE IDLOCALFECHAPRECIO = '$idLocalFechaPrecio' ";
+        echo $insertar;
+        if($this->conexion->query($insertar)){
+            return true;
+        }      
+    }
 }

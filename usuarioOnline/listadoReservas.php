@@ -49,7 +49,7 @@ and open the template in the editor.
                 <?php } else { ?>
                     <div class="col-md  py-3 px-lg-5"><button class='btn btn-danger'><i class="fas fa-ban"></i> No anulable</button></div>
                     <div class="col-md  py-3 px-lg-5"><a class="btn list-group-item-success" href='puntuarLocal.php?idlocalfechaprecio=<?php echo $datos['idlocalfechaprecio'] ?>' ><i class="far fa-thumbs-up"></i> Puntuar </a></div>
-                <?php } ?>
+                <?php $_SESSION['idLocalFechaPrecio'] = $datos['idlocalfechaprecio'];} ?>
                  <div class="w-100"></div>
             <?php endforeach; 
         endif;?>            

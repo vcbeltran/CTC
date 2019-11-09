@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <?php include ('../includes/include.php')?>
-        <title>Valore el local</title>
+        <title>Valore el local</title>       
     </head>
     <body>
         <?php
@@ -18,6 +18,7 @@ and open the template in the editor.
         $idLocalFechaPrecio = $_REQUEST['idlocalfechaprecio'];
         $reservado = 1;
         $idUsuario = $_SESSION['idUsuario'];
+        $_SESSION['idLocalFechaPrecio'] = $idLocalFechaPrecio;
        
         $datosLocal = new consultasLocalFechaPrecio();
         $datosPuntuacion = $datosLocal->detalleLocalFechaPrecio($idLocalFechaPrecio);        
@@ -29,23 +30,29 @@ and open the template in the editor.
                 <div class="p-3 mb-2 bg-warning text-dark lead rounded-circle"><i class="far fa-hand-point-right"></i> Puntúe su reserva </div>          
             </div>
             <div class="row">           
-            <?php foreach ($datosPuntuacion as $datos): ?> 
-                  
-                 <div class="col-md-2"> </div>
-                   
+            <?php foreach ($datosPuntuacion as $datos): ?>                   
+                        <div class="col-md-2"> </div>                   
                         <div class="card">
                             <div class="card-header d-flex justify-content-center"><?php echo $datos['nombrelocal'] ?></div>
                             <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-top" >
                             <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-laugh-wink"></i> Por favor incluya su valoración aquí</h5>
-                                <p class="card-text">Valore su experiencia en la reserva del local del 1 al 5 </p>
-                <?php for ($index = 0; $index < 5; $index++) { ?>
-                                        <a href="#" class="btn btn-warning"><i class="fas fa-star"></i></a>             
-                <?php } ?>
+                                    <h5 class="card-title"><i class="fas fa-laugh-wink"></i> Por favor incluya su valoración aquí</h5>
+                                    <p class="card-text">Valore su experiencia en la reserva del local del 1 al 5 </p>
+                                    <form method="POST" action="altaPuntuacion.php">
+                                    <input id="valoracion" type="hidden" value="0" name="puntos"/>
+                                    <p class="mb-0 d-flex justify-content-center ">
+                                        <img class="img-responsive" id="estrella_1" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(1)"/>
+                                        <img class="img-responsive" id="estrella_2" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(2)"/>
+                                        <img class="img-responsive" id="estrella_3" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(3)"/>
+                                        <img class="img-responsive" id="estrella_4" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(4)"/>
+                                        <img class="img-responsive" id="estrella_5" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(5)"/>
+                                    </p>
+                                    <br>
+                                    <p class="mb-0 d-flex justify-content-center"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>
+                                    </form>
                             </div>
                         </div>
-            <?php endforeach; ?>        
-           
+            <?php endforeach; ?>             
            </div>
             </div>
             <div class="container mt-5">
@@ -54,6 +61,6 @@ and open the template in the editor.
                 <a class="btn list-group-item-info" href="listadoReservas.php"><i class="fas fa-arrow-alt-circle-left"></i> Vuelva atrás</a>
                 </div>
             </div>
-        
+
     </body>
 </html>

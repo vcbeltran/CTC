@@ -66,7 +66,7 @@ Esta página formaliza una reserva a un usuario.
         <?php } else {?>
         <div class="container mt-5">
                 <div class="alert alert-danger mb-2" role="alert">
-                    h4 class="alert-heading"><i class="far fa-smile-wink"></i>¡Lo sentimos!</h4>
+                    <h4 class="alert-heading"><i class="fas fa-meh-rolling-eyes"></i>¡Lo sentimos!</h4>
                     <hr>
                     <p class="mb-0"><i class="fas fa-exclamation-triangle"></i> Algo ha ido mal <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a></p>
                 </div>
