@@ -25,7 +25,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <?php include ('includes/includeCabecera.php'); ?>
         <?php             
          session_start(); 
+         include './consultas/consultasReservas.php';
          
+         $consultaPuntuacion = new consultasReservas();      
+       
         if (!$_GET) {
             header("location:inicio.php?pagina=1");
         } 
@@ -68,9 +71,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
        <div class="container mt-3"> 
 <!--           <div class='row'>-->
              <?php
-//            if (!$_GET) {
-//                 header("location:inicio.php?pagina=1");
-//            }   
+ 
             $conexionLocales = new ConsultasLocales();
             $localesPorPagina = 8;            
             //El segmento por página de los locales a mostrar
@@ -82,7 +83,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
             $locales = $conexionLocales->listarLocalesPaginacion($iniciar,$localesPorPagina);
             //var_dump($locales);
             $contador = 1;
-            foreach ($locales as $local):
+            foreach ($locales as $local):                
                if ($contador == 1) {
                     //empieza el row
                     print("<div class='row'>");
@@ -99,7 +100,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
-                //if ($_SESSION[''])
+                $media = $consultaPuntuacion ->consultaMedia($local[0]); 
+                $mediaTotal;
+                $mediaTotal=(ceil($media[0])); ?>               
+                <p> PUNTOS: <img class='img-resposive' src="administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
+                <?php
                 //cierra card body
                 print("</div>");
                 //cierra card

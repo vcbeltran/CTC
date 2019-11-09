@@ -79,12 +79,19 @@ class consultasReservas {
         }      
     }
     
-    public function consultaMedia(){
-        $consulta = "SELECT IFNULL(AVG(PUNTUACION), 0) FROM RESERVA";
+    public function consultaMedia($idLocal){
+        $consulta = " SELECT IFNULL(AVG(PUNTUACION), 0) as MEDIA, localfecha.idlocal "
+                 . " FROM RESERVA reser, LOCALFECHAPRECIO localfecha "
+                 . " where localfecha.IDLOCALFECHAPRECIO = reser.IDLOCALFECHAPRECIO "
+                 . " and localfecha.idlocal = '$idLocal' "
+                 . " GROUP by localfecha.IDLOCALFECHAPRECIO ";          
         
-        $resultado = $this->conexion->query($consulta);
-        if ($fila = $this->conexion->query($consulta)){
-            return $fila;
-        }
-    }
+        $resultado = $this->conexion->query($consulta);      
+        $media = $resultado->fetch_array(MYSQLI_BOTH);
+        //echo $media;
+        return $media;
+        // $datosLocal = array();       
+        //$tipo = $this->resultado->fetch_array();
+       // return $tipo;
+        }    
 }
