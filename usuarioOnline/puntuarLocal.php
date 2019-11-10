@@ -49,7 +49,8 @@ and open the template in the editor.
                                         <img class="img-responsive" id="estrella_5" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(5)"/>
                                     </p>
                                     <br>
-                                    <p class="mb-0 d-flex justify-content-center"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>
+                                    <p id="envio"   class="mb-0 d-flex justify-content-center"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>
+                                    <p id="mensaje" class="mb-0 d-flex justify-content-center"></p>
                                     </form>
                             </div>
                         </div>
