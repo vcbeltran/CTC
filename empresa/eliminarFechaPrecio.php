@@ -11,7 +11,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Elimina Fecha Precio </title>
     </head>
-    <body>
+    <body id="empresa">
         <?php
         include ('../consultas/consultasLocalFechaPrecio.php');
         session_start();

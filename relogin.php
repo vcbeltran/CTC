@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('includes/include.php'); ?>
         <title>Vuelva a loguearse</title>
     </head>
-    <body>
+    <body id="user">
         <?php
         // clase para dar aviso de error
         ?>

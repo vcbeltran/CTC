@@ -11,8 +11,8 @@
         $horaFin = $_REQUEST['horaFin'];
         $idlocal = $_SESSION['local'];
         $accion = $_SESSION['accion'];
-        $codigoFechaPrecio = $_REQUEST['codigoFecha'];
-        var_dump(date("Y-m-d"));
+        $idLocalFechaPrecio = $_SESSION['idLocalFechaPrecio'];
+        //var_dump(date("Y-m-d"));
         //var_dump($codigoFechaPrecio);     
     ?>
 <!DOCTYPE html>
@@ -27,13 +27,13 @@ and open the template in the editor.
          <?php include ('../includes/include.php'); ?>
         <title>Fecha actualizada</title>
     </head>
-    <body>
+    <body id="empresa">
         <?php
          if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin)  && !($fecha < date("Y-m-d")) ) {
           if ($accion == "actualizar"){
                 print("<br>");
-                var_dump($fecha);
-                if ($actualizaFecha->actualizarFechaPrecio($fecha, $precio, $horaIni, $horaFin, $codigoFechaPrecio)){ ?>
+               // var_dump($fecha);
+                if ($actualizaFecha->actualizarFechaPrecio($fecha, $precio, $horaIni, $horaFin, $idLocalFechaPrecio)){ ?>
                     <div class="container mt-5">
                         <div class="alert alert-success mb-2" role="alert">
                             <i class="fa fa-check" aria-hidden="true"></i> Has actualizado el registro <a href="detalleEditarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>

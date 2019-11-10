@@ -25,7 +25,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>      
         <title>Alta fecha precio </title>
     </head>
-    <body>
+    <body id="empresa">
      
         <?php  
         if  (!empty($fecha) && !empty($precio) && !empty($horaIni) && !empty($horaFin)  && !($fecha < date("Y-m-d")) ) {

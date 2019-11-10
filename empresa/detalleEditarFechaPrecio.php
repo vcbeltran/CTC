@@ -10,7 +10,7 @@ and open the template in the editor.
         <title>Edite los datos de su Empresa</title>    
         <?php include ('../includes/include.php'); ?>
     </head>      
-  <body>
+  <body id="empresa">
         <?php
             if (!$_GET) {
                  header("location:detalleEditarFechaPrecio.php?pagina=1");
@@ -47,6 +47,7 @@ and open the template in the editor.
             </div>
         </div>
         <div class="container mt-5">
+            <div class="card">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -62,7 +63,7 @@ and open the template in the editor.
                         <?php foreach ($recuperaDatos as $datos): ?>        
                             <tr>                                       
                                 <td scope="row"><?php echo date("d-m-Y", strtotime($datos['fechareservada'])) ?></td>
-                                <td><?php echo $datos['precio'] ?></td>
+                                <td><?php echo $datos['precio'] ." €" ?></td>
                                 <td><?php echo $datos['horainicio'] ?></td>
                                 <td><?php echo $datos['horafin'] ?></td>                 
                                 <td>                          
@@ -74,6 +75,7 @@ and open the template in the editor.
                     <?php  endif;?>
                 </tbody>
             </table>
+                </div>
         </div>
                 <div class="container mt-3">
             <nav aria-label="Page navigation example">

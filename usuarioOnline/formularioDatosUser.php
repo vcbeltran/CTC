@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Modifique sus datos</title>
     </head>
-    <body>
+    <body id="user">
         <?php   
         include('../consultas/conexiones.php');
         $consultas = new Conexiones();

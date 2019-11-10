@@ -55,6 +55,8 @@ if (isset($mail) && isset($pass)){
             $_SESSION['local'] = $conexionTipo[3];
             //literal nombre local
             $_SESSION['nombrelocal'] = $extraeDatosLocal[0];
+            
+            $_SESSION['idLocalFechaPrecio']  = null;
 
             header("location:empresa/menuEmpresa.php");
         /* SI ES UN USUARIO ONLINE REDIRECCIONA PERMITIENDO RESERVAS */

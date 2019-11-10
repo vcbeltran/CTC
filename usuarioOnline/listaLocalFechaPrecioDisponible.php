@@ -10,7 +10,7 @@ and open the template in the editor.
          <?php include ('../includes/include.php'); ?>
         <title>Seleccione día</title>
     </head>
-    <body>
+    <body id="user">
         <?php
         include ('../includes/includeCabecera.php');
         //$idLocal = $_REQUEST['codigo'];

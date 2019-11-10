@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Formulario Fecha Empresa</title>
     </head>
-    <body>
+    <body id="empresa">
         <?php
         session_start();
         //var_dump($_SESSION);
@@ -35,7 +35,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
+                    <div class="card">
                     <h3>Añada nueva fecha para su empresa</h3>
+                    <div class="card-body">
                     <form action="altaFechaPrecio.php" method="GET">
                         <div class="form-group row">
                             <label for="example-texto-local" class="col-2 col-form-label">Tu local es </label>
@@ -96,6 +98,8 @@ and open the template in the editor.
                             </div>
                         </div>   
                     </form>
+                        </div>
+                    </div>
                 </div>
             </div>
     </body>

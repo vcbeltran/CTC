@@ -12,9 +12,11 @@ html{
     height:100%; 
 }
 body{ 
-   background-image: url("../administrador/imagenes/confetti-transparent.png");
-    background-size: cover;
-    min-height:100%; padding:0; margin:0; position:relative; 
+
+    min-height:100%; 
+    padding:0; 
+    margin:0; 
+    position:relative; 
 }
 
 body::after{ 
@@ -37,6 +39,17 @@ footer{
 
 #admin{
     background-image: url("../administrador/imagenes/dot-grid.png");
-     background-repeat: repeat;
-         background-size: cover;
+    background-repeat: repeat;
+   
+}
+
+#empresa{
+
+    background-image: url("../administrador/imagenes/memphis-colorful.png");
+    background-repeat: repeat;
+}
+
+#user{
+    background-image: url("../administrador/imagenes/confetti-transparent.png");
+    background-size: cover;
 }

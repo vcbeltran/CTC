@@ -21,7 +21,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
         <meta charset="UTF-8">                       
         <title>Bienvenido a tu web de reservas</title>
     </head>
-    <body>
+    <body id="user">
         <?php include ('includes/includeCabecera.php'); ?>
         <?php             
          session_start(); 

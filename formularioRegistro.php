@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('includes/include.php'); ?>
         <title>Bienvenido</title>
     </head>
-    <body>
+    <body id="user">
         <div class="container mt-5" >
             <div class="card">
                 <div class="card-body">

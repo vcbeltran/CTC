@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php');?>
         <title>Confirmación Eliminar</title>
     </head>
-    <body>
+    <body id="user">
         <?php
         include ('../includes/includeCabecera.php');
         session_start();

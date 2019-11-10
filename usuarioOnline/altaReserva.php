@@ -8,7 +8,7 @@ Esta página formaliza una reserva a un usuario.
         <?php include ('../includes/include.php')?>
         <title>Formalización reserva</title>
     </head>
-    <body>
+    <body id="user">
         <?php
         include ('../includes/includeCabecera.php');
         include '../consultas/consultasReservas.php';

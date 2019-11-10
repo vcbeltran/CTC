@@ -24,7 +24,7 @@ and open the template in the editor.
         <?php include ('includes/include.php'); ?>
         <title>Alta usuario</title>
     </head>
-    <body>
+    <body id="user">
         <?php
         if ($conexion->altaUsuario($usuario, $correo, $password)) {
 //            $_SESSION['useronline'] = $usuario;

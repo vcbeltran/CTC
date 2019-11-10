@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <?php include ('includes/include.php'); ?>
     </head>
-    <body>
+    <body id="user">
         <div class="container mt-5" >
             <div class="card"> 
                 <div class="card-body">
