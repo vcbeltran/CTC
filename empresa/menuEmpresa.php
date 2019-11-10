@@ -10,7 +10,7 @@ Además permite ver algún listado de los locales.
         <?php include ('../includes/include.php'); ?>
         <title>Bienvenido al menu de Empresa</title>
     </head>
-    <body>
+    <body id="empresa">
         <?php    
         session_start();
         include ('../consultas/consultasLocales.php');

@@ -19,7 +19,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Menú de edición local</title>
     </head>
-    <body>
+    <body id="admin">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-2"></div>

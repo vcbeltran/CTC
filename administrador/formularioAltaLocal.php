@@ -10,7 +10,7 @@ and open the template in the editor.
        <?php include ('../includes/include.php'); ?>
         <title>- MENU ADMINISTRADOR - Alta Local </title>
     </head>
-    <body>
+    <body id="admin">
         <?php
         session_start();
         include '../consultas/conexiones.php';
@@ -32,7 +32,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
+                    <div class="card">
                     <h2>Añada nuevo Local</h2>
+                    <div class="card-body">
                     <form action="agregarLocal.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="InputName">Nombre Local</label>
@@ -60,7 +62,9 @@ and open the template in the editor.
                                 <button type="submit" class="btn btn-secondary mb-2">Alta Local</button>
                                 <input class="btn btn-primary mb-2" type="reset" value="Reset"></div>
                         </div>
+                        </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

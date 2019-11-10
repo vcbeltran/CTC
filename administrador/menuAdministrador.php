@@ -10,7 +10,7 @@ Además permite ver algún listado de los locales.
         <?php include ('../includes/include.php'); ?>        
         <title>Bienvenido al menu de Administrador</title>
     </head>
-    <body>
+    <body id="admin">
         <?php
         session_start();
         include '../consultas/conexiones.php';

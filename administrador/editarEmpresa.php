@@ -26,7 +26,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>       
         <title>Lista de empresas</title>
     </head>
-    <body>
+    <body id="admin">
         <div class="container mt-5">
              <h2>Lista de Empresas</h2>
             <div class="table-responsive-md">            

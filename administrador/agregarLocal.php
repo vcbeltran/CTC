@@ -32,7 +32,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Alta local</title>
     </head>
-    <body>
+    <body id="admin">
         <?php
         if ($consultas->annadirLocal($nombre, $direccion, $aforo, $caratula)) {
             ?>

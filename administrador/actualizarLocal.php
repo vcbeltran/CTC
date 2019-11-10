@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>
         <title>Actualizar información local</title>
     </head>
-    <body>
+    <body id="admin">
         <?php
        
         

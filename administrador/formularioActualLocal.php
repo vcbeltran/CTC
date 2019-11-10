@@ -10,7 +10,7 @@ and open the template in the editor.
         <?php include ('../includes/include.php'); ?>       
         <title>Editar Información Local</title>
     </head>
-    <body>
+    <body id="admin">
         <?php
         include '../consultas/consultasLocales.php';
         session_start();

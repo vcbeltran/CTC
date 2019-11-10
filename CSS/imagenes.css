@@ -34,3 +34,9 @@ footer{
   float: right;
 
 }
+
+#admin{
+    background-image: url("../administrador/imagenes/dot-grid.png");
+     background-repeat: repeat;
+         background-size: cover;
+}

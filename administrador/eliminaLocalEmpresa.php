@@ -12,7 +12,7 @@ and open the template in the editor.
         <title>Resultado eliminar</title>
        
     </head>
-    <body>
+    <body id="admin">
         <?php
             session_start();
             /* 

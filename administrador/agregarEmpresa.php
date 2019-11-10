@@ -21,7 +21,7 @@ dando de alta un usuario nuevo de empresa para que pueda acceder a los datos de 
        <?php include ('../includes/include.php'); ?>
         <title>Alta local</title>
     </head>
-    <body>
+    <body id="admin">
         <?php
          if($altaEmpresa->altaRolEmpresa($nombre, $mail, $contra, $local)) {
             ?>
