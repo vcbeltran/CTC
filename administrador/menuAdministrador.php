@@ -49,7 +49,15 @@ Además permite ver algún listado de los locales.
                             <a class="dropdown-item" href="editarEmpresa.php"> <i class="fa fa-pencil fa-fw"></i> Modificar / Eliminar Empresa</a>
                         </div>  
                     </div>
-                    <a class="navbar-brand" href="#">Ver Informes</a>
+                    <div class="dropdown">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ver informes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <a class="dropdown-item" href="listadoInformeTotalReservasPorLocales.php"><i class="far fa-list-alt"></i> Total Reservas Por Local</a>
+                            
+                        </div>  
+                    </div>
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
                 </nav>                
             </div>

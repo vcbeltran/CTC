@@ -36,7 +36,6 @@ if (isset($mail) && isset($pass)){
             $_SESSION['id'] = $conexionTipo[2];
             $_SESSION['nombre'] = $conexionTipo[0];
 
-            include 'administrador/menuAdministrador.php';
             header("location:administrador/menuAdministrador.php");
             //var_dump($conexionTipo);
        /* SI ES UN USUARIO EMPRESA SE REDIRECCIONA AL MENÚ */
