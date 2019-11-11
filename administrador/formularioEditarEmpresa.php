@@ -68,7 +68,8 @@ and open the template in the editor.
                             <label for="exampleFormControlSelect1">Elija local nuevo</label>       
                             <select class='form-control' id='exampleFormControlSelect1' name="idlocal">                            
                                 <?php
-                                foreach ($localesLibres as $listaLocal):
+                                print ("<option value=" . 0 . " > -- SIN CAMBIOS -- </option>");
+                                foreach ($localesLibres as $listaLocal):                                  
                                     print ("<option value=" . $listaLocal[0] . " >" . $listaLocal[1] . "</option>");
                                 endforeach;
                                 ?>

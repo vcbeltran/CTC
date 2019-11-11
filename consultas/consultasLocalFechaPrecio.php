@@ -64,7 +64,9 @@ class consultasLocalFechaPrecio {
                     array_push($fechasPrecio, $fila);                    
                 }             
                 return $fechasPrecio;     
-            } 
+            } else {
+                return null;
+            }
         } catch (Excepcion $e){
             echo 'Error en el metodo comprobar pagina '.$e->getMessage()."\n";
         }

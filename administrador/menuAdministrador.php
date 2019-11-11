@@ -54,8 +54,8 @@ Además permite ver algún listado de los locales.
                             Ver informes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="listadoInformeTotalReservasPorLocales.php"><i class="far fa-list-alt"></i> Total Reservas Por Local</a>
-                            
+                            <a class="dropdown-item" href="listadoInformeTotalReservasPorLocales.php"><i class="far fa-list-alt"></i> Total Reservas Por Local</a>                            
+                            <a class="dropdown-item" href="listadoInformeMediaPuntuacion.php"><i class="fas fa-grin-stars"></i> TOP 5 Locales </a>                            
                         </div>  
                     </div>
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 

@@ -14,7 +14,7 @@ include 'PHPMailer/PHPMailer.php';
 class enviarCorreo {
 
     public function enviarConPlantilla($direccionEmail, $texto, $subject) {
-        $body = "<html><body><table sytle='border=0'><tr><td style='color:blue;font-size:20px;'><b>Celebra tu Cumpleaños le comunica :):</b></td></tr><tr><td><b>" .$texto . "<b></td></tr></table><br>Gracias por su reserva.<br>Si no es necesario no imprima este mail. Piense en el medio ambiente</body></html>";
+        $body = "<html><body><table sytle='border=0'><tr><td style='color:blue;font-size:20px;'><b>Celebra tu Cumpleaños le comunica:</b></td></tr><tr><td><b>" .$texto . "<b></td></tr></table><br>Gracias por su reserva :) <br>Si no es necesario no imprima este mail. Piense en el medio ambiente</body></html>";
         $this->enviar($direccionEmail, $body, $subject, null);
     }
 

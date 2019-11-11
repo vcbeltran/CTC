@@ -79,24 +79,34 @@ class consultasReservas {
         }      
     }
     
-    public function consultaMedia($idLocal){
-        $consulta = " SELECT IFNULL(AVG(PUNTUACION), 0) as MEDIA,  "
-                 . " local.nombrelocal, local.imagen "
-                 . " FROM RESERVA reser, LOCALFECHAPRECIO localfecha, local "
-                 . " WHERE localfecha.IDLOCALFECHAPRECIO = reser.IDLOCALFECHAPRECIO "
-                 . " and localfecha.idlocal = local.idlocal ";
-                 if (isset($idLocal)) {
-                    $consulta = $consulta . " and local.idlocal = '$idLocal' ";
-                 } 
-                 $consulta = $consulta . " GROUP BY local.nombrelocal, local.imagen "
-                 . " ORDER BY media DESC, local.nombrelocal"
-                 . " LIMIT 0, 10 " ;          
-                 
-        
-        $resultado = $this->conexion->query($consulta);      
-        $media = $resultado->fetch_array(MYSQLI_BOTH);
-  
-        return $media;
+    public function consultaMedia($idLocal) {
+        $consulta = " SELECT nvl(AVG(PUNTUACION), 0) as media,  "
+                . " nvl(MIN(puntuacion), 0) as minima, "
+                . " nvl(MAX(puntuacion), 0) as maxima, "
+                . " nvl(AVG(precio), 0) as preciomedio, "
+                . " local.nombrelocal, local.imagen "
+                . " FROM RESERVA reser, LOCALFECHAPRECIO localfecha, local "
+                . " WHERE localfecha.IDLOCALFECHAPRECIO = reser.IDLOCALFECHAPRECIO "
+                . " and localfecha.idlocal = local.idlocal ";
+        if (isset($idLocal)) {
+            $consulta = $consulta . " and local.idlocal = '$idLocal' ";
+        }
+        $consulta = $consulta . " GROUP BY local.nombrelocal, local.imagen "
+                . " ORDER BY media DESC, local.nombrelocal"
+                . " LIMIT 0, 5 ";
 
-        }    
+        
+        $resultado = $this->conexion->query($consulta);
+
+        $listaResulltado = array();
+        if ($resultado->num_rows != 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+                array_push($listaResulltado, $fila);
+            }
+            return $listaResulltado;
+        } else {
+            return null;
+        }
+    }
+
 }

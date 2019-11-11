@@ -52,12 +52,12 @@ and open the template in the editor.
                     <?php if (empty($datos['puntuacion'])) {?>
                         <div class="col-md  py-3 px-lg-5"><a class="btn list-group-item-success" href='puntuarLocal.php?idlocalfechaprecio=<?php echo $datos['idlocalfechaprecio'] ?>' ><i class="far fa-thumbs-up"></i> Puntuar </a></div>
                     <?php } else {?>
-                        <div class="col  py-3 px-lg-5"><button class='btn btn-danger'><i class="fas fa-ban"></i> Ya puntuado </button></div>
+                        <div class="col  py-3 px-lg-5"><button class='btn list-group-item-info'><i class="fas fa-grin-stars"></i> Ya puntuado </button></div>
                     <?php } ?>
                     <?php $_SESSION['idLocalFechaPrecio'] = $datos['idlocalfechaprecio'];} ?>
                  <div class="w-100"></div>
             <?php endforeach; 
-        endif;?>            
+        endif; ?>            
             </div>
         </div>
         <div class="container mt-5">

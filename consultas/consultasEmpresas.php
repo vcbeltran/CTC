@@ -62,12 +62,16 @@ class consultasEmpresas {
         return $empresa;
     }
     public function actualizarEmpresa($codigo, $nombre, $mail, $contra, $idlocal){
-        $actualizar = "UPDATE USUARIO SET NOMBRE = '$nombre', CORREO = '$mail', ";
-        
+        $actualizar = "UPDATE USUARIO SET NOMBRE = '$nombre', CORREO = '$mail' ";
+
         if (isset($contra)){
-            $actualizar = $actualizar . "PASSWORD = '$contra', ";
+            $actualizar = $actualizar . ", PASSWORD = '$contra' ";
         }
-        $actualizar = $actualizar . " IDLOCAL = '$idlocal' where IDUSUARIO = '$codigo' ";
+        if (!empty($idlocal)){//el cero será vacío
+            $actualizar = $actualizar . ", IDLOCAL = '$idlocal' ";
+        }        
+        
+        $actualizar = $actualizar . "  where IDUSUARIO = '$codigo' ";
         
          $conexion = consultasEmpresas::getConexion();
          if ($conexion->query($actualizar)){

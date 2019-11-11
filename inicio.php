@@ -101,8 +101,13 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
                 print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
                 $media = $consultaPuntuacion ->consultaMedia($local[0]); 
-                $mediaTotal;
-                $mediaTotal=(ceil($media[0])); ?>               
+                $mediaTotal = 0;
+                if (!empty($media)){
+                    foreach ($media as $dato){
+                        $mediaTotal=(ceil($dato['media']));  // sólo habrá un resultado  
+                    }                    
+                }
+                ?>               
                 <p> PUNTOS: <img class='img-resposive' src="administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
                 <?php
                 //cierra card body
