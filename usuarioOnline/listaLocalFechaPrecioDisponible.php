@@ -59,6 +59,7 @@ and open the template in the editor.
             </div>
         </div>
         <div class="container mt-5">
+            <div class="card">
             <h1>Fechas disponibles </h1>
              <div class="container mt-5">            
                <div class="row">
@@ -79,6 +80,7 @@ and open the template in the editor.
                     <?php endforeach; ?>
                   <?php  endif;?>
                 </div>
+                 </div>
          </div>
         </div>
        <div class="container mt-3">

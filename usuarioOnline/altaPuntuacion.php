@@ -26,7 +26,7 @@ and open the template in the editor.
                 <div class="alert alert-success mb-2" role="alert">
                     <h4 class="alert-heading"><i class="fas fa-star"></i>¡Muchas gracias!</h4>
                     <hr>
-                    <p class="mb-0">¡Has incluido una puntuación! <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a></p>
+                    <p class="mb-0">¡Has incluido una puntuación de <?php echo $puntuacion?> estrellas! <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a></p>
                 </div>
             </div>  
         <?php } else { ?>

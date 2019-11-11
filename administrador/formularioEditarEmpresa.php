@@ -29,7 +29,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="editarEmpresa.php">Vuelva a lista de locales </a>
+                    <a class="navbar-brand" href="editarEmpresa.php"><i class="fas fa-arrow-circle-left"></i> Vuelva a lista de empresas </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -40,7 +40,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                      <h2>Edite los datos del Local</h2>
+                    <div class="card">
+                        <div class="card-body">
+                      <h2>Edite los datos de la Empresa</h2>
                     <form action="actualizaEmpresa.php" method="POST" enctype="multipart/form-data">    
                         <div class="form-group"> 
                             <label for="InputName">Código Empresa</label>
@@ -73,9 +75,9 @@ and open the template in the editor.
                             </select>
                         </div>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Actualizar
-                        </button>
+                         <div class="col-md-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Actualizar</button>                          
+                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -95,7 +97,9 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                        </div>                 
+                        </div>  
+                        </div>
+                        </div>
                     </form>
                 </div>
             </div>

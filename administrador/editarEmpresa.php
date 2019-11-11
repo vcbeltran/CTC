@@ -28,6 +28,7 @@ and open the template in the editor.
     </head>
     <body id="admin">
         <div class="container mt-5">
+            <div class="card">
              <h2>Lista de Empresas</h2>
             <div class="table-responsive-md">            
                 <table class="table">
@@ -58,13 +59,13 @@ and open the template in the editor.
                         ?> 
                     </tbody>
                 </table>          
-            </div>
+            </div></div>
         </div>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-8"></div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="menuAdministrador.php">Vuelva al menú de administrador</a>
+                    <a class="navbar-brand" href="menuAdministrador.php"><i class="fas fa-arrow-circle-left"></i> Vuelva al menú de administrador</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

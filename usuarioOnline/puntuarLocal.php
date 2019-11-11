@@ -28,7 +28,7 @@ and open the template in the editor.
         <div class="container mt-5">   
             <div class="row">       
                 <div class="col-md-3"></div>
-                <div class="p-3 mb-2 bg-warning text-dark lead rounded-circle"><i class="far fa-hand-point-right"></i> Puntúe su reserva </div>          
+                <div class="p-3 mb-2 bg-warning text-dark lead rounded-circle d-flex justify-content-center"><i class="far fa-hand-point-right"></i> Puntúe su reserva </div>          
             </div>
             <div class="row">           
             <?php foreach ($datosPuntuacion as $datos): ?>                   
@@ -49,7 +49,7 @@ and open the template in the editor.
                                         <img class="img-responsive" id="estrella_5" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(5)"/>
                                     </p>
                                     <br>
-                                    <p id="envio"   class="mb-0 d-flex justify-content-center"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>
+                                    <p id="envio"   class="mb-0 d-flex justify-content-center" style="visibility: hidden;"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>
                                     <p id="mensaje" class="mb-0 d-flex justify-content-center"></p>
                                     </form>
                             </div>

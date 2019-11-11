@@ -6,7 +6,7 @@
 	function rellena_estrella(valoracion){
 
 		valoracion_anterior = document.getElementById('valoracion').value;
-
+                
 		document.getElementById('valoracion').value=valoracion;
 
 		for (i=1; i <= 5; i++){

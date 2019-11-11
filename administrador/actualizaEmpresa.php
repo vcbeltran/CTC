@@ -30,7 +30,7 @@ and open the template in the editor.
         if ($consulta->actualizarEmpresa($codigo, $nombre, $correo, $contra, $local)) {
             ?>
             <div class="container mt-5" >
-                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="alert alert-success">
                         <strong>¡Ya está actualizada la empresa!</strong> Puedes volver al menú edición <a href="editarEmpresa.php" class="alert-link">pulsando aquí</a>.

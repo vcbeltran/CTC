@@ -41,7 +41,7 @@ class consultasLocalFechaPrecio {
              . " usuario.idusuario, usuario.nombre as nombreusuario, usuario.correo, "
              . " localfechaprecio.idlocalfechaprecio, localfechaprecio.fechareservada, "
              . " localfechaprecio.horainicio, localfechaprecio.horafin, localfechaprecio.precio, localfechaprecio.reservado, "
-             . " usuario.correo ";            
+             . " reserva.puntuacion ";            
             $where = null;
             $groupBy = null;
             $orderBy = " order by localfechaprecio.fechareservada desc ";

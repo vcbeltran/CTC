@@ -50,7 +50,7 @@ Esta página formaliza una reserva a un usuario.
 
             $subject = 'Aviso de reserva de CTC';
             
-            $texto = "Estimado " . $nombreUsuario . ": Con fecha " . $fechaRealiza . " ha realizado una reserva en el local " . $nombreLocal . " para el día " . $fechaReservada . " de " . $horaInicio . " a " . $horaFin .
+            $texto = "Estimad@ " . $nombreUsuario . ": <br> Con fecha " . $fechaRealiza . " ha realizado una reserva en el local " . $nombreLocal . " para el día " . $fechaReservada . " de " . $horaInicio . " a " . $horaFin .
                     " por un precio de " .$precio;
 
             $enviarCorreo = new enviarCorreo();     
