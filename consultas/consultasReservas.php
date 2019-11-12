@@ -80,10 +80,10 @@ class consultasReservas {
     }
     
     public function consultaMedia($idLocal) {
-        $consulta = " SELECT nvl(AVG(PUNTUACION), 0) as media,  "
-                . " nvl(MIN(puntuacion), 0) as minima, "
-                . " nvl(MAX(puntuacion), 0) as maxima, "
-                . " nvl(AVG(precio), 0) as preciomedio, "                
+        $consulta = " SELECT ifnull(AVG(PUNTUACION), 0) as media,  "
+                . " ifnull(MIN(puntuacion), 0) as minima, "
+                . " ifnull(MAX(puntuacion), 0) as maxima, "
+                . " ifnull(AVG(precio), 0) as preciomedio, "                
                 . " local.nombrelocal, local.imagen "
                 . " FROM RESERVA reser, LOCALFECHAPRECIO localfecha, local "
                 . " WHERE localfecha.IDLOCALFECHAPRECIO = reser.IDLOCALFECHAPRECIO "
