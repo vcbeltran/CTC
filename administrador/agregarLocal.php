@@ -40,7 +40,7 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="alert alert-success">
-                        <strong>¡Ya está añadido el archivo!</strong> Puedes volver a la página de administrador <a href="menuAdministrador.php" class="alert-link">pulsando aquí</a>.
+                        <strong>¡Ya está añadido el local !</strong> Puedes volver a la página de administrador <a href="menuAdministrador.php" class="alert-link">pulsando aquí</a>.
                     </div> 
                 </div>
             </div>
@@ -49,7 +49,7 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="alert alert-danger">
-                        <strong>¡Lo sentimos!</strong> El nombre del local ya está en uso.
+                        <strong>¡Lo sentimos!</strong> El nombre del local ya está en uso. Puedes volver al formulario <a href="formularioAltaLocal.php" class="alert-link"> pulsando aquí</a>.
                     </div>  
                 </div>
             </div>    

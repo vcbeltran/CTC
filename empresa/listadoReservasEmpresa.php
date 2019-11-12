@@ -101,6 +101,6 @@ and open the template in the editor.
                 </ul>
             </nav>
         </div>  
-
+      <?php include('../includes/includeFooter.php');?>
     </body>
 </html>

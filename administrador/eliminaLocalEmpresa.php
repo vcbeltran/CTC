@@ -37,10 +37,10 @@ and open the template in the editor.
                 //header("location:editarLocal.php");
                 ?>
                     <div class="container  mt-5" >
-                     <div class="col-md-4"></div>
-                     <div class="col-md-8">
-                         <div class="alert alert-danger">
-                             <strong>¡Lo sentimos!</strong> El local no se puede eliminar porque está asociado a un usuario empresa.<a href="editarLocal.php" class="alert-link"> Pulse para volver atrás</a>
+                     <div class="col-md-2"></div>
+                     <div class="col-md-10">
+                         <div class="alert alert-success">
+                             <strong>¡Local eliminado!</strong> El local se ha eliminado de la base de datos.<a href="editarLocal.php" class="alert-link"> Pulse para volver atrás</a>
                          </div>  
                      </div>
              </div>

@@ -49,7 +49,7 @@ and open the template in the editor.
                         <div class="col-md-2"></div>
                         <div class="col-md-10">
                             <div class="alert alert-success">
-                                <strong>¡Ya está añadido el archivo!</strong> Puedes volver a la página de edición <a href="editarLocal.php" class="alert-link">pulsando aquí</a>.
+                                <strong>¡Ya está añadida la nueva foto!</strong> Puedes volver a la página de edición.
                             </div> 
                         </div>
                     </div>
@@ -61,22 +61,20 @@ and open the template in the editor.
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="alert alert-danger">
-                        <strong>¡Ojo!</strong> No has cambiado foto o nombre local existe!!!! 
+                        <strong>¡Ojo!</strong> No has actualizado foto! 
                     </div> 
                 </div>
             </div>
-           <?php  if($consultas->actualizarLocalSinFoto($id, $nombre, $direccion, $aforo)){ ?>
+          
+   <?php  } if ($consultas->actualizarLocalSinFoto($id, $nombre, $direccion, $aforo)){ ?>
                 <div class="container  mt-5" >
                     <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="alert alert-success">
-                            <strong>¡¡Bien!!</strong> Has actualizado los datos sin actualizar la foto, puedes volver al menú de edición <a href="editarLocal.php" class="alert-link">pulsando aquí</a>.
+                            <strong>¡¡Bien!!</strong> Has actualizado los datos, puedes volver al menú de edición <a href="editarLocal.php" class="alert-link">pulsando aquí</a>.
                         </div>  
                     </div>
                 </div>  
-        <?php
-             }
-         }
-         ?>
+    <?php } ?>
     </body>
 </html>

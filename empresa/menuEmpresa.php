@@ -12,17 +12,22 @@ Además permite ver algún listado de los locales.
     </head>
     <body id="empresa">
         <?php    
-        session_start();
         include ('../consultas/consultasLocales.php');
-        $codigoLocal = $_SESSION['local'];
-        $consultaDatosLocal = new ConsultasLocales();
-        $infoLocal = $consultaDatosLocal->seleccionarFila($codigoLocal);
-        //var_dump($infoLocal);
+        include ('../consultas/consultasReservas.php');
+        session_start();
         if (!isset($_SESSION['id'])) {
             header("location:inicio.php");
         }
+
+        $codigoLocal = $_SESSION['local'];
+        $consultaDatosLocal = new ConsultasLocales();
+        $infoLocal = $consultaDatosLocal->seleccionarFila($codigoLocal);
+        
         $tipo = $_SESSION;
-        //var_dump($tipo);
+        
+        $consulta = new consultasReservas();
+        $datosMedia = $consulta->consultaMedia($codigoLocal);
+        //var_dump($datosMedia);
         ?>
    
         <div class="container-fluid mt-5">
@@ -51,7 +56,14 @@ Además permite ver algún listado de los locales.
                                 <a class="dropdown-item" href="listadoReservasEmpresa.php"> <i class="fa fa-list" aria-hidden="true"></i> Listado reservas</a>
                             </div>  
                         </div>
-                        <a class="navbar-brand" href="#"> Ver Informes </a>
+                        <div class="dropdown">
+                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ver Informe 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                <a class="dropdown-item" href="listadoInformeReservasLocal.php"> <i class="far fa-calendar-check"></i> Total reservas</a>
+                            </div>  
+                        </div>                    
                         <a class="navbar-brand" href="../administrador/logout.php"> Cierra sesión </a> 
                     </nav>
                 </div>
@@ -69,9 +81,13 @@ Además permite ver algún listado de los locales.
                             </div>
                         </div>
                         <img class="card-img-top" src="../administrador/<?php echo $infoLocal['IMAGEN'] ?>" alt="Card image cap">
-                        <div class="card card-body"> 
-                            <p class='card-text'>Dirección: <?php echo $infoLocal['DIRECCION'] ?></p>
-                            <p class='card-text'>Aforo: <?php echo $infoLocal['AFORO'] ?></p>
+                        <div class="card card-body text-center"> 
+                            <p class='card-text mb-0'>Dirección: <?php echo $infoLocal['DIRECCION'] ?></p>
+                            <p class='card-text mb-0'>Aforo: <?php echo $infoLocal['AFORO'] ?></p>
+                            <?php foreach ($datosMedia as $datos):?>
+                            <p class='card-tex mb-0'>Precio medio: <?php echo ceil($datos['preciomedio']) ?></p>
+                            <p class="center mb-0"><img class="img-responsive" src="../administrador/imagenes/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
