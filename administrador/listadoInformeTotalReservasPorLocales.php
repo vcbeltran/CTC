@@ -43,7 +43,7 @@ and open the template in the editor.
             </div>
         </div>
         <div class="container-fluid mt-5">
-            <div class="card">
+            <div class="card">        
                 <h1> Informe total reservas por locales </h1>                     
                 <div class="row ml-md-3 mr-md-3 ">
                     <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Nombre Local</div>
