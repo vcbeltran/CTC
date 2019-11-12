@@ -273,19 +273,19 @@ class consultasLocalFechaPrecio {
     
     private $consultaTotalReservasPorLocales = "". 
             " local.idlocal, local.nombrelocal, " .
-            " sum(nvl(localfechaprecio.reservado, 0)) as totalreserva, " .
+            " sum(ifnull(localfechaprecio.reservado, 0)) as totalreserva, " .
             " sum( " .
                     " case  " .
-                            " when nvl(localfechaprecio.reservado, 0)  = 1 then localfechaprecio.precio " .
+                            " when ifnull(localfechaprecio.reservado, 0)  = 1 then localfechaprecio.precio " .
                     " else 0 " .
                     " end ) as totalpreciopagado, " .
             " sum(case  " .
-                    " when nvl(localfechaprecio.reservado, 1) = 0 then 1 " .
+                    " when ifnull(localfechaprecio.reservado, 1) = 0 then 1 " .
                     " else 0 " .
                " end) as totallibres, " .
             " sum( " .
                     " case  " .
-                            " when nvl(localfechaprecio.reservado, 0)  = 0 then nvl(localfechaprecio.precio,0) " .
+                            " when ifnull(localfechaprecio.reservado, 0)  = 0 then ifnull(localfechaprecio.precio,0) " .
                     " else 0 " .
                     " end ) as totalpreciolibre ";
             
