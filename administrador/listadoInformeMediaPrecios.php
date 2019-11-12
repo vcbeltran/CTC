@@ -12,11 +12,19 @@ and open the template in the editor.
     </head>
     <body id="admin">
         <?php
-        include '../consultas/consultasReservas.php';
+        $pagina = $_GET['pagina'];
+        if (!$_GET) {
+            header("location:listadoInformeMediaPrecios.php?pagina=1");
+        }
+        include '../consultas/consultasLocalFechaPrecio.php';
         session_start();
+
         $idLocal = null;
-        $consulta = new consultasReservas();
-        $resultado = $consulta->consultaMedia($idLocal);
+        $datosPorPagina = 10;
+        $iniciar = ($pagina - 1) * $datosPorPagina;
+        
+        $consulta = new consultasLocalFechaPrecio();
+        $resultado = $consulta->informePrecioMedioPorLocales($idLocal,$iniciar,$datosPorPagina);
         //var_dump($resultado);
         ?>
         <div class="container mt-5">
@@ -31,7 +39,7 @@ and open the template in the editor.
             </div>
         </div>
         <div class="container mt-5">
-            <h1>TOP 5 media precio</h1>
+            <h1>Precio medio por local</h1>
             <table class="table table-striped list-group-item-primary">
                 <thead>
                     <tr>
@@ -45,11 +53,39 @@ and open the template in the editor.
                     <?php foreach ($resultado as $dato): ?>
                         <td scope="col"><?php echo $dato['nombrelocal'] ?></td>
                         <td><?php echo ceil($dato['preciomedio']) . " €" ?></td>
-                        <td><?php echo ceil($dato['total']) ?></td>     
+                        <td><?php echo $dato['totalreserva'] ?></td>     
                         </tr>
                     <?php endforeach; ?>                    
                 </tbody>
-            </table>
+            </table>            
         </div>
+        <div class="container mt-3">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <!--                    Boton anterior-->
+                    <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                        <a class="page-link" href="listadoInformeMediaPrecios.php?pagina=<?php echo $_GET['pagina'] - 1 ?>">Anterior</a>
+                    </li>                 
+                    <?php
+                    $cuentaFilas = new consultasLocalFechaPrecio();
+                    $filas = array();
+                    $filas = $cuentaFilas->contarPrecioMedioPorLocales($idLocal);
+                    //var_dump($filas);
+                    //botones de paginación             
+                    $totalPaginas = ceil($filas / $datosPorPagina);
+                    for ($i = 0; $i < $totalPaginas; $i++):
+                        ?>
+                        <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                            <a class="page-link" href="listadoInformeMediaPrecios.php?pagina=<?php echo $i + 1 ?>"> <?php echo $i + 1 ?> </a>
+                        </li>
+                    <?php endfor; ?>
+                    <li class="page-item <?php echo $_GET['pagina'] >= $totalPaginas ? 'disabled' : '' ?>">
+                        <a class="page-link" href="listadoInformeMediaPrecios.php?pagina=<?php echo $_GET['pagina'] + 1 ?>">
+                            Siguiente
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>          
     </body>
 </html>

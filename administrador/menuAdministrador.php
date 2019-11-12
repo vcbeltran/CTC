@@ -56,7 +56,7 @@ Además permite ver algún listado de los locales.
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                             <a class="dropdown-item" href="listadoInformeTotalReservasPorLocales.php"><i class="far fa-list-alt"></i> Total Reservas Por Local</a>                            
                             <a class="dropdown-item" href="listadoInformeMediaPuntuacion.php"><i class="fas fa-grin-stars"></i> TOP 5 Locales </a>                            
-                            <a class="dropdown-item" href="listadoInformeMediaPrecios.php"><i class="fas fa-comment-dollar"></i> Media Precio Locales </a>                            
+                            <a class="dropdown-item" href="listadoInformeMediaPrecios.php"><i class="fas fa-comment-dollar"></i> Precio Medio Por Local </a>                            
                         </div>  
                     </div>
                     <a class="navbar-brand" href="logout.php"> Cierra sesión </a> 
