@@ -84,6 +84,7 @@ class consultasReservas {
                 . " nvl(MIN(puntuacion), 0) as minima, "
                 . " nvl(MAX(puntuacion), 0) as maxima, "
                 . " nvl(AVG(precio), 0) as preciomedio, "
+                . " count(*) as total, "
                 . " local.nombrelocal, local.imagen "
                 . " FROM RESERVA reser, LOCALFECHAPRECIO localfecha, local "
                 . " WHERE localfecha.IDLOCALFECHAPRECIO = reser.IDLOCALFECHAPRECIO "
@@ -97,7 +98,7 @@ class consultasReservas {
 
         
         $resultado = $this->conexion->query($consulta);
-
+       // echo $consulta;
         $listaResulltado = array();
         if ($resultado->num_rows != 0) {
             while ($fila = $resultado->fetch_assoc()) {
