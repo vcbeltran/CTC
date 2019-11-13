@@ -14,17 +14,17 @@
 				//para desmarcar primera
 				if (valoracion==1 && i==1 && valoracion_anterior == 1){ 
 					document.getElementById('valoracion').value = 0;
-					document.getElementById('estrella_' + i).src='../administrador/imagenes/estrella_vacia.png';
+					document.getElementById('estrella_' + i).src='../administrador/imagenes/estrellas/estrella_vacia.png';
                                         document.getElementById('envio').style.visibility = "hidden";
                                         document.getElementById('mensaje').style.visibility = "visible";
 					document.getElementById('mensaje').innerHTML = "¡Incluya mínimo un valor!";
 				} else { //fin para desmarcar primera
-					document.getElementById('estrella_' + i).src='../administrador/imagenes/estrella_llena.png';
+					document.getElementById('estrella_' + i).src='../administrador/imagenes/estrellas/estrella_llena.png';
                                         document.getElementById('envio').style.visibility = "visible";
 					document.getElementById('mensaje').style.visibility = "hidden";
 				}
 			} else {
-				document.getElementById('estrella_' + i).src='../administrador/imagenes/estrella_vacia.png';
+				document.getElementById('estrella_' + i).src='../administrador/imagenes/estrellas/estrella_vacia.png';
 			}
 		}
 		

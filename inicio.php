@@ -95,11 +95,11 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 //empieza foto
                 print("<img class='card-img-top' src=\"administrador/" . $local[4] . " \" />");
                 //empieza cuerpo
-                print("<div class='card-body'>");
+                print("<div class='card-body text-center'>");
                 //empieza primer parrafo
-                print("<p class='card-text'> NOMBRE: " . $local[1] . "</p>");
-                print("<p class='card-text'> DIRECCION: " . $local[2] . "</p>");
-                print("<p class='card-text'> AFORO: " . $local[3] . "</p>");
+                print("<p class='card-text-center'><strong> " . $local[1] . "</strong></p>");
+                print("<p class='card-text'><i class=\"fas fa-map-marker-alt\"></i> " . $local[2] . "</p>");
+                print("<p class='card-text'> <i class=\"fas fa-users\"></i> " . $local[3] . " (aforo max)</p>");
                 $media = $consultaPuntuacion ->consultaMedia($local[0]); 
                 $mediaTotal = 0;
                 if (!empty($media)){
@@ -108,7 +108,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     }                    
                 }
                 ?>               
-                <p> PUNTOS: <img class='img-resposive' src="administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
+                <p> <img class='img-resposive' src="administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
                 <?php
                 //cierra card body
                 print("</div>");
@@ -126,7 +126,6 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 } 
                 $contador++;
             endforeach;
-           
             ?> 
        </div>
         <div class="container mt-3">
@@ -157,11 +156,6 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
          echo "Mostramos: " . $localesPorPagina  ."<br>";
          echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
          echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>-->
-<!--         <div class="container-fluid mb-3">
-              <div class="col list-group-item-info bg-info rounded">
-                 <div class="footer-copyright text-center text-white py-3"> &copy 2019 Desarrollado por: Verónica Beltrán González </div>                   
-              </div>
-         </div>-->
   <?php include ('includes/includeFooter.php'); ?>
     </body>
 </html>

@@ -7,8 +7,8 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://kit.fontawesome.com/972d9e5e02.js" crossorigin="anonymous"></script>
-        <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/ctc.js" ></script>   
-        <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionConfirmar.js" ></script>  
-        <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionAnular.js" ></script>  
-        <script src="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/JS/funcionPuntuar.js" ></script>  
-        <link rel="stylesheet" type="text/css" href="<?php echo 'http://'.  $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] ?>/CTC/CSS/imagenes.css">
+        <script src="<?php 'http://'. $_SERVER['HTTP_HOST'] ?>/CTC/JS/ctc.js" ></script>   
+        <script src="<?php 'http://'. $_SERVER['HTTP_HOST'] ?>/CTC/JS/funcionConfirmar.js" ></script>  
+        <script src="<?php 'http://'. $_SERVER['HTTP_HOST'] ?>/CTC/JS/funcionAnular.js" ></script>  
+        <script src="<?php 'http://'. $_SERVER['HTTP_HOST'] ?>/CTC/JS/funcionPuntuar.js" ></script>  
+        <link rel="stylesheet" type="text/css" href="<?php 'http://'. $_SERVER['HTTP_HOST'] ?>/CTC/CSS/imagenes.css">

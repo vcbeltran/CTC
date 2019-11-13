@@ -38,18 +38,18 @@ footer{
 }
 
 #admin{
-    background-image: url("../administrador/imagenes/fondo-admin.png");
+    background-image: url("../administrador/imagenes/body/fondo-admin.png");
     background-repeat: repeat;
    
 }
 
 #empresa{
 
-    background-image: url("../administrador/imagenes/memphis-colorful.png");
+    background-image: url("../administrador/imagenes/body/memphis-colorful.png");
     background-repeat: repeat;
 }
 
 #user{
-    background-image: url("../administrador/imagenes/confetti-transparent.png");
+    background-image: url("../administrador/imagenes/body/confetti-transparent.png");
     background-size: cover;
 }

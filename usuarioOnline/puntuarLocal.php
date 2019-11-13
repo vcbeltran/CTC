@@ -35,18 +35,18 @@ and open the template in the editor.
                         <div class="col-md-2"> </div>                   
                         <div class="card">
                             <div class="card-header d-flex justify-content-center"><?php echo $datos['nombrelocal'] ?></div>
-                            <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-top" >
+                            <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-thumbnail" >
                             <div class="card-body">
                                     <h5 class="card-title"><i class="fas fa-laugh-wink"></i> Por favor incluya su valoración aquí</h5>
                                     <p class="card-text">Valore su experiencia en la reserva del local del 1 al 5 </p>
                                     <form method="POST" action="altaPuntuacion.php">
                                     <input id="valoracion" type="hidden" value="0" name="puntos"/>
                                     <p class="mb-0 d-flex justify-content-center ">
-                                        <img class="img-responsive" id="estrella_1" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(1)"/>
-                                        <img class="img-responsive" id="estrella_2" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(2)"/>
-                                        <img class="img-responsive" id="estrella_3" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(3)"/>
-                                        <img class="img-responsive" id="estrella_4" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(4)"/>
-                                        <img class="img-responsive" id="estrella_5" src="../administrador/imagenes/estrella_vacia.png"  onclick="javascript: rellena_estrella(5)"/>
+                                        <img class="img-responsive" id="estrella_1" src="../administrador/imagenes/estrellas/estrella_vacia.png"  onclick="javascript: rellena_estrella(1)"/>
+                                        <img class="img-responsive" id="estrella_2" src="../administrador/imagenes/estrellas/estrella_vacia.png"  onclick="javascript: rellena_estrella(2)"/>
+                                        <img class="img-responsive" id="estrella_3" src="../administrador/imagenes/estrellas/estrella_vacia.png"  onclick="javascript: rellena_estrella(3)"/>
+                                        <img class="img-responsive" id="estrella_4" src="../administrador/imagenes/estrellas/estrella_vacia.png"  onclick="javascript: rellena_estrella(4)"/>
+                                        <img class="img-responsive" id="estrella_5" src="../administrador/imagenes/estrellas/estrella_vacia.png"  onclick="javascript: rellena_estrella(5)"/>
                                     </p>
                                     <br>
                                     <p id="envio"   class="mb-0 d-flex justify-content-center" style="visibility: hidden;"><button type="submit" class="btn bg-warning text-dark lead rounded-circle"> Enviar </button> </p>

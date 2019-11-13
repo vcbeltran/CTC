@@ -14,7 +14,7 @@ and open the template in the editor.
             <div class="card"> 
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="administrador/imagenes/avatar.png" class="img-thumbnail"  style="text-align: center" alt="...">
+                        <img src="administrador/imagenes/iconos/avatar.png" class="img-thumbnail"  style="text-align: center" alt="...">
                     </div>                  
                     <div class="row mt-5">
                         <div class="col-md-2"></div>

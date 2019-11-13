@@ -47,9 +47,9 @@ and open the template in the editor.
                         ?>
                         <div class="col-md  py-3 px-lg-5"><img src='../administrador/<?php echo $datos['imagen'] ?>' alt="local" class="img-thumbnail"/></div>
                         <div class="col-md  py-3 px-lg-5"><?php echo $datos['nombrelocal'] ?></div>                      
-                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['minima'])); ?><img class='img-resposive' src="../administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
-                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['maxima'])); ?><img class='img-resposive' src="../administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
-                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['media'])); ?><img class='img-resposive' src="../administrador/imagenes/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
+                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['minima'])); ?><img class='img-resposive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
+                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['maxima'])); ?><img class='img-resposive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
+                        <div class="col-md  py-3 px-lg-5"><?php $mediaTotal = (ceil($datos['media'])); ?><img class='img-resposive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></div>                        
                         <div class="w-100"></div>
                         <?php
                     endforeach;
