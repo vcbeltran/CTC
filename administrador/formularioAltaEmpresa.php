@@ -39,10 +39,9 @@ and open the template in the editor.
                 <div class="col-md-2"></div>               
                 <div class="col-md-8">
                     <div class="card">
-                        <h2>Añada nuevo usuario Empresa </h2>
                         <card class="card-body">
+                        <h2>Añada nuevo usuario Empresa </h2>                        
                         <form action="altaUsuarioEmpresa.php" method="POST">
-
                             <div class="form-group">
                                 <label for="InputName">Nombre Empresa</label>
                                 <input type="text" class="form-control" id="InputName" placeholder="Introduzca nombre" name="nombre">
@@ -66,7 +65,7 @@ and open the template in the editor.
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Dar alta</button>
+                                <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Dar alta</button>
                                 <input class="btn btn-primary mb-2" type="reset" value="Reset">
                             </div>
                             <!-- Modal -->
@@ -74,13 +73,13 @@ and open the template in the editor.
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Va a actualizar un registro</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Va a dar de alta un registro</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ¿Seguro que quiere actualizar los datos?
+                                            ¿Seguro que quiere dar alta a la empresa?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cierre sin guardar</button>
