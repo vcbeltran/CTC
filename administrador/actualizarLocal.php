@@ -29,6 +29,7 @@ and open the template in the editor.
              mkdir("imagenes/");
             $destino = "imagenes/";
             $caratula = $destino . $_FILES['caratula']['name'];
+             if (isset($caratula)){
             if (!is_file($caratula)) {
                 move_uploaded_file($_FILES['caratula']['tmp_name'], $caratula);
                 //echo "fichero movido";
@@ -45,16 +46,9 @@ and open the template in the editor.
             } else {
                 if ($consultas->actualizarLocalConFoto($id, $nombre, $direccion, $aforo, $caratula)) {
                     ?>
-                <div class="container mt-5" >
-                        <div class="col-md-2"></div>
-                        <div class="col-md-10">
-                            <div class="alert alert-success">
-                                <strong>¡Ya está añadida la nueva foto!</strong> Puedes volver a la página de edición.
-                            </div> 
-                        </div>
-                    </div>
         <?php  }              
-            } 
+            }    
+       }
         } else { 
                 ?>
         <div class="container mt-5" >
@@ -75,6 +69,17 @@ and open the template in the editor.
                         </div>  
                     </div>
                 </div>  
-    <?php } ?>
+    <?php } else { 
+                ?>
+        <div class="container mt-5" >
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="alert alert-danger">
+                        <strong>¡Ojo!</strong> Ojo el nombre del local está repetido! puedes volver al menú de edición <a href="editarLocal.php" class="alert-link">pulsando aquí</a>. 
+                    </div> 
+                </div>
+            </div>
+          
+   <?php  } ?>
     </body>
 </html>
