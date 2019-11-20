@@ -46,17 +46,6 @@ and open the template in the editor.
                                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                             </div> 
                         </div>
-                        <!--                        <div class="form-group row">
-                                                    <div class="input-group row">
-                                                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                                        <input id="Password" type="Password" Class="form-control" name="password">
-                                                        <div class="input-group-append"> 
-                                                            <span class="input-group-text">
-                                                                <input ID="ShowPassword" type="checkbox" />
-                                                            </span> 
-                                                        </div>
-                                                    </div>
-                                                </div>  -->
                         <div class="form-group row">
                             <label for="inputPhone" class="col-sm-2 col-form-label">Teléfono (opcional) </label>
                             <div class="col-sm-10">
@@ -67,7 +56,7 @@ and open the template in the editor.
                         <div class="container mt-5">
                             <div class="row">
                                 <div class="col md-3">
-                                    <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
+                                    <a class="btn btn-warning" href="../inicio/inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                                 </div>
                                 <div class="col md-2">
                                     <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil" aria-hidden="true"></i> Actualizar</button>

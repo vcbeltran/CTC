@@ -1,6 +1,6 @@
 <?php
-    include ('consultas/conexiones.php');
-    include ('consultas/consultasLocales.php');
+    include ('../consultas/conexiones.php');
+    include ('../consultas/consultasLocales.php');
     $conect = new Conexiones();
     $totalFilasLocal = new consultasLocales();
 
@@ -15,17 +15,17 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include ('includes/include.php'); ?>   
+        <?php include ('../includes/include.php'); ?>   
 <!--        <link rel="stylesheet" type="text/css" href="CSS/imagenes.css">-->
 
         <meta charset="UTF-8">                       
         <title>Bienvenido a tu web de reservas</title>
     </head>
     <body id="user">
-        <?php include ('includes/includeCabecera.php'); ?>
+        <?php include ('../includes/includeCabecera.php'); ?>
         <?php             
          session_start(); 
-         include './consultas/consultasReservas.php';
+         include '../consultas/consultasReservas.php';
          
          $consultaPuntuacion = new consultasReservas();      
        
@@ -55,10 +55,10 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                                     <button type="button" class="btn btn-warning"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Bienvenido: <?php echo $_SESSION['nombreUsuario']; ?></button>
                                 </div>                      
                                 <div class="col md-3">
-                                    <button type="button" class="btn btn-warning"><i class="far fa-address-book"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="usuarioOnline/listadoReservas.php"> Consulte sus reservas</a> </button>
+                                    <button type="button" class="btn btn-warning"><i class="far fa-address-book"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="../usuarioOnline/listadoReservas.php"> Consulte sus reservas</a> </button>
                                 </div>                               
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-warning"><i class="fas fa-user-tag"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="usuarioOnline/formularioDatosUser.php"> Datos personales </a></button>
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-user-tag"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="../usuarioOnline/formularioDatosUser.php"> Datos personales </a></button>
                                 </div>
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-warning"><i class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration:none;color:black" class="stretched-linkhref" href="logoutUser.php">Cierra sesión</a></button>
@@ -93,7 +93,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 //empieza una card
                 print("<div class='card'>");
                 //empieza foto
-                print("<img class='card-img-top' src=\"administrador/" . $local[4] . " \" />");
+                print("<img class='card-img-top' src=\"../administrador/" . $local[4] . " \" />");
                 //empieza cuerpo
                 print("<div class='card-body text-center'>");
                 //empieza primer parrafo
@@ -108,13 +108,13 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     }                    
                 }
                 ?>               
-                <p> <img class='img-resposive' src="administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
+                <p> <img class='img-resposive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
                 <?php
                 //cierra card body
                 print("</div>");
                 //cierra card
                 if (isset($_SESSION['id'])){
-                     print("<a class='btn btn-info' href='usuarioOnline/listaLocalFechaPrecioDisponible.php?pagina=1&codigo=" . $local[0] . " '><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> Consultar disponibilidad </a> ");
+                     print("<a class='btn btn-info' href='../usuarioOnline/listaLocalFechaPrecioDisponible.php?pagina=1&codigo=" . $local[0] . " '><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> Consultar disponibilidad </a> ");
                 }
                 print("</div>");
                 //cierra col
@@ -156,6 +156,6 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
          echo "Mostramos: " . $localesPorPagina  ."<br>";
          echo "Mostramos la pagina: " . $_GET['pagina'] . " de " . $totalPaginas ."<br>"; 
          echo "El segmento por página de los locales a mostrar: " . $iniciar ."<br>"; ?>-->
-  <?php include ('includes/includeFooter.php'); ?>
+  <?php include ('../includes/includeFooter.php'); ?>
     </body>
 </html>

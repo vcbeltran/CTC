@@ -6,7 +6,7 @@
  * dado de alta en la base de datos. 
  */
 
-include 'consultas/conexiones.php';
+include '../consultas/conexiones.php';
 //creo un objeto de la clase conexión
 $conexion = new Conexiones();
 $compruebaLogin = new Conexiones();
@@ -36,7 +36,7 @@ if (isset($mail) && isset($pass)){
             $_SESSION['id'] = $conexionTipo[2];
             $_SESSION['nombre'] = $conexionTipo[0];
 
-            header("location:administrador/menuAdministrador.php");
+            header("location:../administrador/menuAdministrador.php");
             //var_dump($conexionTipo);
        /* SI ES UN USUARIO EMPRESA SE REDIRECCIONA AL MENÚ */
         } elseif ($conexionTipo[2] == 2) {
@@ -57,7 +57,7 @@ if (isset($mail) && isset($pass)){
             
             $_SESSION['idLocalFechaPrecio']  = null;
 
-            header("location:empresa/menuEmpresa.php");
+            header("location:../empresa/menuEmpresa.php");
         /* SI ES UN USUARIO ONLINE REDIRECCIONA PERMITIENDO RESERVAS */
         } elseif ($conexionTipo[2] == 3){
             session_start();

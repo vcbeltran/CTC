@@ -15,7 +15,7 @@ and open the template in the editor.
         session_start();
 
         if (!isset($_SESSION)) {
-            header("location:inicio.php");
+            header("location:inicio/inicio.php");
         }
         // echo  "Sigue siendo el usuario ". $_SESSION['tipo'];
         include '../consultas/consultasLocales.php';

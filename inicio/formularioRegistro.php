@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php include ('includes/include.php'); ?>
+        <?php include ('../includes/include.php'); ?>
         <title>Bienvenido</title>
     </head>
     <body id="user">
@@ -15,7 +15,7 @@ and open the template in the editor.
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="administrador/imagenes/iconos/globos.png" class="img-thumbnail"  style="text-align: center" alt="...">
+                        <img src="../administrador/imagenes/iconos/globos.png" class="img-thumbnail"  style="text-align: center" alt="...">
                     </div>   
                     <div class="row mt-2">
                         <div class="col-md-3"></div>

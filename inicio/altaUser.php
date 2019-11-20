@@ -3,7 +3,7 @@
 /* 
  * Página que llama a la clase de alta de usuario e informa al usuario
  */
-include ('consultas/conexiones.php');
+include ('../consultas/conexiones.php');
 
 /* LOGIN */
     $conexion = new Conexiones();
@@ -21,7 +21,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php include ('includes/include.php'); ?>
+        <?php include ('../includes/include.php'); ?>
         <title>Alta usuario</title>
     </head>
     <body id="user">

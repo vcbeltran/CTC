@@ -40,7 +40,7 @@ and open the template in the editor.
                      <h4 class="alert-heading"><i class="fas fa-smile-wink"></i>¡Todo en orden!</h4>
                      <p> Ha cambiado sus datos personales.</p>
                      <hr>
-                     <p class="mb-0"> <a class="alert-link" href="../inicio.php?pagina=1"><strong>Pulse aquí para volver al inicio</strong></a></p>
+                     <p class="mb-0"> <a class="alert-link" href="../inicio/inicio.php?pagina=1"><strong>Pulse aquí para volver al inicio</strong></a></p>
                  </div>
              </div>
 

@@ -7,14 +7,14 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php include ('includes/include.php'); ?>
+        <?php include ('../includes/include.php'); ?>
     </head>
     <body id="user">
         <div class="container mt-5" >
             <div class="card"> 
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="administrador/imagenes/iconos/avatar.png" class="img-thumbnail"  style="text-align: center" alt="...">
+                        <img src="../administrador/imagenes/iconos/avatar.png" class="img-thumbnail"  style="text-align: center" alt="...">
                     </div>                  
                     <div class="row mt-5">
                         <div class="col-md-2"></div>

@@ -21,13 +21,13 @@ and open the template in the editor.
         if ($consulta->eliminarReserva($idLocalFechaPrecio)){ ?>
         <div class="container mt-5">
                 <div class="alert alert-success mb-2" role="alert">
-                    <i class="fa fa-check" aria-hidden="true"></i> Has eliminado una reserva! Consulte su mail para más información <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
+                    <i class="fa fa-check" aria-hidden="true"></i> Has eliminado una reserva! Consulte su mail para más información <a href="../inicio/inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
                 </div>
             </div>  
        <?php } else { ?>
         <div class="container mt-5">
                 <div class="alert alert-danger mb-2" role="alert">
-                    <i class="fa fa-check" aria-hidden="true"></i> Algo ha ido mal <a href="../inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
+                    <i class="fa fa-check" aria-hidden="true"></i> Algo ha ido mal <a href="../inicio/inicio.php?pagina=1" class="alert-link"><strong>Pulse aquí para consultar los locales</strong></a>
                 </div>
             </div>  
         <?php } ?>

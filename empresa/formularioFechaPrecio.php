@@ -16,7 +16,7 @@ and open the template in the editor.
         //var_dump($_SESSION);
         
         if (!isset($_SESSION)) {
-            header("location:../inicio.php");
+            header("location:../inicio/inicio.php");
         }
         $_SESSION['accion'] = "alta";
         ?>

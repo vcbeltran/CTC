@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php include ('includes/include.php'); ?>
+        <?php include ('../includes/include.php'); ?>
         <title>Vuelva a loguearse</title>
     </head>
     <body id="user">

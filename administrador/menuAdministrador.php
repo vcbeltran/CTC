@@ -16,7 +16,7 @@ Además permite ver algún listado de los locales.
         include '../consultas/conexiones.php';
         $conexion = new Conexiones;
         if (!isset($_SESSION['id'])) {
-            header("location:inicio.php");
+            header("location:../inicio/inicio.php");
         }
         $tipo = $_SESSION['tipo'];
         //var_dump($tipo);

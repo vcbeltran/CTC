@@ -3,7 +3,7 @@
     
     session_start();
     if (!isset($_SESSION)) {
-        header("location:inicio.php");
+        header("location:inicio/inicio.php");
     }
     $consultaEmpresa = new consultasEmpresas();
     $listaEmpresa = array();

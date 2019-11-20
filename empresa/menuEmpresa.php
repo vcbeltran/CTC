@@ -16,7 +16,7 @@ Además permite ver algún listado de los locales.
         include ('../consultas/consultasReservas.php');
         session_start();
         if (!isset($_SESSION['id'])) {
-            header("location:inicio.php");
+            header("location:../inicio/inicio.php");
         }
 
         $codigoLocal = $_SESSION['local'];
@@ -85,9 +85,15 @@ Además permite ver algún listado de los locales.
                             <p class='card-text mb-0'>Dirección: <?php echo $infoLocal['DIRECCION'] ?></p>
                             <p class='card-text mb-0'>Aforo: <?php echo $infoLocal['AFORO'] ?></p>
                             <?php foreach ($datosMedia as $datos):?>
+                              <?php if(!empty($datos['preciomedio'])){ ?>
                             <p class='card-tex mb-0'>Precio medio: <?php echo ceil($datos['preciomedio']) ?></p>
+                             <?php } ?>
+                            <?php if(!empty($datos['media'])){ ?>
                             <p class="center mb-0"><img class="img-responsive" src="../administrador/imagenes/estrellas/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
-                            <?php endforeach; ?>
+                            <?php } else { ?>
+                            <p class="center mb-0">Aún no tiene puntuaciones en su local</p>
+                            <?php } 
+                            endforeach; ?>
                         </div>
                     </div>
                 </div>

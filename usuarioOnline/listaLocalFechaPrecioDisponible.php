@@ -48,7 +48,7 @@ and open the template in the editor.
         <div class="container mt-5">
             <div class='row'>
                 <div class="col md-2">
-                    <a class="btn btn-warning" href="../inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
+                    <a class="btn btn-warning" href="../inicio/inicio.php" > <i class="fa fa-home" aria-hidden="true"></i> Vuelva al inicio </a>
                 </div>
 <!--                <div class="col md-2">
                     <img src='../administrador/<?php// echo $datosDetalleLocal['4'] ?>' alt="local" class="img-thumbnail"/>

@@ -5,7 +5,7 @@
     if (isset($_SESSION['tipo'])){
         session_destroy(); 
     }
-       header("location:../inicio.php");
+       header("location:../inicio/inicio.php");
     
 
 ?>
