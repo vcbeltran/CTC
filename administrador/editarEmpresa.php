@@ -28,40 +28,6 @@ and open the template in the editor.
     </head>
     <body id="admin">
         <div class="container mt-5">
-            <div class="card">
-             <h2>Lista de Empresas</h2>
-            <div class="table-responsive-md">            
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Local Asignado</th>
-                            <th scope="col">Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($listaEmpresa as $empresa):
-                            print("<tr>");
-                            print("<td scope='row'>" . $empresa[0]);
-                            print("</td>");
-                            print("<td scope='row'>" . $empresa[1]);
-                            print("</td>");
-                            print("<td scope='row'>" . $empresa[2]);
-                            print("</td>");
-                            print("<td scope='row'>"
-                                    . "<a class='btn btn-primary' href='formularioEditarEmpresa.php?codigo=" . $empresa[3] . " '><i class=\"fa fa-pencil fa-fw\"></i>  Modificar </a>")?> 
-                                    <a class='btn btn-danger'  href='' onclick="javascript:if (!funcion_confirmar('eliminaLocalEmpresa.php?accion=eliminaEmpresa&codigo=<?php echo $empresa[3]  ?>')) return false " ><i class="far fa-trash-alt"></i> Eliminar</a>
-                            <?php print("</td>");
-                            print("</tr>");
-                        endforeach;
-                        ?> 
-                    </tbody>
-                </table>          
-            </div></div>
-        </div>
-        <div class="container mt-5">
             <div class="row">
                 <div class="col-md-8"></div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,6 +36,43 @@ and open the template in the editor.
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </nav>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="card">
+                <h2>Lista de Empresas</h2>
+                <div class="table-responsive-md">            
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Local Asignado</th>
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($listaEmpresa as $empresa):
+                                print("<tr>");
+                                print("<td scope='row'>" . $empresa[0]);
+                                print("</td>");
+                                print("<td scope='row'>" . $empresa[1]);
+                                print("</td>");
+                                print("<td scope='row'>" . $empresa[2]);
+                                print("</td>");
+                                print("<td scope='row'>"
+                                        . "<a class='btn btn-primary' href='formularioEditarEmpresa.php?codigo=" . $empresa[3] . " '><i class=\"fa fa-pencil fa-fw\"></i>  Modificar </a>")
+                                ?> 
+                            <a class='btn btn-danger'  href='' onclick="javascript:if (!funcion_confirmar('eliminaLocalEmpresa.php?accion=eliminaEmpresa&codigo=<?php echo $empresa[3] ?>')) return false " ><i class="far fa-trash-alt"></i> Eliminar</a>
+                            <?php
+                            print("</td>");
+                            print("</tr>");
+                        endforeach;
+                        ?> 
+                        </tbody>
+                    </table>          
+                </div>
             </div>
         </div>
     </body>

@@ -51,8 +51,6 @@ and open the template in the editor.
                                     <div class="col-5">
                                         <label for="nombre" class="col-form-label"> Nombre de su local </label>    
                                         <input type="text" class="form-control" id="nombre"  name="nombre" value="<?php echo $_SESSION['nombrelocal'] ?>" readonly="true">
-<!--                                        <label for="codigo" class="col-form-label"> Codigo de su fecha disponible </label>               
-                                        <input type="text" class="form-control" id="codigo"  name="codigoFecha" value="<?php //echo $idLocalFechaPrecio; ?>" readonly="true">-->
                                     </div>
                                 </div>   
                                 <div class="form-group">
@@ -72,12 +70,12 @@ and open the template in the editor.
                                     <input  type="time" class="form-control" id="horaini"  name="horaFin"  value="<?php echo $fechaPrecioFila['HORAFIN'] ?>">
                                 </div> 
                                 <div class="form-group row">
-                                    <div class="col-3">
+                                    <div class="col-4"></div>
+                                    <div class="col-5">
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                                             Actualizar Fecha
                                         </button> 
-                                    </div>
-                                    <input class="btn btn-success mb-2" type="reset" value="Reset">                                   
+                                    </div>                                                                     
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -60,7 +60,7 @@ and open the template in the editor.
 
                                 <div class="col-md-4">
                                     <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Dar alta</button>
-                                    <input class="btn btn-primary mb-2" type="reset" value="Reset">
+                                    <input class="btn btn-secondary mb-2" type="reset" value="Reset">
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

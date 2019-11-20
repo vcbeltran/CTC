@@ -33,8 +33,8 @@ and open the template in the editor.
         </div>
         <div class="container mt-5">       
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-1"></div>
+                <div class="col-md-9">
                     <div class="card">
                     <h3>Añada nueva fecha para su empresa</h3>
                     <div class="card-body">
@@ -75,7 +75,7 @@ and open the template in the editor.
                                     Alta Fecha
                                 </button> 
                             </div>
-                            <input class="btn btn-success" type="reset" value="Reset">
+                            <input class="btn btn-secondary" type="reset" value="Reset">
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

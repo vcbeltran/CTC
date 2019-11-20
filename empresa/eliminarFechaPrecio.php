@@ -23,7 +23,7 @@ and open the template in the editor.
         if ($consultaEliminar->borrarFechaPrecio($codigo)){ ?>
                 <div class="container mt-5">
                     <div class="alert alert-success mb-2" role="alert">
-                        <i class="fa fa-check" aria-hidden="true"></i> Has eliminado el registro <a href="editarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
+                        <i class="fa fa-check" aria-hidden="true"></i> Has eliminado el registro <a href="detalleEditarFechaPrecio.php" class="alert-link"><strong>Pulse aquí para volver a la lista</strong></a>
                     </div>
                 </div>                          
        <?php  } ?>

@@ -46,19 +46,19 @@ and open the template in the editor.
             <div class="card">        
                 <h1> Informe total reservas por locales </h1>                     
                 <div class="row ml-md-3 mr-md-3 ">
-                    <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Nombre Local</div>
-                    <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Total Reservas </div>
-                    <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Total Ganacias por reservas</div>
-                    <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Total Disponibles</div>                 
-                    <div class="col list-group-item-primary py-3 px-lg-5 justify-content-center">Ganacias Pendientes</div>                 
+                    <div class="col list-group-item-primary py-3 ">Nombre Local</div>
+                    <div class="col list-group-item-primary py-3 ">Total Reservas </div>
+                    <div class="col list-group-item-primary py-3 ">Total Ganacias por reservas</div>
+                    <div class="col list-group-item-primary py-3 ">Total Disponibles</div>                 
+                    <div class="col list-group-item-primary py-3 ">Ganacias Pendientes</div>                 
                     <div class="w-100"></div>
                     <?php if (isset($resultado)): ?>
                         <?php foreach ($resultado as $dato): ?>       
-                            <div class="col list-group-flush py-3 justify-content-center"><strong><?php echo $dato['nombrelocal'] ?></strong></div>
-                            <div class="col list-group-flush py-3 justify-content-center"><strong><?php echo $dato['totalreserva'] ?></strong></div>
-                            <div class="col list-group-flush py-3 justify-content-center"><strong><?php echo $dato['totalpreciopagado'] . " €" ?></strong></div>
-                            <div class="col list-group-flush py-3 justify-content-center"><strong><?php echo $dato['totallibres']  ?></strong></div>                        
-                            <div class="col list-group-flush py-3 justify-content-center"><strong><?php echo $dato['totalpreciolibre'] . " €" ?></strong></div>                                                
+                            <div class="col list-group-flush py-3 "><strong><?php echo $dato['nombrelocal'] ?></strong></div>
+                            <div class="col list-group-flush py-3 "><strong><?php echo $dato['totalreserva'] ?></strong></div>
+                            <div class="col list-group-flush py-3 "><strong><?php echo $dato['totalpreciopagado'] . " €" ?></strong></div>
+                            <div class="col list-group-flush py-3 "><strong><?php echo $dato['totallibres']  ?></strong></div>                        
+                            <div class="col list-group-flush py-3 "><strong><?php echo $dato['totalpreciolibre'] . " €" ?></strong></div>                                                
                             <div class="w-100"></div>
                         <?php endforeach; ?>
                     <?php endif; ?>

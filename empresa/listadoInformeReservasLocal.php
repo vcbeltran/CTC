@@ -39,11 +39,11 @@ and open the template in the editor.
             <div class="card">
                 <h1> Informe total reservas de mi local </h1>                     
                 <div class="row ml-md-3 mr-md-3 ">
-                    <div class="col list-group-item-success py-3 px-lg-5 justify-content-center">Nombre Local</div>
-                    <div class="col list-group-item-success py-3 px-lg-5 justify-content-center">Total Reservas </div>
-                    <div class="col list-group-item-success py-3 px-lg-5 justify-content-center">Total Ganacias por reservas</div>
-                    <div class="col list-group-item-success py-3 px-lg-5 justify-content-center">Total Disponibles</div>                 
-                    <div class="col list-group-item-success py-3 px-lg-5 justify-content-center">Ganacias Pendientes</div>                 
+                    <div class="col list-group-item-success py-3">Nombre Local</div>
+                    <div class="col list-group-item-success py-3">Total Reservas </div>
+                    <div class="col list-group-item-success py-3">Total Ganacias por reservas</div>
+                    <div class="col list-group-item-success py-3">Total Disponibles</div>                 
+                    <div class="col list-group-item-success py-3">Ganacias Pendientes</div>                 
                     <div class="w-100"></div>
                     <?php if (isset($resultado)): ?>
                         <?php foreach ($resultado as $dato): ?>       
