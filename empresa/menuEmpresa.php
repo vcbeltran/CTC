@@ -84,16 +84,15 @@ Además permite ver algún listado de los locales.
                         <div class="card card-body text-center"> 
                             <p class='card-text mb-0'>Dirección: <?php echo $infoLocal['DIRECCION'] ?></p>
                             <p class='card-text mb-0'>Aforo: <?php echo $infoLocal['AFORO'] ?></p>
-                            <?php foreach ($datosMedia as $datos):?>
-                              <?php if(!empty($datos['preciomedio'])){ ?>
-                            <p class='card-tex mb-0'>Precio medio: <?php echo ceil($datos['preciomedio']) ?></p>
-                             <?php } ?>
-                            <?php if(!empty($datos['media'])){ ?>
-                            <p class="center mb-0"><img class="img-responsive" src="../administrador/imagenes/estrellas/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
-                            <?php } else { ?>
-                            <p class="center mb-0">Aún no tiene puntuaciones en su local</p>
-                            <?php } 
-                            endforeach; ?>
+                            
+                            <?php if(!empty($datosMedia)) {
+                                    foreach ($datosMedia as $datos): ?>                            
+                                    <p class='card-tex mb-0'>Precio medio: <?php echo ceil($datos['preciomedio']) ?></p>                                               
+                                    <p class="center mb-0"><img class="img-responsive" src="../administrador/imagenes/estrellas/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
+                                    <?php endforeach;                            
+                                    } else { ?>
+                                        <p class="center mb-0">Aún no tiene puntuaciones ni precios en su local</p>
+                            <?php  } ?>
                         </div>
                     </div>
                 </div>
