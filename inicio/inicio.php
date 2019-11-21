@@ -83,6 +83,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
             $locales = $conexionLocales->listarLocalesPaginacion($iniciar,$localesPorPagina);
             //var_dump($locales);
             $contador = 1;
+            if (!empty($locales)){
             foreach ($locales as $local):                
                if ($contador == 1) {
                     //empieza el row
@@ -126,6 +127,9 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                 } 
                 $contador++;
             endforeach;
+            } else {
+                echo "No hay locales publicados";
+            }
             ?> 
        </div>
         <div class="container mt-3">

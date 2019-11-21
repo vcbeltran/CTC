@@ -50,12 +50,18 @@ and open the template in the editor.
                 </thead>
                 <tbody>
                     <tr>
-                    <?php foreach ($resultado as $dato): ?>
+                    <?php
+                    if (!empty($resultado)){
+                        foreach ($resultado as $dato): ?>
                         <td scope="col"><?php echo $dato['nombrelocal'] ?></td>
                         <td><?php echo ceil($dato['preciomedio']) . " €" ?></td>
                         <td><?php echo $dato['totalreserva'] ?></td>     
                         </tr>
-                    <?php endforeach; ?>                    
+                    <?php endforeach;
+                    } else {
+                        echo "No hay medias disponibles";
+                    }
+                ?>                    
                 </tbody>
             </table>            
         </div>
