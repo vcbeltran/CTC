@@ -35,9 +35,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-9">
-                    <div class="card">
-                    <h3>Añada nueva fecha para su empresa</h3>
+                    <div class="card">                    
                     <div class="card-body">
+                    <h3>Añada nueva fecha para su empresa</h3>
                     <form action="altaFechaPrecio.php" method="GET">
                         <div class="form-group row">
                             <label for="example-texto-local" class="col-2 col-form-label">Tu local es </label>

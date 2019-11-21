@@ -32,9 +32,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="card">
-                        <h2>Añada nuevo Local</h2>
-                        <div class="card-body">
+                    <div class="card">                       
+                        <div class="card-body"> 
+                            <h2>Añada nuevo Local</h2>
                             <form action="agregarLocal.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="InputName">Nombre Local</label>
