@@ -38,7 +38,8 @@ class enviarCorreo {
             $mail->Username = "ctc.vero@gmail.com"; // A RELLENAR. Email de la cuenta de correo. ej.info@midominio.com La cuenta de correo debe ser creada previamente. 
             $mail->Password = "CTC@2019"; // A RELLENAR. Aqui pondremos la contraseña de la cuenta de correo        
             $mail ->setFrom('ctc.vero@proyectodaw.com', 'Proyecto CTC');
-            $mail->AddAddress($direccionEmail); // Esta es la dirección a donde enviamos 
+            //$mail->AddAddress($direccionEmail); // Esta es la dirección a donde enviamos 
+             $mail->AddAddress("ctc.vero@gmail.com"); // Esta es la dirección a donde enviamos 
             $mail->IsHTML(true); // El correo se envía como HTML
             $mail->CharSet = 'UTF-8'; // Activo condificación utf-8
             

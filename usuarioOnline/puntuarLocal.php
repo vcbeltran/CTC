@@ -35,7 +35,7 @@ and open the template in the editor.
                         <div class="col-md-2"> </div>                   
                         <div class="card">
                             <div class="card-header d-flex justify-content-center"><?php echo $datos['nombrelocal'] ?></div>
-                            <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-thumbnail" >
+                            <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-responsive" >
                             <div class="card-body">
                                     <h5 class="card-title"><i class="fas fa-laugh-wink"></i> Por favor incluya su valoración aquí</h5>
                                     <p class="card-text">Valore su experiencia en la reserva del local del 1 al 5 </p>
