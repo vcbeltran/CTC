@@ -88,7 +88,7 @@ Además permite ver algún listado de los locales.
                             <?php if(!empty($datosMedia)) {
                                     foreach ($datosMedia as $datos): ?>                            
                                     <p class='card-tex mb-0'>Precio medio: <?php echo ceil($datos['preciomedio']) ?></p>                                               
-                                    <p class="center mb-0"><img class="img-responsive" src="../administrador/imagenes/estrellas/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
+                                    <p class="center mb-0"><img class="card-img-responsive" src="../administrador/imagenes/estrellas/puntuacion_<?php echo ceil($datos['media'])?>.png"/></p>
                                     <?php endforeach;                            
                                     } else { ?>
                                         <p class="center mb-0">Aún no tiene puntuaciones ni precios en su local</p>

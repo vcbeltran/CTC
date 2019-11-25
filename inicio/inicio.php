@@ -109,7 +109,7 @@ y donde da la opción de logearse (si ya estas registrado) o darse de alta.
                     }                    
                 }
                 ?>               
-                <p> <img class='img-resposive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
+                <p> <img class='card-img-responsive' src="../administrador/imagenes/estrellas/puntuacion_<?php echo $mediaTotal; ?>.png" /></p>
                 <?php
                 //cierra card body
                 print("</div>");
