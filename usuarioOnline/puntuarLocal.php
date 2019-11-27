@@ -33,8 +33,8 @@ and open the template in the editor.
             <div class="row">           
             <?php foreach ($datosPuntuacion as $datos): ?>                   
                         <div class="col-md-2"> </div>                   
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-center"><?php echo $datos['nombrelocal'] ?></div>
+                        <div class="card text-center">
+                            <div class="card-header"><?php echo $datos['nombrelocal'] ?></div>
                             <img src="../administrador/<?php echo $datos['imagen'] ?>" class="card-img-responsive" >
                             <div class="card-body">
                                     <h5 class="card-title"><i class="fas fa-laugh-wink"></i> Por favor incluya su valoración aquí</h5>

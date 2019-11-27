@@ -19,7 +19,7 @@ and open the template in the editor.
         if (!$_GET) {
             header("location:listadoReservasEmpresa.php?pagina=1");
         }
-        $fechasPorPagina = 10;
+        $fechasPorPagina = 6;
 
         $iniciar = ($pagina - 1) * $fechasPorPagina;
 
